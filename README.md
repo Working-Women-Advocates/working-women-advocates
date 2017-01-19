@@ -1,4 +1,4 @@
-# Women Workers' Advocates
+# Working Women Advocates
 
 This app is for women who have experienced issues in the workplace, like sexism and/or sexual harassment, and need an advocate to help them navigate their situations.
 
