@@ -5,5 +5,9 @@
 // to get access to the User model.
 
 const User = require('./user')
+const Issue = require('./issue')
+
+Issue.belongsTo(User, {as: 'advocate'})
+Issue.belongsTo(User, {as: 'working_woman', foreignKey: {allowNull: false}})
 
 module.exports = {User}

@@ -13,6 +13,7 @@ export default () => {
           </div>
           <div className="mdl-card__supporting-text">
             <p>Before filling out this form, please confirm you are not on your company WiFi. Some companies track employee activity on the Internet.</p>
+            <p>An advocate will contact you by your preferred method of contact upon submission of this form.</p>
             <form action="#">
               <div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="name" />

@@ -3,15 +3,27 @@
 const bcrypt = require('bcryptjs')
 const Sequelize = require('sequelize')
 const db = require('APP/db')
+const Issue = require('./issue');
 
 const User = db.define('users', {
-  name: Sequelize.STRING,  
+  username: Sequelize.STRING,
   email: {
     type: Sequelize.STRING,
     validate: {
-			isEmail: true,
-			notEmpty: true,
+			isEmail: true
 		}
+  },
+  phone: {
+    type: Sequelize.INTEGER
+  },
+  skype: {
+    type: Sequelize.STRING
+  },
+  other: {
+    type: Sequelize.STRING
+  },
+  role: {
+    type: Sequelize.ENUM('admin', 'advocate', 'ww')
   },
 
   // We support oauth, so users may or may not have passwords.
@@ -30,7 +42,7 @@ const User = db.define('users', {
           (err, result) =>
             err ? reject(err) : resolve(result))
         )
-    }    
+    }
   }
 })
 
