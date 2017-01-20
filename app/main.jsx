@@ -11,6 +11,7 @@ import App from './components/App'
 import Landing from './components/Landing'
 import About from './components/About'
 import Volunteer from './components/Volunteer'
+import MentorLogin from './components/MentorLogin'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 
@@ -34,6 +35,7 @@ render (
         <Route path="/landing" component={Landing} />
         <Route path="/about" component={About} />
         <Route path="/volunteer" component={Volunteer} />
+        <Route path="/mentor-login" component={MentorLogin} />
       </Route>
     </Router>
   </Provider>,
