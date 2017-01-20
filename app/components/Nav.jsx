@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default () => {
   return (
@@ -10,7 +11,8 @@ export default () => {
         <div className="mdl-layout-spacer" />
         {/* Navigation. We hide it in small screens. */}
         <nav className="mdl-navigation">
-          <a className="mdl-navigation__link" href>About</a>
+          <Link to="landing" className="mdl-navigation__link">Home</Link>
+          <Link to="about" className="mdl-navigation__link">About</Link>
           <a className="mdl-navigation__link" href>Volunteer</a>
           <a className="mdl-navigation__link" href>Mentor Login</a>
           <a className="mdl-navigation__link" href>Working Women Login</a>

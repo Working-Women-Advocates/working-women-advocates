@@ -9,6 +9,7 @@ import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import App from './components/App'
 import Landing from './components/Landing'
+import About from './components/About'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 
@@ -30,6 +31,7 @@ render (
       <Route path="/" component={App}>
         <IndexRedirect to="/landing" />
         <Route path="/landing" component={Landing} />
+        <Route path="/about" component={About} />
       </Route>
     </Router>
   </Provider>,
