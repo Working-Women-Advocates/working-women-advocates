@@ -10,6 +10,7 @@ import WhoAmI from './components/WhoAmI'
 import App from './components/App'
 import Landing from './components/Landing'
 import About from './components/About'
+import Volunteer from './components/Volunteer'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 
@@ -32,6 +33,7 @@ render (
         <IndexRedirect to="/landing" />
         <Route path="/landing" component={Landing} />
         <Route path="/about" component={About} />
+        <Route path="/volunteer" component={Volunteer} />
       </Route>
     </Router>
   </Provider>,

@@ -8,7 +8,7 @@ export default () => {
       <span className="mdl-layout-title">WWA</span>
       <nav className="mdl-navigation">
         <Link to="about"  className="mdl-navigation__link">About</Link>
-        <a className="mdl-navigation__link" href>Volunteer</a>
+        <Link to="volunteer"  className="mdl-navigation__link">Volunteer</Link>
         <a className="mdl-navigation__link" href>Mentor Login</a>
         <a className="mdl-navigation__link" href>Working Women Login</a>
       </nav>

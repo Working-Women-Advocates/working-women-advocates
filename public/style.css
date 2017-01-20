@@ -1,3 +1,7 @@
+html {
+  color: white;
+}
+
 /*Make container for main content*/
 .page-content {
   margin-left: 25px;
@@ -5,10 +9,8 @@
   margin-bottom: 30px;
 }
 
-h1, h2, h3, h4, h5, h6,
-p,
-.mdl-list__item {
-  color: white;
+.mdl-textfield {
+  display: block;
 }
 
 div, p, span {
