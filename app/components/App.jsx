@@ -4,7 +4,7 @@ import Drawer from './Drawer';
 import Footer from './Footer';
 
 export default ({ children }) => (
-  <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <div className="demo-layout-transparent mdl-layout mdl-js-layout">
     <Nav />
     <Drawer />
     { children }

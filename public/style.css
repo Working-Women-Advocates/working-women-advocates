@@ -1,4 +1,35 @@
+/*Make container for main content*/
 .page-content {
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+h1, h6 {
+  color: white;
+}
+
+/*Nav*/
+.demo-layout-transparent {
+  background: url('../restaurant-woman.jpg') center / cover;
+}
+.demo-layout-transparent .mdl-layout__header,
+.demo-layout-transparent .mdl-layout__drawer-button {
+  /* This background is dark, so we set text to white. Use 87% black instead if
+     your background is light. */
+  color: white;
+}
+
+.get-started {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.mdl-button--accent.mdl-button--accent.mdl-button--raised {
+  background-color: #4CAF50;
+}
+
+@media only screen and (max-width: 1023px) {
+  .page-content {
+    padding-top: 20px;
+  }
 }
