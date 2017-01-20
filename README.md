@@ -7,4 +7,4 @@ It's not in use yet but I have high hopes that it will be!
 -Rachel
 
 ## The Code
-Built on Fullstack's Bones skeleton, WWA uses React, Redux, Sequelize, and Express.
+Built on Fullstack's Bones skeleton, WWA uses React, Redux, Sequelize, and Express, as well as Material Design.
