@@ -4,7 +4,8 @@ import Drawer from './Drawer';
 import Footer from './Footer';
 
 export default ({ children }) => (
-  <div className="demo-layout-transparent mdl-layout mdl-js-layout">
+  // <div className={`${ loggedin ? "" : "restaurant-woman"} mdl-layout mdl-js-layout`}>
+  <div className="restaurant-woman mdl-layout mdl-js-layout">
     <Nav />
     <Drawer />
     { children }

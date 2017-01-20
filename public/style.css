@@ -29,13 +29,11 @@ div, p, span {
 }
 
 /*Nav*/
-.demo-layout-transparent {
+.restaurant-woman {
   background: url('../restaurant-woman.jpg') center / cover;
 }
-.demo-layout-transparent .mdl-layout__header,
-.demo-layout-transparent .mdl-layout__drawer-button {
-  /* This background is dark, so we set text to white. Use 87% black instead if
-     your background is light. */
+.restaurant-woman .mdl-layout__header,
+.restaurant-woman .mdl-layout__drawer-button {
   color: white;
 }
 
