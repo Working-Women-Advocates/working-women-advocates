@@ -12,8 +12,15 @@ const selfOnly = action => (req, res, next) => {
   next()
 }
 
+const advocate = action => (req, res, next) => {
+  if (req.user.role === 'ww') {
+    return res.status(403).send(`You can only ${action} yourself.`)
+  }
+  next()
+}
+
 const forbidden = message => (req, res, next) => {
   res.status(403).send(message)
 }
 
-module.exports = {mustBeLoggedIn, selfOnly, forbidden,}
+module.exports = {mustBeLoggedIn, selfOnly, forbidden, advocate}
