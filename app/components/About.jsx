@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default () => {
   return (
     <main className="mdl-layout__content">
-      <div className="page-content">
+      <div className="page-content mdl-cell mdl-cell--6-col">
         <h1>About</h1>
         <p>Working Women Advocates are here to help you through difficulties at work including, but not limited to:</p>
 
@@ -14,6 +14,8 @@ export default () => {
           <li className="mdl-list__item">Discrimination</li>
           <li className="mdl-list__item">Assault</li>
         </ul>
+
+        <p>When you experience these types of problems, it can be difficult to find guidance to navigate your way throughd. Working Women Advocates are trained to provide emotional support, as well as come up with a plan to best handle your particular situation. They will be there to provide support as you execute the plan, and be available until you are well into your healing process.</p>
 
         <p>Your privacy and security are of utmost important. You will never be asked for identifying information.</p>
       </div>
