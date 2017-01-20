@@ -12,6 +12,7 @@ import Landing from './components/Landing'
 import About from './components/About'
 import Volunteer from './components/Volunteer'
 import MentorLogin from './components/MentorLogin'
+import WorkingWomenSignup from './components/WorkingWomenSignup'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 
@@ -36,6 +37,7 @@ render (
         <Route path="/about" component={About} />
         <Route path="/volunteer" component={Volunteer} />
         <Route path="/mentor-login" component={MentorLogin} />
+        <Route path="/working-women-signup" component={WorkingWomenSignup} />
       </Route>
     </Router>
   </Provider>,

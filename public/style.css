@@ -6,6 +6,13 @@ a, a:hover {
   text-decoration: none;
 }
 
+/*Forms*/
+.input-tag {
+  margin-top: -18px;
+  font-size: 14px;
+  font-style: italic;
+}
+
 /*Make container for main content*/
 .page-content {
   margin-left: 25px;
