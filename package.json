@@ -15,19 +15,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/queerviolet/bones.git"
+    "url": "git+https://github.com/rachel-rocks-at-ruby/working-women-advocates.git"
   },
   "keywords": [
     "react",
     "redux",
     "skeleton"
   ],
-  "author": "Ashi Krishnan <me@ashi.works>",
+  "author": "Rachel Bird",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/queerviolet/bones/issues"
+    "url": "https://github.com/rachel-rocks-at-ruby/working-women-advocates/issues"
   },
-  "homepage": "https://github.com/queerviolet/bones#readme",
+  "homepage": "http://working-women-advocates.herokuapp.com/",
   "dependencies": {
     "axios": "^0.15.2",
     "babel-preset-stage-2": "^6.18.0",
