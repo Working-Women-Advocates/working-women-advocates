@@ -2,6 +2,10 @@ html {
   color: white;
 }
 
+a, a:hover {
+  text-decoration: none;
+}
+
 /*Make container for main content*/
 .page-content {
   margin-left: 25px;
@@ -43,6 +47,13 @@ div, p, span {
   }
 }
 
+/*Footer*/
+
+.mdl-mini-footer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 /*About*/
 
 .card-wide.mdl-card {
@@ -52,5 +63,5 @@ div, p, span {
 @media only screen and (max-width: 600px) {
   .card-wide.mdl-card {
   width: 350px;
-}
+  }
 }
