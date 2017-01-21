@@ -16,6 +16,7 @@ export default (props) => {
         <nav className="mdl-navigation">
           <Link to="landing" className="mdl-navigation__link">Home</Link>
           <Link to="about" className="mdl-navigation__link">About</Link>
+          <Link to="hotline" className="mdl-navigation__link">Hotline</Link>
           <Link to="volunteer" className="mdl-navigation__link">Volunteer</Link>
           {loggedin ? '' : <Link to="mentor-login" className="mdl-navigation__link">Mentor Login</Link>}
           {loggedin ? <WhoAmI /> : <Link to="working-women-signup" className="mdl-navigation__link">Working Women Signup</Link>}

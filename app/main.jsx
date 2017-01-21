@@ -9,6 +9,7 @@ import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
 import App from './components/App'
 import Landing from './components/Landing'
+import Hotline from './components/Hotline'
 import About from './components/About'
 import Volunteer from './components/Volunteer'
 import MentorLoginContainer from './containers/MentorLoginContainer'
@@ -34,6 +35,7 @@ render (
       <Route path="/" component={App}>
         <IndexRedirect to="/landing" />
         <Route path="/landing" component={Landing} />
+        <Route path="/hotline" component={Hotline} />
         <Route path="/about" component={About} />
         <Route path="/volunteer" component={Volunteer} />
         <Route path="/mentor-login" component={MentorLoginContainer} />

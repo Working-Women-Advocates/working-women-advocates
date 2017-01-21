@@ -9,6 +9,7 @@ export default () => {
       <nav className="mdl-navigation">
         <Link to="landing" className="mdl-navigation__link">Home</Link>
         <Link to="about" className="mdl-navigation__link">About</Link>
+        <Link to="hotline" className="mdl-navigation__link">Hotline</Link>
         <Link to="volunteer" className="mdl-navigation__link">Volunteer</Link>
         <Link to="mentor-login" className="mdl-navigation__link">Mentor Login</Link>
         <a className="mdl-navigation__link" href>Working Women Signup</a>
