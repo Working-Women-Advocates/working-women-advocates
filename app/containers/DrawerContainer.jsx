@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../components/Nav';
+import Drawer from '../components/Drawer';
 
 function mapStateToProps(state) {
   return {
@@ -8,4 +8,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps)(Drawer);

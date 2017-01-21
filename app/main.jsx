@@ -7,7 +7,7 @@ import {connect, Provider} from 'react-redux'
 import store from './store'
 import Login from './components/Login'
 import WhoAmI from './components/WhoAmI'
-import App from './components/App'
+import AppContainer from './containers/AppContainer'
 import Landing from './components/Landing'
 import Hotline from './components/Hotline'
 import About from './components/About'
@@ -32,7 +32,7 @@ const ExampleApp = connect(
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={App}>
+      <Route path="/" component={AppContainer}>
         <IndexRedirect to="/landing" />
         <Route path="/landing" component={Landing} />
         <Route path="/hotline" component={Hotline} />
