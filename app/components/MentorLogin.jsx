@@ -7,7 +7,7 @@ export default (props) => {
         <h1>Mentor Login</h1>
         <div className="mdl-card mdl-shadow--2dp">
           <div className="mdl-card__supporting-text">
-            <form onSubmit={evt => {
+            <form action="#" onSubmit={evt => {
               evt.preventDefault()
               props.login(evt.target.name.value, evt.target.password.value)
             } }>
