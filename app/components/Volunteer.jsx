@@ -10,7 +10,7 @@ export default () => {
             <h2 className="mdl-card__title-text">Become an advocate</h2>
           </div>
           <div className="mdl-card__supporting-text">
-            Thank you for your interest! Fill out the information below and someone will contact you for an interview soon.
+            <p>Thank you for your interest! Fill out the information below and someone will contact you for an interview soon.</p>
             <form action="#">
               <div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="name" />

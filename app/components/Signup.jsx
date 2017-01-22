@@ -16,7 +16,6 @@ export default (props) => {
             <p>An advocate will contact you by your preferred method of contact upon submission of this form.</p>
             <form action="#" onSubmit={evt => {
               evt.preventDefault()
-              debugger
               props.signup(evt.target.name.value, evt.target.email.value)
             } }>
               <div className="mdl-textfield mdl-js-textfield">

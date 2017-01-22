@@ -8,7 +8,7 @@ function mapDispatchToProps(dispatch) {
   return {
     signup: (username, email) => {
       dispatch(signup(username, email));
-      browserHistory.push('/');
+      browserHistory.push('/signup-submitted');
     }
   }
 }

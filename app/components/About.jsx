@@ -19,7 +19,7 @@ export default () => {
 
             <p>When you experience these types of problems, it can be difficult to find guidance to navigate your way through. Working Women Advocates are trained to provide emotional support, as well as come up with a plan to best handle your particular situation. They will be there with you as you execute the plan, and available until you are well into your healing process.</p>
 
-            <p>Your privacy and security are of utmost important. You will never be asked for identifying information.</p>
+            <p>Your privacy and security are of utmost importance. You will never be asked for identifying information.</p>
           </div>
         </div>
       </div>
