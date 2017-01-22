@@ -13,7 +13,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     logout: () => {
-      dispatch(logout())
+      dispatch(logout());
       browserHistory.push('/');
     }
   }

@@ -1,9 +1,10 @@
 import axios from 'axios'
+import {clearIssues} from './issues'
 
 const reducer = (state=null, action) => {
   switch(action.type) {
   case AUTHENTICATED:
-    return action.user  
+    return action.user
   }
   return state
 }
@@ -18,12 +19,13 @@ export const login = (username, password) =>
     axios.post('/api/auth/local/login',
       {username, password})
       .then(() => dispatch(whoami()))
-      .catch(() => dispatch(whoami()))      
+      .catch(() => dispatch(whoami()))
 
 export const logout = () =>
   dispatch =>
     axios.post('/api/auth/logout')
       .then(() => dispatch(whoami()))
+      .then(() => dispatch(clearIssues()))
       .catch(() => dispatch(whoami()))
 
 export const whoami = () =>

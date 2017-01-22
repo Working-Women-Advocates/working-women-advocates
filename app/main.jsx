@@ -18,6 +18,10 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import DashboardContainer from './containers/DashboardContainer'
 
+const onDashboardEnter = function () {
+  store.dispatch(receiveIssues());
+};
+
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -29,7 +33,7 @@ render (
         <Route path="/volunteer" component={Volunteer} />
         <Route path="/advocate-login" component={AdvocateLoginContainer} />
         <Route path="/working-women-signup" component={WorkingWomenSignup} />
-        <Route path="/dashboard" component={DashboardContainer} />
+        <Route path="/dashboard" component={DashboardContainer} onEnter={onDashboardEnter} />
       </Route>
     </Router>
   </Provider>,
