@@ -9,7 +9,7 @@ export default (props) => {
   console.log('props', props)
   const loggedin = props.auth;
   return (
-    <div className={`${ loggedin ? "mdl-layout--fixed-header" : "restaurant-woman"} mdl-layout mdl-js-layout`}>
+    <div className={`${ loggedin ? "logged-out mdl-layout--fixed-header" : "logged-in restaurant-woman"} mdl-layout mdl-js-layout`}>
       <NavContainer />
       <DrawerContainer />
       { props.children }

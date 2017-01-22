@@ -1,9 +1,22 @@
-html {
+.logged-in {
   color: white;
+}
+
+.logged-out {
+  color: black;
 }
 
 a, a:hover {
   text-decoration: none;
+  color: rgb(63, 81, 181);
+}
+
+.logout:hover {
+  cursor: pointer;
+}
+
+.dashboard {
+  background-color: #CFD8DC;
 }
 
 /*Forms*/
