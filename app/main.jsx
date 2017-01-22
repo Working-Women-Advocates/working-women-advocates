@@ -13,7 +13,7 @@ import Hotline from './components/Hotline'
 import About from './components/About'
 import Volunteer from './components/Volunteer'
 import AdvocateLoginContainer from './containers/AdvocateLoginContainer'
-import WorkingWomenSignup from './components/WorkingWomenSignup'
+import SignupContainer from './containers//SignupContainer'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import AdminContainer from './containers/AdminContainer'
@@ -43,7 +43,7 @@ render (
         <Route path="/about" component={About} />
         <Route path="/volunteer" component={Volunteer} />
         <Route path="/advocate-login" component={AdvocateLoginContainer} />
-        <Route path="/working-women-signup" component={WorkingWomenSignup} />
+        <Route path="/working-women-signup" component={SignupContainer} />
         <Route path="/admin-dashboard" component={AdminContainer} onEnter={allCasesForAdmin} />
         <Route path="/advocate-dashboard" component={AdvocateContainer} onEnter={advocateCases} />
         <Route path="/available-dashboard" component={AvailableContainer} onEnter={availableCases} />

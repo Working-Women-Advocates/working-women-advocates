@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import ContactMethod from './ContactMethod';
 
-export default () => {
+export default (props) => {
   return (
     <main className="mdl-layout__content">
       <div className="page-content mdl-cell mdl-cell--6-col">
@@ -14,7 +14,11 @@ export default () => {
           <div className="mdl-card__supporting-text">
             <p>Before filling out this form, please confirm you are not on your company WiFi. Some companies track employee activity on the Internet.</p>
             <p>An advocate will contact you by your preferred method of contact upon submission of this form.</p>
-            <form action="#">
+            <form action="#" onSubmit={evt => {
+              evt.preventDefault()
+              debugger
+              props.signup(evt.target.name.value, evt.target.email.value)
+            } }>
               <div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="name" />
                 <label className="mdl-textfield__label" htmlFor="name">Username</label>

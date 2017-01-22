@@ -80,4 +80,12 @@ export function clearIssues() {
   }
 }
 
+export function signup(username, email) {
+  return function (dispatch) {
+    axios.post('/api/issues', {username, email})
+      .then((res) => dispatch(dropIssues(res.data)))
+      .catch((err) => alert(err))
+  }
+}
+
 export default reducer
