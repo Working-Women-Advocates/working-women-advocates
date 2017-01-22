@@ -16,7 +16,7 @@ export default (props) => {
             <p>An advocate will contact you by your preferred method of contact upon submission of this form.</p>
             <form action="#" onSubmit={evt => {
               evt.preventDefault()
-              props.signup(evt.target.name.value, evt.target.email.value)
+              props.signup(evt.target.name.value, 'email', evt.target.email.value)
             } }>
               <div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="name" />
@@ -25,7 +25,24 @@ export default (props) => {
               <p className="input-tag">We will refer to you by this.</p>
 
               <h6>What is your preferred method of contact?</h6>
-              <ContactMethod />
+              <div className="radio">
+                <label>
+                  <input type="radio" value="email" defaultChecked />
+                  Email
+                </label>
+              </div>
+              <div className="radio">
+                <label>
+                  <input type="radio" value="phone" />
+                  Phone
+                </label>
+              </div>
+              <div className="radio">
+                <label>
+                  <input type="radio" value="skype" />
+                  Skype
+                </label>
+              </div>
               {/* do they need to be assigned a fake email account? */}
               <div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="email" />

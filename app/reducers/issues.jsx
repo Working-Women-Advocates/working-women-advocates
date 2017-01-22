@@ -80,9 +80,9 @@ export function clearIssues() {
   }
 }
 
-export function signup(username, email) {
+export function signup(username, contact_method, email) {
   return function (dispatch) {
-    axios.post('/api/issues', {username, email})
+    axios.post('/api/issues', {username, contact_method, email})
       .then((res) => dispatch(dropIssues(res.data)))
       .catch((err) => alert(err))
   }

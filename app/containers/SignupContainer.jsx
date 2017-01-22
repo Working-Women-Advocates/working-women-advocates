@@ -6,8 +6,8 @@ import {browserHistory} from 'react-router';
 
 function mapDispatchToProps(dispatch) {
   return {
-    signup: (username, email) => {
-      dispatch(signup(username, email));
+    signup: (username, contact_method, email) => {
+      dispatch(signup(username, contact_method, email));
       browserHistory.push('/signup-submitted');
     }
   }
