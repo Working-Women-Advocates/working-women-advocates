@@ -3,6 +3,7 @@ import React from 'react'
 import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
+import { receiveIssues } from './reducers/issues';
 
 import store from './store'
 import Login from './components/Login'
@@ -15,7 +16,7 @@ import AdvocateLoginContainer from './containers/AdvocateLoginContainer'
 import WorkingWomenSignup from './components/WorkingWomenSignup'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
-import Dashboard from './components/Dashboard'
+import DashboardContainer from './containers/DashboardContainer'
 
 render (
   <Provider store={store}>
@@ -28,7 +29,7 @@ render (
         <Route path="/volunteer" component={Volunteer} />
         <Route path="/advocate-login" component={AdvocateLoginContainer} />
         <Route path="/working-women-signup" component={WorkingWomenSignup} />
-        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/dashboard" component={DashboardContainer} />
       </Route>
     </Router>
   </Provider>,

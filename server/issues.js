@@ -3,10 +3,10 @@
 const db = require('APP/db')
 const Issue = db.model('issues')
 
-const {mustBeLoggedIn, forbidden} = require('./auth.filters')
+const {mustBeLoggedIn, forbidden, secure} = require('./auth.filters')
 
 module.exports = require('express').Router()
-  .get('/', forbidden('only admins can list issues'), (req, res, next) =>
+  .get('/', (req, res, next) =>
     Issue.findAll()
     .then(issues => res.json(issues))
     .catch(next))

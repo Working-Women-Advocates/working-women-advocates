@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IssueItem from './IssueItem'
 
-export default () => {
+export default ({ issues }) => {
   return (
     <main className="mdl-layout__content dashboard">
       <div className="page-content mdl-cell mdl-cell--6-col">
@@ -16,7 +16,7 @@ export default () => {
             </tr>
           </thead>
           <tbody>
-            <IssueItem />
+            { issues ? issues.map(issue => <IssueItem key={ issue.id } issue={issue} />) : ''}
           </tbody>
           </table>
       </div>
