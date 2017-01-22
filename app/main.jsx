@@ -30,7 +30,7 @@ const advocateCases = function () {
 };
 
 const availableCases = function () {
-  store.dispatch(receiveOpenIssues(2));
+  store.dispatch(receiveOpenIssues());
 };
 
 render (
@@ -46,7 +46,7 @@ render (
         <Route path="/working-women-signup" component={WorkingWomenSignup} />
         <Route path="/admin-dashboard" component={AdminContainer} onEnter={allCasesForAdmin} />
         <Route path="/advocate-dashboard" component={AdvocateContainer} onEnter={advocateCases} />
-        <Route path="/available-dashboard" component={AvailableContainer} onEnter={allCasesForAdmin} />
+        <Route path="/available-dashboard" component={AvailableContainer} onEnter={availableCases} />
       </Route>
     </Router>
   </Provider>,

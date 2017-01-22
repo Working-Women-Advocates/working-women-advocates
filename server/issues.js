@@ -18,9 +18,7 @@ module.exports = require('express').Router()
   .get('/available/:id', (req, res, next) =>
     Issue.findAll({
       where: {
-        advocate_id: {
-          $ne: req.params.id
-        }
+        advocate_id: null
       }
     })
     .then(issues => res.json(issues))
