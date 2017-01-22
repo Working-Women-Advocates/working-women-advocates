@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import AdvocateLogin from '../components/AdvocateLogin.jsx';
+import AdvocateLogin from '../components/AdvocateLogin';
 import {login} from '../reducers/auth';
 import {browserHistory} from 'react-router';
 

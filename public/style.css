@@ -83,6 +83,8 @@ div, p, span {
   width: 350px;
   }
 }
+
+/*Make nav work on smaller devices*/
 @media screen and (max-width: 1024px) {
   .mdl-layout__drawer-button {
     color: white;

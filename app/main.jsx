@@ -6,7 +6,6 @@ import {connect, Provider} from 'react-redux'
 
 import store from './store'
 import Login from './components/Login'
-import WhoAmI from './components/WhoAmI'
 import AppContainer from './containers/AppContainer'
 import Landing from './components/Landing'
 import Hotline from './components/Hotline'
@@ -17,18 +16,6 @@ import WorkingWomenSignup from './components/WorkingWomenSignup'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Dashboard from './components/Dashboard'
-
-const ExampleApp = connect(
-  ({ auth }) => ({ user: auth })
-) (
-  ({ user, children }) =>
-    <div>
-      <nav>
-        {user ? <WhoAmI/> : <Login/>}
-      </nav>
-      {children}
-    </div>
-)
 
 render (
   <Provider store={store}>
