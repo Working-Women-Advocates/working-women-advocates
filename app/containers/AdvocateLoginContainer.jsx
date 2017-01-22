@@ -8,7 +8,7 @@ function mapDispatchToProps(dispatch) {
   return {
     login: (username, password) => {
       dispatch(login(username, password));
-      browserHistory.push('/dashboard');
+      browserHistory.push('/advocate-dashboard');
     }
   }
 }

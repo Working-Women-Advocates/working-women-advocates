@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import IssueItem from './IssueItem'
+import ViewIssueItem from './ViewIssueItem'
 
 export default ({ issues }) => {
   return (
     <main className="mdl-layout__content dashboard">
       <div className="page-content mdl-cell mdl-cell--6-col">
-        <h1>Advocate Dashboard</h1>
+        <h2>Advocate Dashboard</h2>
+        <h4>Your Cases</h4>
         <table className="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
           <thead>
             <tr>
@@ -16,7 +17,7 @@ export default ({ issues }) => {
             </tr>
           </thead>
           <tbody>
-            { issues ? issues.map(issue => <IssueItem key={ issue.id } issue={issue} />) : ''}
+            { issues ? issues.map(issue => <ViewIssueItem key={ issue.id } issue={issue} />) : ''}
           </tbody>
           </table>
       </div>

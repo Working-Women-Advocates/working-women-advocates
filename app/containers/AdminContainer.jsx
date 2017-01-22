@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Dashboard from '../components/Dashboard';
+import AdminDashboard from '../components/AdminDashboard';
 
 function mapStateToProps(state) {
   return {
@@ -7,4 +7,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(AdminDashboard);

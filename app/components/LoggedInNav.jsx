@@ -5,8 +5,9 @@ import {logout} from 'APP/app/reducers/auth'
 export default (props) => {
   return (
     <nav className="mdl-navigation">
-      <Link to="dashboard" className="mdl-navigation__link">Your WW</Link>
-      <Link to="dashboard" className="mdl-navigation__link">Available WW</Link>
+      {props.auth.role === 'admin' ? <Link to="admin-dashboard" className="mdl-navigation__link">All Cases</Link> : ''}
+      <Link to="available-dashboard" className="mdl-navigation__link">Available Cases</Link>
+      <Link to="advocate-dashboard" className="mdl-navigation__link">Your Cases</Link>
       <a className="logout mdl-navigation__link" onClick={evt => {
               evt.preventDefault()
               props.logout()

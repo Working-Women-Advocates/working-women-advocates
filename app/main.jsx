@@ -3,7 +3,7 @@ import React from 'react'
 import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
-import { receiveIssues } from './reducers/issues';
+import { receiveIssues, receiveAdvocateIssues, receiveOpenIssues } from './reducers/issues';
 
 import store from './store'
 import Login from './components/Login'
@@ -16,10 +16,21 @@ import AdvocateLoginContainer from './containers/AdvocateLoginContainer'
 import WorkingWomenSignup from './components/WorkingWomenSignup'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
-import DashboardContainer from './containers/DashboardContainer'
+import AdminContainer from './containers/AdminContainer'
+import AdvocateContainer from './containers/AdvocateContainer'
+import AvailableContainer from './containers/AvailableContainer'
 
-const onDashboardEnter = function () {
+const allCasesForAdmin = function() {
   store.dispatch(receiveIssues());
+}
+
+// need to pass in current user id to get logged in advocate's cases
+const advocateCases = function () {
+  store.dispatch(receiveAdvocateIssues(2));
+};
+
+const availableCases = function () {
+  store.dispatch(receiveOpenIssues(2));
 };
 
 render (
@@ -33,7 +44,9 @@ render (
         <Route path="/volunteer" component={Volunteer} />
         <Route path="/advocate-login" component={AdvocateLoginContainer} />
         <Route path="/working-women-signup" component={WorkingWomenSignup} />
-        <Route path="/dashboard" component={DashboardContainer} onEnter={onDashboardEnter} />
+        <Route path="/admin-dashboard" component={AdminContainer} onEnter={allCasesForAdmin} />
+        <Route path="/advocate-dashboard" component={AdvocateContainer} onEnter={advocateCases} />
+        <Route path="/available-dashboard" component={AvailableContainer} onEnter={allCasesForAdmin} />
       </Route>
     </Router>
   </Provider>,

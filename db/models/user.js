@@ -3,10 +3,12 @@
 const bcrypt = require('bcryptjs')
 const Sequelize = require('sequelize')
 const db = require('APP/db')
-const Issue = require('./issue');
 
 const User = db.define('users', {
   username: Sequelize.STRING,
+  contact_method: {
+    type: Sequelize.ENUM('email', 'phone', 'skype', 'other')
+  },
   email: {
     type: Sequelize.STRING,
     validate: {
@@ -30,7 +32,7 @@ const User = db.define('users', {
   password_digest: Sequelize.STRING,
 	password: Sequelize.VIRTUAL
 }, {
-	indexes: [{fields: ['email'], unique: true,}],
+	indexes: [{fields: ['email'], unique: true}],
   hooks: {
     beforeCreate: setEmailAndPassword,
     beforeUpdate: setEmailAndPassword,
