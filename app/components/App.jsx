@@ -4,9 +4,6 @@ import DrawerContainer from '../containers/DrawerContainer';
 import Footer from './Footer';
 
 export default (props) => {
-  // const loggedin = props.auth;
-  // <div className="restaurant-woman mdl-layout mdl-js-layout">
-  console.log('props', props)
   const loggedin = props.auth;
   return (
     <div className={`${ loggedin ? "logged-out mdl-layout--fixed-header" : "logged-in restaurant-woman"} mdl-layout mdl-js-layout`}>
