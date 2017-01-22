@@ -6,26 +6,16 @@ const db = require('APP/db')
 
 const User = db.define('users', {
   username: Sequelize.STRING,
-  contact_method: {
-    type: Sequelize.ENUM('email', 'phone', 'skype', 'other')
-  },
+  first_name: Sequelize.STRING,
+  last_name: Sequelize.STRING,
   email: {
     type: Sequelize.STRING,
     validate: {
 			isEmail: true
 		}
   },
-  phone: {
-    type: Sequelize.INTEGER
-  },
-  skype: {
-    type: Sequelize.STRING
-  },
-  other: {
-    type: Sequelize.STRING
-  },
   role: {
-    type: Sequelize.ENUM('admin', 'advocate', 'ww')
+    type: Sequelize.ENUM('admin', 'advocate')
   },
 
   // We support oauth, so users may or may not have passwords.
