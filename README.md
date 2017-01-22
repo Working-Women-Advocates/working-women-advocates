@@ -10,9 +10,9 @@ It's not in use yet but I have high hopes that it will be!
 Built on Fullstack's Bones skeleton, WWA uses React, Redux, Sequelize, and Express, as well as Material Design.
 
 ## Instructions
--Npm install.
--Npm run seed (if you want to seed the database).
--Npm run start.
--Npm run build-watch.
+1. Npm install.
+2. Npm run seed (if you want to seed the database).
+3. Npm run start.
+4. Npm run build-watch.
 
 And you'll have it running on localhost:1337.
