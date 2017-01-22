@@ -5,7 +5,7 @@ export default () => {
     <main className="mdl-layout__content">
       <div id="volunteer" className="page-content mdl-cell mdl-cell--6-col">
         <h1>Hotline</h1>
-        <div className="mdl-card mdl-shadow--2dp">
+        <div className="card-wide mdl-card mdl-shadow--2dp">
           <div className="mdl-card__title mdl-card--expand">
             <h2 className="mdl-card__title-text">Would you believe there isn't one?</h2>
           </div>
