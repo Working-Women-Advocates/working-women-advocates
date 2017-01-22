@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import IssueItem from './IssueItem'
+import AvailableIssueItem from './AvailableIssueItem'
 
 export default ({ issues }) => {
   return (
@@ -17,7 +17,7 @@ export default ({ issues }) => {
             </tr>
           </thead>
           <tbody>
-            { issues ? issues.map(issue => <IssueItem key={ issue.id } issue={issue} />) : ''}
+            { issues ? issues.map(issue => <AvailableIssueItem key={ issue.id } issue={issue} />) : ''}
           </tbody>
           </table>
       </div>

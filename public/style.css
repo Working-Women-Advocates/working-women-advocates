@@ -93,3 +93,12 @@ div, p, span {
     display: none;
   }
 }
+
+/*Admin dashboard*/
+.re-assign-btn {
+  background-color: rgb(255,64,129) !important;
+}
+
+.close-btn {
+  background-color: #212121 !important;
+}

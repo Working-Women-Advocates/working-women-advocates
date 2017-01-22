@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ViewIssueItem from './ViewIssueItem'
+import AdvocateIssueItem from './AdvocateIssueItem'
 
 export default ({ issues }) => {
   return (
@@ -12,12 +12,14 @@ export default ({ issues }) => {
             <tr>
               <th className="mdl-data-table__cell--non-numeric">Username</th>
               <th>Contact</th>
+              <th>Description</th>
               <th>Submitted</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            { issues ? issues.map(issue => <ViewIssueItem key={ issue.id } issue={issue} />) : ''}
+            { issues ? issues.map(issue => <AdvocateIssueItem key={ issue.id } issue={issue} />) : ''}
           </tbody>
           </table>
       </div>
