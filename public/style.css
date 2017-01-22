@@ -83,3 +83,11 @@ div, p, span {
   width: 350px;
   }
 }
+@media screen and (max-width: 1024px) {
+  .mdl-layout__drawer-button {
+    color: white;
+  }
+  .mdl-layout__header-row .mdl-navigation {
+    display: none;
+  }
+}
