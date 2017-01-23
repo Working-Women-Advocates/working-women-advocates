@@ -6,7 +6,7 @@ const db = require('APP/db')
 const Issue = db.define('issues', {
   username: Sequelize.STRING,
   contact_method: {
-    type: Sequelize.ENUM('email', 'phone', 'skype', 'other')
+    type: Sequelize.ENUM('Email', 'Phone', 'Skype', 'Other')
   },
   email: {
     type: Sequelize.STRING,

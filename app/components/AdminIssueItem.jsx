@@ -11,7 +11,6 @@ export default ({issue}) => {
       <td><button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">View</button></td>
       {issue.status === 'open' ? <td><button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent re-assign-btn">Re-Assign</button></td> : <td>  </td> }
       {issue.status === 'open' ? <td><button className="close-btn mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Close</button></td> : <td>  </td> }
-
     </tr>
   )
 }

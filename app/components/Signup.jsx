@@ -3,6 +3,11 @@ import React, { Component } from 'react';
 import ContactMethod from './ContactMethod';
 
 export default (props) => {
+
+  const selectedOption = props.selectedOption;
+  const signup = props.signup;
+  const handleChange = props.handleChange;
+
   return (
     <main className="mdl-layout__content">
       <div className="page-content mdl-cell mdl-cell--6-col">
@@ -16,7 +21,7 @@ export default (props) => {
             <p>An advocate will contact you by your preferred method of contact upon submission of this form.</p>
             <form action="#" onSubmit={evt => {
               evt.preventDefault()
-              props.signup(evt.target.name.value, 'email', evt.target.email.value, evt.target.phone.value, evt.target.skype.value, evt.target.other.value)
+              signup(evt.target.name.value, selectedOption, evt.target.email.value, evt.target.phone.value, evt.target.skype.value, evt.target.other.value)
             } }>
               <div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="name" />
@@ -25,30 +30,17 @@ export default (props) => {
               <p className="input-tag">We will refer to you by this.</p>
 
               <h6>What is your preferred method of contact?</h6>
-              <div className="radio">
-                <label>
-                  <input type="radio" value="email" defaultChecked />
-                  Email
-                </label>
-              </div>
-              <div className="radio">
-                <label>
-                  <input type="radio" value="phone" />
-                  Phone
-                </label>
-              </div>
-              <div className="radio">
-                <label>
-                  <input type="radio" value="skype" />
-                  Skype
-                </label>
-              </div>
-              <div className="radio">
-                <label>
-                  <input type="radio" value="other" />
-                  Other
-                </label>
-              </div>
+              <select
+                className="soflow"
+                name="selectedOption"
+                required
+                onChange={handleChange}>
+                {
+                  ['Email', 'Phone', 'Skype', 'Other'].map(type => (
+                    <option key={type} value={type}>{type}</option>
+                  ))
+                }
+              </select>
               {/* do they need to be assigned a fake email account? */}
               <div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="email" />
