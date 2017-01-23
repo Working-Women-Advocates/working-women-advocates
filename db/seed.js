@@ -9,8 +9,9 @@ const seedIssues = () => db.Promise.map([
   {username: 'ChelseaManning', contact_method: 'email', email: 'chelsea@example.com', description: 'sexism and exclusion', advocate_id: 2},
   {username: 'SuperGirl', email: 'supergirl@example.com', contact_method: 'email', description: 'sexual harrasment'},
   {username: 'Lois Lane', contact_method: 'skype', skype: 'loislane', description: 'discrimination'},
-  {username: 'Beyonce', contact_method: 'other', other: 'whatsapp', description: 'assault', advocate_id: 2},
+  {username: 'Beyonce', contact_method: 'other', other: 'whatsapp', description: 'sexism', advocate_id: 2},
   {username: 'Taylor', contact_method: 'phone', phone: '555-555-5555', description: 'harassment'},
+  {username: 'Kesha', contact_method: 'other', other: 'viber', description: 'assault', status: 'closed'}
 ], issue => db.model('issues').create(issue))
 
 db.didSync
