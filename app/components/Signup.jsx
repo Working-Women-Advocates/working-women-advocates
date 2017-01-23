@@ -36,30 +36,45 @@ export default (props) => {
                 required
                 onChange={handleChange}>
                 {
-                  ['Email', 'Phone', 'Skype', 'Other'].map(type => (
+                  ['Email', 'Phone', 'SMS Text', 'Skype', 'Other'].map(type => (
                     <option key={type} value={type}>{type}</option>
                   ))
                 }
               </select>
               {/* do they need to be assigned a fake email account? */}
-              <div className="mdl-textfield mdl-js-textfield">
+              {selectedOption === 'Email' ? <div><div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="email" />
                 <label className="mdl-textfield__label" htmlFor="email">Email</label>
-              </div>
+              </div><p className="input-tag">Need an anonymous email account?</p>
+              <p className="input-tag"><a href="https://signup.live.com/?wa=wsignin"  target="_blank" rel="noopener noreferrer">Make one here.</a></p></div> : ''}
               {/* text or call? if call: best time? need to set appointment? */}
-              <div className="mdl-textfield mdl-js-textfield">
+              {selectedOption === 'Phone' ? <div><div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="phone" />
                 <label className="mdl-textfield__label" htmlFor="phone">Phone</label>
-              </div>
-              <div className="mdl-textfield mdl-js-textfield">
+              </div><div className="mdl-textfield mdl-js-textfield">
+                <input className="mdl-textfield__input" type="text" id="time" />
+                <label className="mdl-textfield__label" htmlFor="time">Best Time To Reach You</label>
+              </div><p className="input-tag">Day(s) of week. What time?</p><div className="mdl-textfield mdl-js-textfield">
+                <input className="mdl-textfield__input" type="text" id="timezone" />
+                <label className="mdl-textfield__label" htmlFor="timezone">Your Time Zone</label>
+              </div><div className="mdl-textfield mdl-js-textfield">
+                <input className="mdl-textfield__input" type="text" id="voicemail" />
+                <label className="mdl-textfield__label" htmlFor="voicemail">Okay to leave voicemail?</label>
+              </div></div> : ''}
+              {selectedOption === 'SMS Text' ? <div className="mdl-textfield mdl-js-textfield">
+                <input className="mdl-textfield__input" type="text" id="text" />
+                <label className="mdl-textfield__label" htmlFor="text">Phone Number</label>
+              </div> : ''}
+              {selectedOption === 'Skype' ? <div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="skype" />
-                <label className="mdl-textfield__label" htmlFor="skype">Skype</label>
-              </div>
-              <div className="mdl-textfield mdl-js-textfield">
+                <label className="mdl-textfield__label" htmlFor="skype">Skype Username</label>
+              </div> : ''}
+              {selectedOption === 'Other' ? <div><div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="other" />
                 <label className="mdl-textfield__label" htmlFor="other">Other</label>
               </div>
-              <p className="input-tag">WhatsApp? Viber? Google Hangouts? You tell us.</p>
+              <p className="input-tag">WhatsApp? SnapChat? Google Hangouts? You tell us.</p>
+              <p className="input-tag">Required: the service & your username.</p></div> : ''}
               <div className="get-started">
                 <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
                   Submit
