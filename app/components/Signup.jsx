@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import ContactMethod from './ContactMethod';
-
 export default (props) => {
 
   const selectedOption = props.selectedOption;
@@ -21,7 +19,8 @@ export default (props) => {
             <p>An advocate will contact you by your preferred method of contact upon submission of this form.</p>
             <form action="#" onSubmit={evt => {
               evt.preventDefault()
-              signup(evt.target.name.value, selectedOption, evt.target.email.value, evt.target.phone.value, evt.target.skype.value, evt.target.other.value)
+              debugger
+              signup(evt.target.name.value, selectedOption, evt.target.skype.value)
             } }>
               <div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="name" />
