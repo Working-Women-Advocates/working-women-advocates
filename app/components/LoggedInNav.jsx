@@ -9,7 +9,7 @@ export default (props) => {
       {props.auth.role === 'admin' ? <Link to="advocates" className="mdl-navigation__link">Advocates</Link> : ''}
       {props.auth.role === 'admin' ? <Link to="volunteers" className="mdl-navigation__link">Volunteers</Link> : ''}
       <Link to="available-dashboard" className="mdl-navigation__link">Available Cases</Link>
-      <Link to="advocate-dashboard" className="mdl-navigation__link">Your Cases</Link>
+      {props.auth.role === 'admin' ? '' : <Link to="advocate-dashboard" className="mdl-navigation__link">Your Cases</Link>}
       <a className="logout mdl-navigation__link" onClick={evt => {
               evt.preventDefault()
               props.logout()
