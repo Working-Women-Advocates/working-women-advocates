@@ -37,4 +37,11 @@ export const whoami = () =>
       })
       .catch(failed => dispatch(authenticated(null)))
 
+export const volunteerSignup = (username, email, interest) =>
+  dispatch =>
+    axios.post('/api/volunteers/',
+      {username, email, interest})
+      .then(() => console.log('volunteer signup complete'))
+      .catch((err) => alert(err))
+
 export default reducer

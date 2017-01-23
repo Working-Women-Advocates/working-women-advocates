@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default () => {
+export default (props) => {
   return (
     <main className="mdl-layout__content">
       <div id="volunteer" className="page-content mdl-cell mdl-cell--6-col">
@@ -11,7 +11,10 @@ export default () => {
           </div>
           <div className="mdl-card__supporting-text">
             <p>Thank you for your interest! Fill out the information below and someone will contact you for an interview soon.</p>
-            <form action="#">
+            <form action="#" onSubmit={evt => {
+              evt.preventDefault()
+              props.signup(evt.target.name.value, evt.target.email.value, evt.target.description.value)
+            } }>
               <div className="mdl-textfield mdl-js-textfield">
                 <input className="mdl-textfield__input" type="text" id="name" />
                 <label className="mdl-textfield__label" htmlFor="name">Name</label>
