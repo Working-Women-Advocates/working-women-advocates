@@ -1,4 +1,5 @@
 const db = require('APP/db')
+const Volunteer = require('./models/volunteer')
 
 const seedUsers = () => db.Promise.map([
   {username: 'Rachel', first_name: 'Rachel', last_name: 'Schmurb', email: 'rachel@example.com', password: '1234', role: 'admin'},
@@ -14,11 +15,19 @@ const seedIssues = () => db.Promise.map([
   {username: 'Kesha', contact_method: 'Other', other: 'viber', description: 'assault', status: 'closed'}
 ], issue => db.model('issues').create(issue))
 
+const seedVolunteers = () => db.Promise.map([
+  {username: 'Wanda Sykes', email: 'wanda@example.com', interest: 'to help heal others'},
+  {username: 'Gloria Steinem', email: 'gloria@example.com', interest: 'to get training in advocacy'},
+  {username: 'Grace Hopper', email: 'grace@example.com', interest: 'to give back'}
+], volunteer => Volunteer.create(volunteer))
+
 db.didSync
   .then(() => db.sync({force: true}))
   .then(seedUsers)
   .then(users => console.log(`Seeded ${users.length} users OK`))
   .then(seedIssues)
   .then(issues => console.log(`Seeded ${issues.length} issues OK`))
+  .then(seedVolunteers)
+  .then(volunteers => console.log(`Seeded ${volunteers.length} volunteers OK`))
   .catch(error => console.error(error))
   .finally(() => db.close())
