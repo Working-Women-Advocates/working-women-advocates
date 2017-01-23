@@ -118,8 +118,8 @@ select.soflow {
 }
 
 /*Admin dashboard*/
-.re-assign-btn {
-  background-color: rgb(255,64,129) !important;
+.indigo-btn {
+  background-color: rgb(63, 81, 181) !important;
 }
 
 .close-btn {

@@ -7,7 +7,8 @@ export default ({issue}) => {
       <td>{issue.contact_method}</td>
       <td>{issue.description}</td>
       <td>{issue.created_at.slice(0, 10)}</td>
-      <td><button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Claim</button></td>
+      <td><button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent indigo-btn">View</button></td>
+      <td><button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Become Advocate</button></td>
     </tr>
   )
 }

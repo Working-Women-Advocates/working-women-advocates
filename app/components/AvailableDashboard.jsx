@@ -14,7 +14,8 @@ export default ({ issues }) => {
               <th>Contact</th>
               <th>Description</th>
               <th>Submitted</th>
-              <th></th>
+              <th>  </th>
+              <th>  </th>
             </tr>
           </thead>
           <tbody>
