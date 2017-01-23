@@ -12,6 +12,7 @@ export default ({ issues }) => {
             <tr>
               <th className="mdl-data-table__cell--non-numeric">Username</th>
               <th>Contact</th>
+              <th>Description</th>
               <th>Submitted</th>
               <th></th>
             </tr>

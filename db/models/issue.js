@@ -15,7 +15,7 @@ const Issue = db.define('issues', {
     }
   },
   phone: {
-    type: Sequelize.INTEGER
+    type: Sequelize.STRING
   },
   skype: {
     type: Sequelize.STRING
