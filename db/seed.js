@@ -3,7 +3,9 @@ const Volunteer = require('./models/volunteer')
 
 const seedUsers = () => db.Promise.map([
   {username: 'Rachel', first_name: 'Rachel', last_name: 'Schmurb', email: 'rachel@example.com', password: '1234', role: 'admin'},
-  {username: 'Michelle Obama', first_name: 'Michelle', last_name: 'Obama', email: 'michelle@example.com', password: '1234', role: 'advocate'}
+  {username: 'Michelle Obama', first_name: 'Michelle', last_name: 'Obama', email: 'michelle@example.com', password: '1234', role: 'advocate'},
+  {username: 'Anita Borg', first_name: 'Anita', last_name: 'Borg', email: 'anita@example.com', password: '1234', role: 'advocate'},
+  {username: 'Joan Clarke', first_name: 'Joan', last_name: 'Clarke', email: 'joan@example.com', password: '1234', role: 'advocate'}
 ], user => db.model('users').create(user))
 
 const seedIssues = () => db.Promise.map([

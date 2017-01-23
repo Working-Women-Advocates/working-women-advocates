@@ -6,6 +6,7 @@ export default (props) => {
   return (
     <nav className="mdl-navigation">
       {props.auth.role === 'admin' ? <Link to="admin-dashboard" className="mdl-navigation__link">All Cases</Link> : ''}
+      {props.auth.role === 'admin' ? <Link to="advocates" className="mdl-navigation__link">Advocates</Link> : ''}
       {props.auth.role === 'admin' ? <Link to="volunteers" className="mdl-navigation__link">Volunteers</Link> : ''}
       <Link to="available-dashboard" className="mdl-navigation__link">Available Cases</Link>
       <Link to="advocate-dashboard" className="mdl-navigation__link">Your Cases</Link>

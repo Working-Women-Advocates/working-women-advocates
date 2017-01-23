@@ -5,6 +5,7 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 import { receiveIssues, receiveAdvocateIssues, receiveOpenIssues } from './reducers/issues';
 import { receiveVolunteers } from './reducers/volunteers';
+import { receiveAdvocates } from './reducers/advocates';
 
 import store from './store'
 import Login from './components/Login'
@@ -21,6 +22,7 @@ import Footer from './components/Footer'
 import AdminContainer from './containers/AdminContainer'
 import AdvocateContainer from './containers/AdvocateContainer'
 import AvailableContainer from './containers/AvailableContainer'
+import AdvocatesContainer from './containers/AdvocatesContainer'
 import VolunteersContainer from './containers/VolunteersContainer'
 
 const allCasesForAdmin = function() {
@@ -40,6 +42,10 @@ const allVolunteers = function () {
   store.dispatch(receiveVolunteers());
 };
 
+const allAdvocates = function () {
+  store.dispatch(receiveAdvocates());
+};
+
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -56,6 +62,7 @@ render (
         <Route path="/advocate-dashboard" component={AdvocateContainer} onEnter={advocateCases} />
         <Route path="/available-dashboard" component={AvailableContainer} onEnter={availableCases} />
         <Route path="/volunteers" component={VolunteersContainer} onEnter={allVolunteers} />
+        <Route path="/advocates" component={AdvocatesContainer} onEnter={allAdvocates} />
       </Route>
     </Router>
   </Provider>,

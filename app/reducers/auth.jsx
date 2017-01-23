@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {clearIssues} from './issues'
 import {clearVolunteers} from './volunteers'
+import {clearAdvocates} from './advocates'
 
 const reducer = (state=null, action) => {
   switch(action.type) {
@@ -28,6 +29,7 @@ export const logout = () =>
       .then(() => dispatch(whoami()))
       .then(() => dispatch(clearIssues()))
       .then(() => dispatch(clearVolunteers()))
+      .then(() => dispatch(clearAdvocates()))
       .catch(() => dispatch(whoami()))
 
 export const whoami = () =>
