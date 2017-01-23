@@ -11,7 +11,7 @@ import AppContainer from './containers/AppContainer'
 import Landing from './components/Landing'
 import Hotline from './components/Hotline'
 import About from './components/About'
-import Volunteer from './components/Volunteer'
+import VolunteerSignup from './components/VolunteerSignup'
 import AdvocateLoginContainer from './containers/AdvocateLoginContainer'
 import SignupContainer from './containers/SignupContainer'
 import SignupSubmitted from './components/SignupSubmitted'
@@ -42,7 +42,7 @@ render (
         <Route path="/landing" component={Landing} />
         <Route path="/hotline" component={Hotline} />
         <Route path="/about" component={About} />
-        <Route path="/volunteer" component={Volunteer} />
+        <Route path="/volunteer-signup" component={VolunteerSignup} />
         <Route path="/advocate-login" component={AdvocateLoginContainer} />
         <Route path="/working-women-signup" component={SignupContainer} />
         <Route path="/signup-submitted" component={SignupSubmitted} />

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default (props) => {
   return (
     <main className="mdl-layout__content">
-      <div id="volunteer" className="page-content mdl-cell mdl-cell--6-col">
+      <div className="page-content mdl-cell mdl-cell--6-col">
         <h1>Advocate Login</h1>
         <div className="mdl-card mdl-shadow--2dp">
           <div className="mdl-card__supporting-text">
