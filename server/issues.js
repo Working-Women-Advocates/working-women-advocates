@@ -10,7 +10,11 @@ module.exports = require('express').Router()
 
   // get all issues - just for admin
   .get('/', (req, res, next) =>
-    Issue.findAll()
+    Issue.findAll({
+      include: [
+        {model: User, as: 'advocate'}
+      ]
+    })
     .then(issues => res.json(issues))
     .catch(next))
 
@@ -25,10 +29,10 @@ module.exports = require('express').Router()
     .catch(next))
 
   //get all issues assigned to advocate logged in
-  .get('/assignedToMe/:id', (req, res, next) =>
+  .get('/assignedToMe', (req, res, next) =>
     Issue.findAll({
       where: {
-        advocate_id: req.params.id
+        advocate_id: req.user.id
       }
     })
     .then(issues => res.json(issues))

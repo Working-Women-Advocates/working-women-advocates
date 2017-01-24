@@ -4,6 +4,7 @@ export default ({issue}) => {
   return (
     <tr>
       <td className="mdl-data-table__cell--non-numeric">{issue.username}</td>
+      <td>{issue.advocate ? issue.advocate.username : ''}</td>
       <td>{issue.contact_method}</td>
       <td>{issue.description}</td>
       <td>{issue.created_at.slice(0, 10)}</td>

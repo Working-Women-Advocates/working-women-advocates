@@ -6,7 +6,8 @@
 
 const User = require('./user')
 const Issue = require('./issue')
+const Volunteer = require('./volunteer')
 
 Issue.belongsTo(User, {as: 'advocate'})
 
-module.exports = {User}
+module.exports = {User, Issue, Volunteer}

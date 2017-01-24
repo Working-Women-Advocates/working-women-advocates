@@ -1,5 +1,4 @@
 const db = require('APP/db')
-const Volunteer = require('./models/volunteer')
 
 const seedUsers = () => db.Promise.map([
   {username: 'Rachel', first_name: 'Rachel', last_name: 'Schmurb', email: 'rachel@example.com', password: '1234', role: 'admin'},
@@ -21,7 +20,7 @@ const seedVolunteers = () => db.Promise.map([
   {username: 'Wanda Sykes', email: 'wanda@example.com', interest: 'to help heal others'},
   {username: 'Gloria Steinem', email: 'gloria@example.com', interest: 'to get training in advocacy'},
   {username: 'Grace Hopper', email: 'grace@example.com', interest: 'to give back'}
-], volunteer => Volunteer.create(volunteer))
+], volunteer => db.model('volunteers').create(volunteer))
 
 db.didSync
   .then(() => db.sync({force: true}))

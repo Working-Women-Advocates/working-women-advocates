@@ -64,9 +64,9 @@ export function receiveOpenIssues(id) {
   }
 }
 
-export function receiveAdvocateIssues(id) {
+export function receiveAdvocateIssues() {
   return function (dispatch) {
-    axios.get(`/api/issues/assignedToMe/${id}`)
+    axios.get('/api/issues/assignedToMe')
       .then((res) => dispatch(getAdvocateIssues(res.data)))
       .catch((err) => alert(err))
   }
