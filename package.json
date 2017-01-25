@@ -11,7 +11,7 @@
     "build-branch": "bin/build-branch.sh",
     "deploy-heroku": "bin/deploy-heroku.sh",
     "start": "check-node-version --node '>= 6.7.0' && bin/setup && nodemon server/start.js",
-    "seed": "node db/seed.js"
+    "seed": "bin/setup && node db/seed.js"
   },
   "repository": {
     "type": "git",
