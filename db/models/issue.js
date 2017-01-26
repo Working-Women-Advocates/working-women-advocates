@@ -30,7 +30,8 @@ const Issue = db.define('issues', {
     type: Sequelize.STRING
   },
   voicemail: {
-    type: Sequelize.BOOLEAN
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
   },
   text: {
     type: Sequelize.STRING

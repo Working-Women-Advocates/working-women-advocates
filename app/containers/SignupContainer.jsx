@@ -6,8 +6,8 @@ import {browserHistory} from 'react-router';
 
 function mapDispatchToProps(dispatch) {
   return {
-    signup: (username, contact_method, email, phone, text, skype, other) => {
-      dispatch(signup(username, contact_method, email, phone, text, skype, other));
+    signup: (username, contact_method, email, phone, time, timezone, voicemail, text, skype, other) => {
+      dispatch(signup(username, contact_method, email, phone, time, timezone, voicemail, text, skype, other));
       browserHistory.push('/signup-submitted');
     }
   }
@@ -24,6 +24,7 @@ export default connect(null, mapDispatchToProps)(class extends Component {
   }
 
   handleChange (evt) {
+    componentHandler.upgradeDom();
     this.setState({
       selectedOption: evt.target.value
     });

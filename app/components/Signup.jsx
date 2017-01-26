@@ -21,15 +21,30 @@ export default class Signup extends Component {
               <p>An advocate will contact you by your preferred method of contact upon submission of this form.</p>
               <form action="#" onSubmit={evt => {
                 evt.preventDefault()
-                this.props.signup({
+                let formInfo = {
                        name: evt.target.name.value,
                        contact_method: this.props.selectedOption,
                        email: evt.target.email && evt.target.email.value,
                        phone: evt.target.phone && evt.target.phone.value,
+                       time: evt.target.time && evt.target.time.value,
+                       timezone: evt.target.timezone && evt.target.timezone.value,
+                       voicemail: evt.target.voicemail && evt.target.voicemail.value,
                        text: evt.target.text && evt.target.text.value,
                        skype: evt.target.skype && evt.target.skype.value,
                        other: evt.target.other && evt.target.other.value
-                       })
+                       }
+                this.props.signup(
+                       formInfo.name,
+                       formInfo.contact_method,
+                       formInfo.email,
+                       formInfo.phone,
+                       formInfo.time,
+                       formInfo.timezone,
+                       formInfo.voicemail,
+                       formInfo.text,
+                       formInfo.skype,
+                       formInfo.other
+                       )
               } }>
                 <div className="mdl-textfield mdl-js-textfield">
                   <input className="mdl-textfield__input" type="text" id="name" />
@@ -60,33 +75,45 @@ export default class Signup extends Component {
                     <p className="input-tag"><a href="https://signup.live.com/?wa=wsignin"  target="_blank" rel="noopener noreferrer">Make one here.</a></p>
                   </div> : ''}
                 {/* text or call? if call: best time? need to set appointment? */}
-                {this.props.selectedOption === 'Phone' ? <div><div className="mdl-textfield mdl-js-textfield">
-                  <input className="mdl-textfield__input" type="text" id="phone" />
-                  <label className="mdl-textfield__label" htmlFor="phone">Phone</label>
-                </div><div className="mdl-textfield mdl-js-textfield">
-                  <input className="mdl-textfield__input" type="text" id="time" />
-                  <label className="mdl-textfield__label" htmlFor="time">Best Time To Reach You</label>
-                </div><p className="input-tag">Day(s) of week. What time?</p><div className="mdl-textfield mdl-js-textfield">
-                  <input className="mdl-textfield__input" type="text" id="timezone" />
-                  <label className="mdl-textfield__label" htmlFor="timezone">Your Time Zone</label>
-                </div><div className="mdl-textfield mdl-js-textfield">
-                  <input className="mdl-textfield__input" type="text" id="voicemail" />
-                  <label className="mdl-textfield__label" htmlFor="voicemail">Okay to leave voicemail?</label>
-                </div></div> : ''}
-                {this.props.selectedOption === 'SMS Text' ? <div className="mdl-textfield mdl-js-textfield">
-                  <input className="mdl-textfield__input" type="text" id="text" />
-                  <label className="mdl-textfield__label" htmlFor="text">Phone Number</label>
-                </div> : ''}
-                {this.props.selectedOption === 'Skype' ? <div className="mdl-textfield mdl-js-textfield">
-                  <input className="mdl-textfield__input" type="text" id="skype" />
-                  <label className="mdl-textfield__label" htmlFor="skype">Skype Username</label>
-                </div> : ''}
-                {this.props.selectedOption === 'Other' ? <div><div className="mdl-textfield mdl-js-textfield">
-                  <input className="mdl-textfield__input" type="text" id="other" />
-                  <label className="mdl-textfield__label" htmlFor="other">Other</label>
-                </div>
-                <p className="input-tag">WhatsApp? SnapChat? Google Hangouts? You tell us.</p>
-                <p className="input-tag">Required: the service & your username.</p></div> : ''}
+                {this.props.selectedOption === 'Phone' ?
+                  <div>
+                    <div className="mdl-textfield mdl-js-textfield">
+                      <input className="mdl-textfield__input" type="text" id="phone" />
+                      <label className="mdl-textfield__label" htmlFor="phone">Phone</label>
+                    </div>
+                    <div className="mdl-textfield mdl-js-textfield">
+                      <input className="mdl-textfield__input" type="text" id="time" />
+                      <label className="mdl-textfield__label" htmlFor="time">Best Time To Reach You</label>
+                    </div>
+                    <p className="input-tag">Day(s) of week. What time?</p>
+                    <div className="mdl-textfield mdl-js-textfield">
+                      <input className="mdl-textfield__input" type="text" id="timezone" />
+                      <label className="mdl-textfield__label" htmlFor="timezone">Your Time Zone</label>
+                    </div>
+                    <div className="mdl-textfield mdl-js-textfield">
+                      <input className="mdl-textfield__input" type="text" id="voicemail" />
+                      <label className="mdl-textfield__label" htmlFor="voicemail">Okay to leave voicemail?</label>
+                    </div>
+                  </div> : ''}
+                {this.props.selectedOption === 'SMS Text' ?
+                  <div className="mdl-textfield mdl-js-textfield">
+                    <input className="mdl-textfield__input" type="text" id="text" />
+                    <label className="mdl-textfield__label" htmlFor="text">Phone Number</label>
+                  </div> : ''}
+                {this.props.selectedOption === 'Skype' ?
+                  <div className="mdl-textfield mdl-js-textfield">
+                    <input className="mdl-textfield__input" type="text" id="skype" />
+                    <label className="mdl-textfield__label" htmlFor="skype">Skype Username</label>
+                  </div> : ''}
+                {this.props.selectedOption === 'Other' ?
+                  <div>
+                    <div className="mdl-textfield mdl-js-textfield">
+                      <input className="mdl-textfield__input" type="text" id="other" />
+                      <label className="mdl-textfield__label" htmlFor="other">Other</label>
+                    </div>
+                    <p className="input-tag">WhatsApp? SnapChat? Google Hangouts? You tell us.</p>
+                    <p className="input-tag">Required: the service & your username.</p>
+                  </div> : ''}
                 <div className="get-started">
                   <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
                     Submit
