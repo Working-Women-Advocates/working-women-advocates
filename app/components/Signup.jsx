@@ -90,10 +90,22 @@ export default class Signup extends Component {
                       <input className="mdl-textfield__input" type="text" id="timezone" />
                       <label className="mdl-textfield__label" htmlFor="timezone">Your Time Zone</label>
                     </div>
-                    <div className="mdl-textfield mdl-js-textfield">
+                    {/* <div className="mdl-textfield mdl-js-textfield">
                       <input className="mdl-textfield__input" type="text" id="voicemail" />
                       <label className="mdl-textfield__label" htmlFor="voicemail">Okay to leave voicemail?</label>
-                    </div>
+                    </div> */}
+                    <h6 className="voicemail">Okay to leave voicemail?</h6>
+                    <select
+                      className="soflow"
+                      name="voicemail"
+                      required
+                      onChange={this.props.voicemailChange}>
+                      {
+                        ['No', 'Yes'].map(voicemail => (
+                          <option key={voicemail} value={voicemail === 'Yes' ? true : false}>{voicemail}</option>
+                        ))
+                      }
+                    </select>
                   </div> : ''}
                 {this.props.selectedOption === 'SMS Text' ?
                   <div className="mdl-textfield mdl-js-textfield">

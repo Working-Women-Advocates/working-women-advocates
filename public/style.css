@@ -26,6 +26,10 @@ a, a:hover {
   font-style: italic;
 }
 
+.voicemail {
+  margin: 0;
+}
+
 /*Make container for main content*/
 .page-content {
   margin-left: 25px;

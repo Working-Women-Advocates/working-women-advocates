@@ -21,12 +21,19 @@ export default connect(null, mapDispatchToProps)(class extends Component {
       selectedOption: 'Email'
     };
     this.handleChange = this.handleChange.bind(this);
+    this.voicemailChange = this.voicemailChange.bind(this);
   }
 
   handleChange (evt) {
     componentHandler.upgradeDom();
     this.setState({
       selectedOption: evt.target.value
+    });
+  }
+
+  voicemailChange (evt) {
+    this.setState({
+      voicemail: evt.target.value
     });
   }
 
