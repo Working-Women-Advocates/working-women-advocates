@@ -29,7 +29,6 @@ const allCasesForAdmin = function() {
   store.dispatch(receiveIssues());
 }
 
-// need to pass in current user id to get logged in advocate's cases
 const advocateCases = function () {
   store.dispatch(receiveAdvocateIssues());
 };
