@@ -7,6 +7,8 @@ export default () => {
         <h1>About</h1>
         <div className="card-wide mdl-card mdl-shadow--2dp">
           <div className="mdl-card__supporting-text">
+            <p className="warning">This is a prototype only. It is not in service at this time.</p>
+
             <p>Working Women Advocates are here to help you through difficulties at work including, but not limited to:</p>
 
             <ul className='mdl-list'>

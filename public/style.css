@@ -82,6 +82,11 @@ div, p, span {
   width: 512px;
 }
 
+.warning {
+  color: red;
+  font-style: italic;
+}
+
 @media only screen and (max-width: 600px) {
   .card-wide.mdl-card {
   width: 350px;
