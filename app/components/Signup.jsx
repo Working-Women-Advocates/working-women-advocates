@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 export default class Signup extends Component {
 
-  componentDidMount() {
-    // To handle material design styling on inputs
+  componentDidUpdate() {
     componentHandler.upgradeDom()
   }
 

@@ -72,14 +72,6 @@ export function receiveAdvocateIssues() {
   }
 }
 
-export function clearIssues() {
-  return function (dispatch) {
-    axios.get('/api/issues')
-      .then((res) => dispatch(dropIssues(res.data)))
-      .catch((err) => alert(err))
-  }
-}
-
 export function signup(username, contact_method, email, phone, time, timezone, voicemail, text, skype, other) {
   return function (dispatch) {
     axios.post('/api/issues', {username, contact_method, email, phone, time, timezone, voicemail, text, skype, other})

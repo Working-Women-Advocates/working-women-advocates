@@ -38,12 +38,4 @@ export function receiveAdvocates() {
   }
 }
 
-export function clearAdvocates() {
-  return function (dispatch) {
-    axios.get('/api/users/advocates')
-      .then((res) => dispatch(dropAdvocates(res.data)))
-      .catch((err) => alert(err))
-  }
-}
-
 export default reducer

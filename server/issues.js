@@ -9,7 +9,7 @@ const {mustBeLoggedIn, forbidden, secure} = require('./auth.filters')
 module.exports = require('express').Router()
 
   // get all issues - just for admin
-  .get('/', (req, res, next) =>
+  .get('/', mustBeLoggedIn, (req, res, next) =>
     Issue.findAll({
       include: [
         {model: User, as: 'advocate'}

@@ -1,7 +1,7 @@
 import axios from 'axios'
-import {clearIssues} from './issues'
-import {clearVolunteers} from './volunteers'
-import {clearAdvocates} from './advocates'
+import {dropIssues} from './issues'
+import {dropVolunteers} from './volunteers'
+import {dropAdvocates} from './advocates'
 
 const reducer = (state=null, action) => {
   switch(action.type) {
@@ -27,9 +27,9 @@ export const logout = () =>
   dispatch =>
     axios.post('/api/auth/logout')
       .then(() => dispatch(whoami()))
-      .then(() => dispatch(clearIssues()))
-      .then(() => dispatch(clearVolunteers()))
-      .then(() => dispatch(clearAdvocates()))
+      .then(() => dispatch(dropIssues()))
+      .then(() => dispatch(dispatch(dropVolunteers())))
+      .then(() => dispatch(dropAdvocates()))
       .catch(() => dispatch(whoami()))
 
 export const whoami = () =>
@@ -45,7 +45,7 @@ export const volunteerSignup = (username, email, interest) =>
   dispatch =>
     axios.post('/api/volunteers/',
       {username, email, interest})
-      .then(() => console.log('volunteer signup complete'))
+      // .then(() => console.log('volunteer signup complete'))
       .catch((err) => alert(err))
 
 export default reducer

@@ -14,11 +14,10 @@ const Issue = db.define('issues', {
     type: Sequelize.ENUM('Email', 'Phone', 'SMS Text', 'Skype', 'Other')
   },
   email: {
-    type: Sequelize.STRING
-    // can't do without requiring
-    // validate: {
-    //   isEmail: true
-    // }
+    type: Sequelize.STRING,
+    validate: {
+      isEmail: true
+    }
   },
   phone: {
     type: Sequelize.STRING

@@ -4,7 +4,7 @@ This app is for women who have experienced issues in the workplace, like sexism 
 
 It's not in use yet but I have high hopes that it will be!
 
-Here's [a link to a YouTube video where I present the app to my cohort at Fullstack Academy]. (https://youtu.be/gys6ofGkXDA)
+Here's [a link to a YouTube video where I present the app to my cohort at Fullstack Academy.](https://youtu.be/gys6ofGkXDA)
 
 -Rachel
 

@@ -38,12 +38,4 @@ export function receiveVolunteers() {
   }
 }
 
-export function clearVolunteers() {
-  return function (dispatch) {
-    axios.get('/api/volunteers')
-      .then((res) => dispatch(dropVolunteers(res.data)))
-      .catch((err) => alert(err))
-  }
-}
-
 export default reducer
