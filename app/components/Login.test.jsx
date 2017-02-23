@@ -1,11 +1,11 @@
 import React from 'react'
-import chai, {expect} from 'chai'                                                   
+import chai, { expect } from 'chai'
 chai.use(require('chai-enzyme')())
-import {shallow} from 'enzyme'
-import {spy} from 'sinon'
+import { shallow } from 'enzyme'
+import { spy } from 'sinon'
 chai.use(require('sinon-chai'))
 
-import {Login} from './Login'
+import { Login } from './Login'
 
 describe('<Login />', () => {
   let root
@@ -30,23 +30,23 @@ describe('<Login />', () => {
   })
 
   describe('when submitted', () => {
-    const login = spy()    
+    const login = spy()
     const root = shallow(<Login login={login}/>)
     const submitEvent = {
       preventDefault: spy(),
       target: {
-        username: {value: 'bones@example.com'},
-        password: {value: '12345'},
+        username: { value: 'bones@example.com' },
+        password: { value: '12345' }
       }
     }
 
     beforeEach('submit', () => {
       login.reset()
       submitEvent.preventDefault.reset()
-      root.simulate('submit', submitEvent)      
+      root.simulate('submit', submitEvent)
     })
 
-    it('calls props.login with credentials', () => {      
+    it('calls props.login with credentials', () => {
       expect(login).to.have.been.calledWith(
         submitEvent.target.username.value,
         submitEvent.target.password.value,

@@ -15,19 +15,19 @@ const OAuth = db.define('oauths', {
   // OAuth v1 fields
   token: Sequelize.STRING,
   tokenSecret: Sequelize.STRING,
-  
+
   // The whole profile as JSON
-  profileJson: Sequelize.JSON,
+  profileJson: Sequelize.JSON
 }, {
-	indexes: [{fields: ['uid'], unique: true,}],
+  indexes: [{ fields: ['uid'], unique: true }]
 })
 
 OAuth.V2 = (accessToken, refreshToken, profile, done) =>
   this.findOrCreate({
     where: {
       provider: profile.provider,
-      uid: profile.id,
-    }})
+      uid: profile.id
+    } })
     .then(oauth => {
       debug('provider:%s will log in user:{name=%s uid=%s}',
         profile.provider,
@@ -37,12 +37,12 @@ OAuth.V2 = (accessToken, refreshToken, profile, done) =>
       return db.Promise.props({
         oauth,
         user: token.getUser(),
-        _saveProfile: oauth.save(),
+        _saveProfile: oauth.save()
       })
     })
     .then(({ oauth, user }) => user ||
       User.create({
-        name: profile.displayName,        
+        name: profile.displayName
       }).then(user => db.Promise.props({
         user,
         _setOauthUser: oauth.setUser(user)
@@ -57,9 +57,9 @@ OAuth.setupStrategy =
   provider,
   strategy,
   config,
-  oauth=OAuth.V2,
-  passport 
-}) => {      
+  oauth = OAuth.V2,
+  passport
+}) => {
   const undefinedKeys = Object.keys(config)
         .map(k => config[k])
         .filter(value => typeof value === 'undefined')

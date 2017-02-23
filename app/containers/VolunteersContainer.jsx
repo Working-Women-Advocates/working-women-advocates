@@ -1,9 +1,7 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import Volunteers from '../components/Volunteers';
-import {browserHistory} from 'react-router';
+import { connect } from 'react-redux'
+import Volunteers from '../components/Volunteers'
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     volunteers: state.volunteers
   }

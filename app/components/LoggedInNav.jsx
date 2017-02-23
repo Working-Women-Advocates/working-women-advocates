@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
-import {logout} from 'APP/app/reducers/auth'
+import React from 'react'
+import { Link } from 'react-router'
 
 export default (props) => {
   return (
@@ -11,9 +10,9 @@ export default (props) => {
       <Link to="available-dashboard" className="mdl-navigation__link">Available Cases</Link>
       {props.auth.role === 'admin' ? '' : <Link to="advocate-dashboard" className="mdl-navigation__link">Your Cases</Link>}
       <a className="logout mdl-navigation__link" onClick={evt => {
-              evt.preventDefault()
-              props.logout()
-              } }>{props.auth && props.auth.username}: Logout</a>
+        evt.preventDefault()
+        props.logout()
+      }}>{props.auth && props.auth.username}: Logout</a>
     </nav>
   )
 }

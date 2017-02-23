@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
+/* global componentHandler */
+
+import React, { Component } from 'react'
 
 export default class Signup extends Component {
-  componentDidMount() {
+  componentDidMount () {
     componentHandler.upgradeDom()
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     componentHandler.upgradeDom()
   }
 
-  render() {
+  render () {
     return (
       <main className="mdl-layout__content">
         <div className="page-content mdl-cell mdl-cell--6-col">
@@ -23,18 +25,18 @@ export default class Signup extends Component {
               <p>An advocate will contact you by your preferred method of contact upon submission of this form.</p>
               <form action="#" onSubmit={evt => {
                 evt.preventDefault()
-                let formInfo = {
-                       name: evt.target.name.value,
-                       contact_method: this.props.selectedOption,
-                       email: evt.target.email && evt.target.email.value,
-                       phone: evt.target.phone && evt.target.phone.value,
-                       time: evt.target.time && evt.target.time.value,
-                       timezone: evt.target.timezone && evt.target.timezone.value,
-                       voicemail: evt.target.voicemail && evt.target.voicemail.value,
-                       text: evt.target.text && evt.target.text.value,
-                       skype: evt.target.skype && evt.target.skype.value,
-                       other: evt.target.other && evt.target.other.value
-                       }
+                const formInfo = {
+                  name: evt.target.name.value,
+                  contact_method: this.props.selectedOption,
+                  email: evt.target.email && evt.target.email.value,
+                  phone: evt.target.phone && evt.target.phone.value,
+                  time: evt.target.time && evt.target.time.value,
+                  timezone: evt.target.timezone && evt.target.timezone.value,
+                  voicemail: evt.target.voicemail && evt.target.voicemail.value,
+                  text: evt.target.text && evt.target.text.value,
+                  skype: evt.target.skype && evt.target.skype.value,
+                  other: evt.target.other && evt.target.other.value
+                }
                 this.props.signup(
                        formInfo.name,
                        formInfo.contact_method,
@@ -67,18 +69,18 @@ export default class Signup extends Component {
                   }
                 </select>
                 {/* do they need to be assigned a fake email account? */}
-                {this.props.selectedOption === 'Email' ?
-                  <div>
+                {this.props.selectedOption === 'Email'
+                  ? <div>
                     <div className="mdl-textfield mdl-js-textfield">
                       <input className="mdl-textfield__input" type="text" id="email" />
                       <label className="mdl-textfield__label" htmlFor="email">Email</label>
                     </div>
                     <p className="input-tag">Need an anonymous email account?</p>
-                    <p className="input-tag"><a href="https://signup.live.com/?wa=wsignin"  target="_blank" rel="noopener noreferrer">Make one here.</a></p>
+                    <p className="input-tag"><a href="https://signup.live.com/?wa=wsignin" target="_blank" rel="noopener noreferrer">Make one here.</a></p>
                   </div> : ''}
                 {/* text or call? if call: best time? need to set appointment? */}
-                {this.props.selectedOption === 'Phone' ?
-                  <div>
+                {this.props.selectedOption === 'Phone'
+                  ? <div>
                     <div className="mdl-textfield mdl-js-textfield">
                       <input className="mdl-textfield__input" type="text" id="phone" />
                       <label className="mdl-textfield__label" htmlFor="phone">Phone</label>
@@ -104,23 +106,23 @@ export default class Signup extends Component {
                       onChange={this.props.voicemailChange}>
                       {
                         ['No', 'Yes'].map(voicemail => (
-                          <option key={voicemail} value={voicemail === 'Yes' ? true : false}>{voicemail}</option>
+                          <option key={voicemail} value={voicemail === 'Yes'}>{voicemail}</option>
                         ))
                       }
                     </select>
                   </div> : ''}
-                {this.props.selectedOption === 'SMS Text' ?
-                  <div className="mdl-textfield mdl-js-textfield">
+                {this.props.selectedOption === 'SMS Text'
+                  ? <div className="mdl-textfield mdl-js-textfield">
                     <input className="mdl-textfield__input" type="text" id="text" />
                     <label className="mdl-textfield__label" htmlFor="text">Phone Number</label>
                   </div> : ''}
-                {this.props.selectedOption === 'Skype' ?
-                  <div className="mdl-textfield mdl-js-textfield">
+                {this.props.selectedOption === 'Skype'
+                  ? <div className="mdl-textfield mdl-js-textfield">
                     <input className="mdl-textfield__input" type="text" id="skype" />
                     <label className="mdl-textfield__label" htmlFor="skype">Skype Username</label>
                   </div> : ''}
-                {this.props.selectedOption === 'Other' ?
-                  <div>
+                {this.props.selectedOption === 'Other'
+                  ? <div>
                     <div className="mdl-textfield mdl-js-textfield">
                       <input className="mdl-textfield__input" type="text" id="other" />
                       <label className="mdl-textfield__label" htmlFor="other">Other</label>

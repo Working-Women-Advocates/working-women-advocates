@@ -1,7 +1,6 @@
 'use strict'
 
-const db = require('APP/db')
-const Volunteer = require('../db/models/volunteer')
+const Volunteer = require('APP/db/models/volunteer')
 
 module.exports = require('express').Router()
 

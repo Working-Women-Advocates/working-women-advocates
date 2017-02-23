@@ -2,7 +2,7 @@
 
 const db = require('APP/db')
 const User = require('./user')
-const {expect} = require('chai')
+const { expect } = require('chai')
 
 describe('User', () => {
   before('wait for the db', () => db.didSync)

@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React from 'react'
 import LoggedInNav from './LoggedInNav'
 import LoggedOutNav from './LoggedOutNav'
 
-export default ({logout, auth}) => {
-  const loggedin = auth;
+export default ({ logout, auth }) => {
+  const loggedin = auth
   return (
-    <header className={`${ loggedin ? "" : "mdl-layout__header--transparent"} mdl-layout__header`}>
+    <header className={`${loggedin ? '' : 'mdl-layout__header--transparent'} mdl-layout__header`}>
       <div className="mdl-layout__header-row">
         {/* Title */}
         <span className="mdl-layout-title">Working Women Advocates</span>

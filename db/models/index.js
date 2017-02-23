@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 // Require our models. Running each module registers the model into sequelize
 // so any other part of the application could call sequelize.model('User')
@@ -8,6 +8,6 @@ const User = require('./user')
 const Issue = require('./issue')
 const Volunteer = require('./volunteer')
 
-Issue.belongsTo(User, {as: 'advocate'})
+Issue.belongsTo(User, { as: 'advocate' })
 
-module.exports = {User, Issue, Volunteer}
+module.exports = { User, Issue, Volunteer }

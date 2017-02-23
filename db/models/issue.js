@@ -5,10 +5,10 @@ const db = require('APP/db')
 
 const Issue = db.define('issues', {
   username: {
-   type: Sequelize.STRING,
-   validate: {
-    notEmpty: true
-   }
+    type: Sequelize.STRING,
+    validate: {
+      notEmpty: true
+    }
   },
   contact_method: {
     type: Sequelize.ENUM('Email', 'Phone', 'SMS Text', 'Skype', 'Other')
@@ -30,7 +30,7 @@ const Issue = db.define('issues', {
   },
   voicemail: {
     type: Sequelize.BOOLEAN,
-    defaultValue: false,
+    defaultValue: false
   },
   text: {
     type: Sequelize.STRING
@@ -48,7 +48,7 @@ const Issue = db.define('issues', {
     validate: {
       notEmpty: true
     }
-  },
+  }
 })
 
 module.exports = Issue

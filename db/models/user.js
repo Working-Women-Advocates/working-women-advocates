@@ -11,8 +11,8 @@ const User = db.define('users', {
   email: {
     type: Sequelize.STRING,
     validate: {
-			isEmail: true
-		}
+      isEmail: true
+    }
   },
   role: {
     type: Sequelize.ENUM('admin', 'advocate')
@@ -20,15 +20,15 @@ const User = db.define('users', {
 
   // We support oauth, so users may or may not have passwords.
   password_digest: Sequelize.STRING,
-	password: Sequelize.VIRTUAL
+  password: Sequelize.VIRTUAL
 }, {
-	indexes: [{fields: ['email'], unique: true}],
+  indexes: [{ fields: ['email'], unique: true }],
   hooks: {
     beforeCreate: setEmailAndPassword,
-    beforeUpdate: setEmailAndPassword,
+    beforeUpdate: setEmailAndPassword
   },
   instanceMethods: {
-    authenticate(plaintext) {
+    authenticate (plaintext) {
       return new Promise((resolve, reject) =>
         bcrypt.compare(plaintext, this.password_digest,
           (err, result) =>
@@ -38,16 +38,16 @@ const User = db.define('users', {
   }
 })
 
-function setEmailAndPassword(user) {
+function setEmailAndPassword (user) {
   user.email = user.email && user.email.toLowerCase()
   if (!user.password) return Promise.resolve(user)
 
   return new Promise((resolve, reject) =>
-	  bcrypt.hash(user.get('password'), 10, (err, hash) => {
-		  if (err) reject(err)
-		  user.set('password_digest', hash)
+    bcrypt.hash(user.get('password'), 10, (err, hash) => {
+      if (err) reject(err)
+      user.set('password_digest', hash)
       resolve(user)
-	  })
+    })
   )
 }
 

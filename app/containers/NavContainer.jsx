@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import Nav from '../components/Nav';
-import { logout } from '../reducers/auth';
-import {browserHistory} from 'react-router';
+import { connect } from 'react-redux'
+import Nav from '../components/Nav'
+import { logout } from '../reducers/auth'
+import { browserHistory } from 'react-router'
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     auth: state.auth
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     logout: () => {
-      dispatch(logout());
-      browserHistory.push('/');
+      dispatch(logout())
+      browserHistory.push('/')
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default connect(mapStateToProps, mapDispatchToProps)(Nav)

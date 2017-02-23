@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+/* global componentHandler */
+
+import React, { Component } from 'react'
 
 export default class VolunteerSignup extends Component {
 
-  componentDidMount() {
+  componentDidMount () {
     // To handle material design styling on inputs
     componentHandler.upgradeDom()
   }
 
-  render() {
+  render () {
     return (
       <main className="mdl-layout__content">
         <div id="volunteer" className="page-content mdl-cell mdl-cell--6-col">
@@ -47,4 +49,3 @@ export default class VolunteerSignup extends Component {
     )
   }
 }
-

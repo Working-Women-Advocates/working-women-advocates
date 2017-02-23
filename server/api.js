@@ -1,10 +1,11 @@
 'use strict'
 
-const db = require('APP/db')
+// don't delete db - needed to avoid Sequelize race condition
+const db = require('APP/db') // eslint-disable-line no-unused-vars
 const api = module.exports = require('express').Router()
 
 api
-  .get('/heartbeat', (req, res) => res.send({ok: true}))
+  .get('/heartbeat', (req, res) => res.send({ ok: true }))
   .use('/auth', require('./auth'))
   .use('/users', require('./users'))
   .use('/issues', require('./issues'))

@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+/* global componentHandler */
+
+import React, { Component } from 'react'
 
 export default class AdvocateLogin extends Component {
 
-  componentDidMount() {
+  componentDidMount () {
     // To handle material design styling on inputs
     componentHandler.upgradeDom()
   }
 
-  render() {
+  render () {
     return (
       <main className="mdl-layout__content">
         <div className="page-content mdl-cell mdl-cell--6-col">

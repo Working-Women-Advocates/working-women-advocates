@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react'
 import AdminIssueItem from './AdminIssueItem'
 
 export default ({ issues }) => {
@@ -16,9 +16,9 @@ export default ({ issues }) => {
               <th>Description</th>
               <th>Submitted</th>
               <th>Status</th>
-              <th>       </th>
-              <th>       </th>
-              <th>       </th>
+              <th> </th>
+              <th> </th>
+              <th> </th>
             </tr>
           </thead>
           <tbody>
