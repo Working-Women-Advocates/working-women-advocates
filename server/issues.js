@@ -4,7 +4,7 @@ const db = require('APP/db')
 const Issue = db.model('issues')
 const User = db.model('users')
 
-const {mustBeLoggedIn, forbidden, secure} = require('./auth.filters')
+const { mustBeLoggedIn } = require('./auth.filters')
 
 module.exports = require('express').Router()
 
@@ -28,7 +28,7 @@ module.exports = require('express').Router()
     .then(issues => res.json(issues))
     .catch(next))
 
-  //get all issues assigned to advocate logged in
+  // get all issues assigned to advocate logged in
   .get('/assignedToMe', (req, res, next) =>
     Issue.findAll({
       where: {

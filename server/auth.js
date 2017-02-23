@@ -1,4 +1,4 @@
-const app = require('APP'), {env} = app
+const app = require('APP'), { env } = app
 const debug = require('debug')(`${app.name}:auth`)
 const passport = require('passport')
 
@@ -41,7 +41,7 @@ OAuth.setupStrategy({
   config: {
     clientID: env.FACEBOOK_CLIENT_ID,
     clientSecret: env.FACEBOOK_CLIENT_SECRET,
-    callbackURL: `${app.rootUrl}/api/auth/login/facebook`,
+    callbackURL: `${app.rootUrl}/api/auth/login/facebook`
   },
   passport
 })
@@ -54,7 +54,7 @@ OAuth.setupStrategy({
   config: {
     consumerKey: env.GOOGLE_CONSUMER_KEY,
     consumerSecret: env.GOOGLE_CONSUMER_SECRET,
-    callbackURL: `${app.rootUrl}/api/auth/login/google`,
+    callbackURL: `${app.rootUrl}/api/auth/login/google`
   },
   passport
 })
@@ -67,7 +67,7 @@ OAuth.setupStrategy({
   config: {
     clientID: env.GITHUB_CLIENT_ID,
     clientSecrets: env.GITHUB_CLIENT_SECRET,
-    callbackURL: `${app.rootUrl}/api/auth/login/github`,
+    callbackURL: `${app.rootUrl}/api/auth/login/github`
   },
   passport
 })
@@ -95,10 +95,10 @@ passport.deserializeUser(
   }
 )
 
-passport.use(new (require('passport-local').Strategy) (
+passport.use(new (require('passport-local').Strategy)(
   (email, password, done) => {
     debug('will authenticate user(email: "%s")', email)
-    User.findOne({where: {email}})
+    User.findOne({ where: { email } })
       .then(user => {
         if (!user) {
           debug('authenticate user(email: "%s") did fail: no such user', email)
