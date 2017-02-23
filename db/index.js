@@ -9,7 +9,7 @@ const name = (process.env.DATABASE_NAME || app.name) +
 
 const url = process.env.DATABASE_URL || `postgres://localhost:5432/${name}`
 
-console.log(chalk.yellow(`Opening database connection to ${url}`));
+console.log(chalk.yellow(`Opening database connection to ${url}`))
 
 // create the database instance
 const db = module.exports = new Sequelize(url, {
@@ -17,7 +17,7 @@ const db = module.exports = new Sequelize(url, {
   define: {
     underscored: true,       // use snake_case rather than camelCase column names
     freezeTableName: true,   // don't change table names from the one specified
-    timestamps: true,        // automatically include timestamp columns
+    timestamps: true         // automatically include timestamp columns
   }
 })
 
@@ -25,8 +25,8 @@ const db = module.exports = new Sequelize(url, {
 require('./models')
 
 // sync the db, creating it if necessary
-function sync(force=app.isTesting, retries=0, maxRetries=5) {
-  return db.sync({force})
+function sync (force = app.isTesting, retries = 0, maxRetries = 5) {
+  return db.sync({ force })
     .then(ok => console.log(`Synced models to db ${url}`))
     .catch(fail => {
       // Don't do this auto-create nonsense in prod, or
