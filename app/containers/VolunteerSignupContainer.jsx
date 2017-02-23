@@ -1,14 +1,13 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import VolunteerSignup from '../components/VolunteerSignup';
-import {volunteerSignup} from '../reducers/auth';
-import {browserHistory} from 'react-router';
+import { connect } from 'react-redux'
+import VolunteerSignup from '../components/VolunteerSignup'
+import { volunteerSignup } from '../reducers/auth'
+import { browserHistory } from 'react-router'
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
     signup: (username, email, interest) => {
-      dispatch(volunteerSignup(username, email, interest));
-      browserHistory.push('/signup-submitted');
+      dispatch(volunteerSignup(username, email, interest))
+      browserHistory.push('/signup-submitted')
     }
   }
 }

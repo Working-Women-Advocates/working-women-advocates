@@ -1,9 +1,7 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import Advocates from '../components/Advocates';
-import {browserHistory} from 'react-router';
+import { connect } from 'react-redux'
+import Advocates from '../components/Advocates'
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return {
     advocates: state.advocates
   }

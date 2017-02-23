@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react'
 import AdvocateItem from './AdvocateItem'
 
 export default ({ advocates }) => {

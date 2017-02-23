@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react'
 
 export default () => {
   return (
@@ -10,7 +10,7 @@ export default () => {
             <h2 className="mdl-card__title-text">Would you believe there isn't one?</h2>
           </div>
           <div className="mdl-card__supporting-text">
-            <p>A friend found this: <a href="http://9to5.org/job-survival-helpline/"  target="_blank" rel="noopener noreferrer">Job Survival Helpline</a> but it's currently down. If you know of one, please let me know at rachel@rachelbird.com.</p>
+            <p>A friend found this: <a href="http://9to5.org/job-survival-helpline/" target="_blank" rel="noopener noreferrer">Job Survival Helpline</a> but it's currently down. If you know of one, please let me know at rachel@rachelbird.com.</p>
           </div>
         </div>
       </div>

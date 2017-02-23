@@ -4,10 +4,10 @@ export const WhoAmI = ({ user, logout }) => (
   <a className="logout mdl-navigation__link" onClick={logout}>{user && user.username}: Logout</a>
 )
 
-import {logout} from 'APP/app/reducers/auth'
-import {connect} from 'react-redux'
+import { logout } from 'APP/app/reducers/auth'
+import { connect } from 'react-redux'
 
-export default connect (
+export default connect(
   ({ auth }) => ({ user: auth }),
-  {logout},
-) (WhoAmI)
+  { logout },
+)(WhoAmI)

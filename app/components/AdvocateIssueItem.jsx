@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-export default ({issue}) => {
+export default ({ issue }) => {
   return (
     <tr>
       <td className="mdl-data-table__cell--non-numeric">{issue.username}</td>
