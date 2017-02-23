@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
-var webpack = require('webpack');
+const webpack = require('webpack') // eslint-disable-line no-unused-vars
 
 module.exports = {
   entry: './app/main.jsx',
@@ -25,4 +25,4 @@ module.exports = {
       }
     ]
   }
-};
+}
