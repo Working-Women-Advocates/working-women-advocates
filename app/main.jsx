@@ -1,14 +1,13 @@
 'use strict'
 import React from 'react'
-import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
-import {render} from 'react-dom'
-import {connect, Provider} from 'react-redux'
-import { receiveIssues, receiveAdvocateIssues, receiveOpenIssues } from './reducers/issues';
-import { receiveVolunteers } from './reducers/volunteers';
-import { receiveAdvocates } from './reducers/advocates';
+import { Router, Route, IndexRedirect, browserHistory } from 'react-router'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { receiveIssues, receiveAdvocateIssues, receiveOpenIssues } from './reducers/issues'
+import { receiveVolunteers } from './reducers/volunteers'
+import { receiveAdvocates } from './reducers/advocates'
 
 import store from './store'
-import Login from './components/Login'
 import AppContainer from './containers/AppContainer'
 import Landing from './components/Landing'
 import Hotline from './components/Hotline'
@@ -17,35 +16,33 @@ import VolunteerSignup from './containers/VolunteerSignupContainer'
 import AdvocateLoginContainer from './containers/AdvocateLoginContainer'
 import SignupContainer from './containers/SignupContainer'
 import SignupSubmitted from './components/SignupSubmitted'
-import Nav from './components/Nav'
-import Footer from './components/Footer'
 import AdminContainer from './containers/AdminContainer'
 import AdvocateContainer from './containers/AdvocateContainer'
 import AvailableContainer from './containers/AvailableContainer'
 import AdvocatesContainer from './containers/AdvocatesContainer'
 import VolunteersContainer from './containers/VolunteersContainer'
 
-const allCasesForAdmin = function() {
-  store.dispatch(receiveIssues());
+const allCasesForAdmin = function () {
+  store.dispatch(receiveIssues())
 }
 
 const advocateCases = function () {
-  store.dispatch(receiveAdvocateIssues());
-};
+  store.dispatch(receiveAdvocateIssues())
+}
 
 const availableCases = function () {
-  store.dispatch(receiveOpenIssues());
-};
+  store.dispatch(receiveOpenIssues())
+}
 
 const allVolunteers = function () {
-  store.dispatch(receiveVolunteers());
-};
+  store.dispatch(receiveVolunteers())
+}
 
 const allAdvocates = function () {
-  store.dispatch(receiveAdvocates());
-};
+  store.dispatch(receiveAdvocates())
+}
 
-render (
+render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={AppContainer}>
