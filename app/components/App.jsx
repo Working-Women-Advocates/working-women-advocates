@@ -1,9 +1,13 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import NavContainer from '../containers/NavContainer'
 import DrawerContainer from '../containers/DrawerContainer'
 import Footer from './Footer'
 
-export default (props) => {
+/* ----------------- COMPONENT ------------------ */
+
+const App = props => {
   const loggedin = props.auth
   return (
     <div className={`${loggedin ? 'logged-out mdl-layout--fixed-header' : 'logged-in restaurant-woman'} mdl-layout mdl-js-layout`}>
@@ -14,3 +18,13 @@ export default (props) => {
     </div>
   )
 }
+
+/* ----------------- CONTAINER ------------------ */
+
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  }
+}
+
+export default connect(mapStateToProps)(App)

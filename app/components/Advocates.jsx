@@ -1,7 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import AdvocateItem from './AdvocateItem'
 
-export default ({ advocates }) => {
+/* ----------------- COMPONENT ------------------ */
+
+const Advocates = ({ advocates }) => {
   return (
     <main className="mdl-layout__content dashboard">
       <div className="page-content mdl-cell mdl-cell--6-col">
@@ -23,3 +27,14 @@ export default ({ advocates }) => {
     </main>
   )
 }
+
+/* ----------------- CONTAINER ------------------ */
+
+const mapStateToProps = state => {
+  return {
+    advocates: state.advocates
+  }
+}
+
+export default connect(mapStateToProps)(Advocates)
+
