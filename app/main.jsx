@@ -8,19 +8,19 @@ import { receiveVolunteers } from './reducers/volunteers'
 import { receiveAdvocates } from './reducers/advocates'
 
 import store from './store'
-import AppContainer from './containers/AppContainer'
+import App from './components/App'
 import Landing from './components/Landing'
 import Hotline from './components/Hotline'
 import About from './components/About'
-import VolunteerSignup from './containers/VolunteerSignupContainer'
-import AdvocateLoginContainer from './containers/AdvocateLoginContainer'
-import SignupContainer from './containers/SignupContainer'
+import VolunteerSignup from './components/VolunteerSignup'
+import AdvocateLogin from './components/AdvocateLogin'
+import SignupContainer from './components/SignupContainer'
 import SignupSubmitted from './components/SignupSubmitted'
-import AdminContainer from './containers/AdminContainer'
-import AdvocateContainer from './containers/AdvocateContainer'
-import AvailableContainer from './containers/AvailableContainer'
-import AdvocatesContainer from './containers/AdvocatesContainer'
-import VolunteersContainer from './containers/VolunteersContainer'
+import AdminDashboard from './components/AdminDashboard'
+import AdvocateDashboard from './components/AdvocateDashboard'
+import AvailableDashboard from './components/AvailableDashboard'
+import Advocates from './components/Advocates'
+import Volunteers from './components/Volunteers'
 
 const allCasesForAdmin = function () {
   store.dispatch(receiveIssues())
@@ -45,20 +45,20 @@ const allAdvocates = function () {
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={AppContainer}>
+      <Route path="/" component={App}>
         <IndexRedirect to="/landing" />
         <Route path="/landing" component={Landing} />
         <Route path="/hotline" component={Hotline} />
         <Route path="/about" component={About} />
         <Route path="/volunteer-signup" component={VolunteerSignup} />
-        <Route path="/advocate-login" component={AdvocateLoginContainer} />
+        <Route path="/advocate-login" component={AdvocateLogin} />
         <Route path="/working-women-signup" component={SignupContainer} />
         <Route path="/signup-submitted" component={SignupSubmitted} />
-        <Route path="/admin-dashboard" component={AdminContainer} onEnter={allCasesForAdmin} />
-        <Route path="/advocate-dashboard" component={AdvocateContainer} onEnter={advocateCases} />
-        <Route path="/available-dashboard" component={AvailableContainer} onEnter={availableCases} />
-        <Route path="/volunteers" component={VolunteersContainer} onEnter={allVolunteers} />
-        <Route path="/advocates" component={AdvocatesContainer} onEnter={allAdvocates} />
+        <Route path="/admin-dashboard" component={AdminDashboard} onEnter={allCasesForAdmin} />
+        <Route path="/advocate-dashboard" component={AdvocateDashboard} onEnter={advocateCases} />
+        <Route path="/available-dashboard" component={AvailableDashboard} onEnter={availableCases} />
+        <Route path="/volunteers" component={Volunteers} onEnter={allVolunteers} />
+        <Route path="/advocates" component={Advocates} onEnter={allAdvocates} />
       </Route>
     </Router>
   </Provider>,

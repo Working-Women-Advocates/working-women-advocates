@@ -1,8 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
+
 import LoggedInNav from './LoggedInNav'
 import LoggedOutNav from './LoggedOutNav'
+import { logout } from '../reducers/auth'
 
-export default ({ logout, auth }) => {
+const Nav = ({ logout, auth }) => {
   const loggedin = auth
   return (
     <header className={`${loggedin ? '' : 'mdl-layout__header--transparent'} mdl-layout__header`}>
@@ -17,3 +21,20 @@ export default ({ logout, auth }) => {
     </header>
   )
 }
+
+function mapStateToProps (state) {
+  return {
+    auth: state.auth
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    logout: () => {
+      dispatch(logout())
+      browserHistory.push('/')
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Nav)

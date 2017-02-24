@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Signup from '../components/Signup'
+import Signup from './Signup'
 import { signup } from '../reducers/issues'
 import { browserHistory } from 'react-router'
 

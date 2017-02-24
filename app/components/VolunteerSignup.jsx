@@ -1,8 +1,14 @@
 /* global componentHandler */
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 
-export default class VolunteerSignup extends Component {
+import { volunteerSignup } from '../reducers/auth'
+
+/* ----------------- COMPONENT ------------------ */
+
+class VolunteerSignup extends Component {
 
   componentDidMount () {
     // To handle material design styling on inputs
@@ -49,3 +55,16 @@ export default class VolunteerSignup extends Component {
     )
   }
 }
+
+/* ----------------- CONTAINER ------------------ */
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signup: (username, email, interest) => {
+      dispatch(volunteerSignup(username, email, interest))
+      browserHistory.push('/signup-submitted')
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(VolunteerSignup)

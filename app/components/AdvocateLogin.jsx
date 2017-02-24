@@ -1,8 +1,14 @@
 /* global componentHandler */
 
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 
-export default class AdvocateLogin extends Component {
+import { login } from '../reducers/auth'
+
+/* ----------------- COMPONENT ------------------ */
+
+class AdvocateLogin extends Component {
 
   componentDidMount () {
     // To handle material design styling on inputs
@@ -41,3 +47,16 @@ export default class AdvocateLogin extends Component {
     )
   }
 }
+
+/* ----------------- CONTAINER ------------------ */
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: (username, password) => {
+      dispatch(login(username, password))
+      browserHistory.push('/available-dashboard')
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(AdvocateLogin)
