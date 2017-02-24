@@ -1,12 +1,12 @@
 import axios from 'axios'
-import {dropIssues} from './issues'
-import {dropVolunteers} from './volunteers'
-import {dropAdvocates} from './advocates'
+import { dropIssues } from './issues'
+import { dropVolunteers } from './volunteers'
+import { dropAdvocates } from './advocates'
 
-const reducer = (state=null, action) => {
-  switch(action.type) {
-  case AUTHENTICATED:
-    return action.user
+const reducer = (state = null, action) => {
+  switch (action.type) {
+    case AUTHENTICATED:
+      return action.user
   }
   return state
 }
@@ -19,7 +19,7 @@ export const authenticated = user => ({
 export const login = (username, password) =>
   dispatch =>
     axios.post('/api/auth/local/login',
-      {username, password})
+      { username, password })
       .then(() => dispatch(whoami()))
       .catch(() => dispatch(whoami()))
 
@@ -44,7 +44,7 @@ export const whoami = () =>
 export const volunteerSignup = (username, email, interest) =>
   dispatch =>
     axios.post('/api/volunteers/',
-      {username, email, interest})
+      { username, email, interest })
       // .then(() => console.log('volunteer signup complete'))
       .catch((err) => alert(err))
 
