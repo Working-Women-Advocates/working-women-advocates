@@ -18,7 +18,7 @@ import SignupContainer from './containers/SignupContainer'
 import SignupSubmitted from './components/SignupSubmitted'
 import AdminDashboard from './components/AdminDashboard'
 import AdvocateDashboard from './components/AdvocateDashboard'
-import AvailableContainer from './containers/AvailableContainer'
+import AvailableDashboard from './components/AvailableDashboard'
 import Advocates from './components/Advocates'
 import VolunteersContainer from './containers/VolunteersContainer'
 
@@ -56,7 +56,7 @@ render(
         <Route path="/signup-submitted" component={SignupSubmitted} />
         <Route path="/admin-dashboard" component={AdminDashboard} onEnter={allCasesForAdmin} />
         <Route path="/advocate-dashboard" component={AdvocateDashboard} onEnter={advocateCases} />
-        <Route path="/available-dashboard" component={AvailableContainer} onEnter={availableCases} />
+        <Route path="/available-dashboard" component={AvailableDashboard} onEnter={availableCases} />
         <Route path="/volunteers" component={VolunteersContainer} onEnter={allVolunteers} />
         <Route path="/advocates" component={Advocates} onEnter={allAdvocates} />
       </Route>

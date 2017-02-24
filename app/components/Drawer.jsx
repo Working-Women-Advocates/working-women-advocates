@@ -1,9 +1,15 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
+
 import LoggedInNav from './LoggedInNav'
 import LoggedOutNav from './LoggedOutNav'
+import { logout } from '../reducers/auth'
+
+/* ----------------- COMPONENT ------------------ */
 
 // This is what slides out from the left on the nav
-export default ({ logout, auth }) => {
+const Drawer = ({ logout, auth }) => {
   const loggedin = auth
   return (
     <div className="mdl-layout__drawer">
@@ -14,3 +20,22 @@ export default ({ logout, auth }) => {
     </div>
   )
 }
+
+/* ----------------- CONTAINER ------------------ */
+
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => {
+      dispatch(logout())
+      browserHistory.push('/')
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Drawer)

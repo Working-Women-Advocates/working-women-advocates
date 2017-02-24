@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import NavContainer from '../containers/NavContainer'
-import DrawerContainer from '../containers/DrawerContainer'
+import Nav from './Nav'
+import Drawer from './Drawer'
 import Footer from './Footer'
 
 /* ----------------- COMPONENT ------------------ */
@@ -11,8 +11,8 @@ const App = props => {
   const loggedin = props.auth
   return (
     <div className={`${loggedin ? 'logged-out mdl-layout--fixed-header' : 'logged-in restaurant-woman'} mdl-layout mdl-js-layout`}>
-      <NavContainer />
-      <DrawerContainer />
+      <Nav />
+      <Drawer />
       { props.children }
       <Footer />
     </div>
