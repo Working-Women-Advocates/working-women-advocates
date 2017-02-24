@@ -1,7 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import VolunteerItem from './VolunteerItem'
 
-export default ({ volunteers }) => {
+/* ----------------- COMPONENT ------------------ */
+
+const Volunteers = ({ volunteers }) => {
   return (
     <main className="mdl-layout__content dashboard">
       <div className="page-content mdl-cell mdl-cell--6-col">
@@ -24,3 +28,13 @@ export default ({ volunteers }) => {
     </main>
   )
 }
+
+/* ----------------- CONTAINER ------------------ */
+
+const mapStateToProps = state => {
+  return {
+    volunteers: state.volunteers
+  }
+}
+
+export default connect(mapStateToProps)(Volunteers)

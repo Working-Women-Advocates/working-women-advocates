@@ -12,15 +12,15 @@ import App from './components/App'
 import Landing from './components/Landing'
 import Hotline from './components/Hotline'
 import About from './components/About'
-import VolunteerSignup from './containers/VolunteerSignupContainer'
+import VolunteerSignup from './components/VolunteerSignup'
 import AdvocateLogin from './components/AdvocateLogin'
-import SignupContainer from './containers/SignupContainer'
+import SignupContainer from './components/SignupContainer'
 import SignupSubmitted from './components/SignupSubmitted'
 import AdminDashboard from './components/AdminDashboard'
 import AdvocateDashboard from './components/AdvocateDashboard'
 import AvailableDashboard from './components/AvailableDashboard'
 import Advocates from './components/Advocates'
-import VolunteersContainer from './containers/VolunteersContainer'
+import Volunteers from './components/Volunteers'
 
 const allCasesForAdmin = function () {
   store.dispatch(receiveIssues())
@@ -57,7 +57,7 @@ render(
         <Route path="/admin-dashboard" component={AdminDashboard} onEnter={allCasesForAdmin} />
         <Route path="/advocate-dashboard" component={AdvocateDashboard} onEnter={advocateCases} />
         <Route path="/available-dashboard" component={AvailableDashboard} onEnter={availableCases} />
-        <Route path="/volunteers" component={VolunteersContainer} onEnter={allVolunteers} />
+        <Route path="/volunteers" component={Volunteers} onEnter={allVolunteers} />
         <Route path="/advocates" component={Advocates} onEnter={allAdvocates} />
       </Route>
     </Router>
