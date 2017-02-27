@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { login } from '../reducers/auth'
+import { clearLoginError } from '../reducers/loginError'
 
 /* ----------------- COMPONENT ------------------ */
 
@@ -12,6 +13,7 @@ class AdvocateLogin extends Component {
   componentDidMount () {
     // To handle material design styling on inputs
     componentHandler.upgradeDom()
+    this.props.clearLoginError()
   }
 
   render () {
@@ -37,13 +39,15 @@ class AdvocateLogin extends Component {
                   <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
                     Submit
                   </button>
-                </div>
-                {
-                  this.props.loginError &&
-                  (<div>
-                    Name / Password Invalid
-                  </div>)
-                }
+                  </div>
+                  {
+                    this.props.loginError &&
+                      (
+                        <div className="login-error">
+                          <p>Login Failed</p>
+                        </div>
+                      )
+                    }
               </form>
             </div>
           </div>
@@ -65,6 +69,9 @@ const mapDispatchToProps = dispatch => {
   return {
     login: (username, password) => {
       dispatch(login(username, password))
+    },
+    clearLoginError: () => {
+      dispatch(clearLoginError())
     }
   }
 }

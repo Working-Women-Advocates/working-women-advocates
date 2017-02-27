@@ -3,7 +3,6 @@ import { dropIssues } from './issues'
 import { dropVolunteers } from './volunteers'
 import { dropAdvocates } from './advocates'
 import { browserHistory } from 'react-router'
-
 import { setLoginError } from './loginError'
 
 const reducer = (state = null, action) => {
