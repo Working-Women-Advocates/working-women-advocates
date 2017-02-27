@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
 
 import { login } from '../reducers/auth'
 
@@ -24,7 +23,7 @@ class AdvocateLogin extends Component {
             <div className="mdl-card__supporting-text">
               <form action="#" onSubmit={evt => {
                 evt.preventDefault()
-                this.props.login(evt.target.name.value, evt.target.password.value)
+                console.log(this.props.login(evt.target.name.value, evt.target.password.value))
               } }>
                 <div className="mdl-textfield mdl-js-textfield">
                   <input className="mdl-textfield__input" type="text" id="name" />
@@ -39,6 +38,12 @@ class AdvocateLogin extends Component {
                     Submit
                   </button>
                 </div>
+                {
+                  this.props.loginError &&
+                  (<div>
+                    Name / Password Invalid
+                  </div>)
+                }
               </form>
             </div>
           </div>
@@ -50,13 +55,18 @@ class AdvocateLogin extends Component {
 
 /* ----------------- CONTAINER ------------------ */
 
+const mapStateToProps = state => {
+  return {
+    loginError: state.loginError
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     login: (username, password) => {
       dispatch(login(username, password))
-      browserHistory.push('/available-dashboard')
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(AdvocateLogin)
+export default connect(mapStateToProps, mapDispatchToProps)(AdvocateLogin)
