@@ -25,11 +25,11 @@ class AdvocateLogin extends Component {
             <div className="mdl-card__supporting-text">
               <form action="#" onSubmit={evt => {
                 evt.preventDefault()
-                console.log(this.props.login(evt.target.name.value, evt.target.password.value))
+                this.props.login(evt.target.name.value, evt.target.password.value)
               } }>
                 <div className="mdl-textfield mdl-js-textfield">
                   <input className="mdl-textfield__input" type="text" id="name" />
-                  <label className="mdl-textfield__label" htmlFor="name">Name</label>
+                  <label className="mdl-textfield__label" htmlFor="name">E-mail</label>
                 </div>
                 <div className="mdl-textfield mdl-js-textfield">
                   <input className="mdl-textfield__input" type="password" id="password" />
