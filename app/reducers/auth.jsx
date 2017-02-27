@@ -2,6 +2,8 @@ import axios from 'axios'
 import { dropIssues } from './issues'
 import { dropVolunteers } from './volunteers'
 import { dropAdvocates } from './advocates'
+import { browserHistory } from 'react-router'
+import { setLoginError } from './loginError'
 
 const reducer = (state = null, action) => {
   switch (action.type) {
@@ -20,8 +22,8 @@ export const login = (username, password) =>
   dispatch =>
     axios.post('/api/auth/local/login',
       { username, password })
-      .then(() => dispatch(whoami()))
-      .catch(() => dispatch(whoami()))
+      .then(() => browserHistory.push('/available-dashboard'))
+      .catch(() => dispatch(setLoginError(true)))
 
 export const logout = () =>
   dispatch =>
