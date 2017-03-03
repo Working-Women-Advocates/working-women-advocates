@@ -3,7 +3,7 @@
 const webpack = require('webpack') // eslint-disable-line no-unused-vars
 
 module.exports = {
-  entry: './app/main.jsx',
+  entry: './app/react/index.jsx',
   output: {
     path: __dirname,
     filename: './public/bundle.js'

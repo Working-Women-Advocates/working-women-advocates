@@ -4,11 +4,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 
-import { login } from '../redux/reducers/auth'
+import { volunteerSignup } from '../../redux/reducers/auth'
 
 /* ----------------- COMPONENT ------------------ */
 
-class AdvocateLogin extends Component {
+class VolunteerSignup extends Component {
 
   componentDidMount () {
     // To handle material design styling on inputs
@@ -18,21 +18,29 @@ class AdvocateLogin extends Component {
   render () {
     return (
       <main className="mdl-layout__content">
-        <div className="page-content mdl-cell mdl-cell--6-col">
-          <h1>Advocate Login</h1>
+        <div id="volunteer" className="page-content mdl-cell mdl-cell--6-col">
+          <h1>Volunteer</h1>
           <div className="mdl-card mdl-shadow--2dp">
+            <div className="mdl-card__title mdl-card--expand">
+              <h2 className="mdl-card__title-text">Become an advocate</h2>
+            </div>
             <div className="mdl-card__supporting-text">
+              <p>Thank you for your interest! Fill out the information below and someone will contact you for an interview soon.</p>
               <form action="#" onSubmit={evt => {
                 evt.preventDefault()
-                this.props.login(evt.target.name.value, evt.target.password.value)
+                this.props.signup(evt.target.name.value, evt.target.email.value, evt.target.description.value)
               } }>
                 <div className="mdl-textfield mdl-js-textfield">
                   <input className="mdl-textfield__input" type="text" id="name" />
                   <label className="mdl-textfield__label" htmlFor="name">Name</label>
                 </div>
                 <div className="mdl-textfield mdl-js-textfield">
-                  <input className="mdl-textfield__input" type="password" id="password" />
-                  <label className="mdl-textfield__label" htmlFor="password">Password</label>
+                  <input className="mdl-textfield__input" type="text" id="email" />
+                  <label className="mdl-textfield__label" htmlFor="email">Email</label>
+                </div>
+                <div className="mdl-textfield mdl-js-textfield">
+                  <input className="mdl-textfield__input" type="textarea" id="description" />
+                  <label className="mdl-textfield__label" htmlFor="description">Why does this interest you?</label>
                 </div>
                 <div className="get-started">
                   <button className="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
@@ -52,11 +60,11 @@ class AdvocateLogin extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (username, password) => {
-      dispatch(login(username, password))
-      browserHistory.push('/available-dashboard')
+    signup: (username, email, interest) => {
+      dispatch(volunteerSignup(username, email, interest))
+      browserHistory.push('/signup-submitted')
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(AdvocateLogin)
+export default connect(null, mapDispatchToProps)(VolunteerSignup)

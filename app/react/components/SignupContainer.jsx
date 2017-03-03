@@ -3,7 +3,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Signup from './Signup'
-import { signup } from '../redux/reducers/issues'
+import { signup } from '../../redux/reducers/issues'
 import { browserHistory } from 'react-router'
 
 function mapDispatchToProps (dispatch) {
