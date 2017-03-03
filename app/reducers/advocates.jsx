@@ -1,23 +1,16 @@
+import Immutable from 'immutable'
 import axios from 'axios'
+
+/* --------------- INITIAL STATE --------------- */
+
+const initialState = Immutable.List([])
+
+/* --------------- ACTIONS --------------- */
 
 const GET_ALL_ADVOCATES = 'GET_ALL_ADVOCATES'
 const CLEAR_ADVOCATES = 'CLEAR_ADVOCATES'
 
-const reducer = (state = [], action) => {
-  let newState = Object.assign({}, state)
-
-  switch (action.type) {
-    case GET_ALL_ADVOCATES:
-      newState = action.advocates
-      break
-    case CLEAR_ADVOCATES:
-      newState = []
-      break
-    default:
-      return state
-  }
-  return newState
-}
+/* --------------- ACTION CREATORS --------------- */
 
 export const getAllAdvocates = advocates => ({
   type: GET_ALL_ADVOCATES,
@@ -29,11 +22,32 @@ export const dropAdvocates = advocates => ({
   advocates
 })
 
+/* --------------- ASYNC ACTION CREATORS --------------- */
+
 export function receiveAdvocates () {
   return function (dispatch) {
     axios.get('/api/users/advocates')
-      .then((res) => dispatch(getAllAdvocates(res.data)))
-      .catch((err) => alert(err))
+      .then(res => {
+        const advocates = Immutable.fromJS(res.data)
+        dispatch(getAllAdvocates(advocates))
+      })
+      .catch(err => alert(err)) // eslint-disable-line no-undef
+  }
+}
+
+/* --------------- REDUCER --------------- */
+
+// At some point, I think we should combine GET_ALL_ADVOCATES and CLEAR_ADVOCATES
+// and pass in an empty List for GET_ALL
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_ALL_ADVOCATES:
+      return action.advocates
+    case CLEAR_ADVOCATES:
+      return Immutable.List([])
+    default:
+      return state
   }
 }
 

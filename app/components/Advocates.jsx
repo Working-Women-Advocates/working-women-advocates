@@ -20,7 +20,10 @@ const Advocates = ({ advocates }) => {
             </tr>
           </thead>
           <tbody>
-            { advocates ? advocates.map(advocate => <AdvocateItem key={ advocate.id } advocate={advocate} />) : ''}
+            { advocates ? advocates.map(advocate => (
+              <AdvocateItem key={ advocate.get('id') } advocate={advocate} />
+            ))
+            : ''}
           </tbody>
           </table>
       </div>
