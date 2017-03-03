@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 
-import { volunteerSignup } from '../reducers/auth'
+import { volunteerSignup } from '../redux/reducers/auth'
 
 /* ----------------- COMPONENT ------------------ */
 

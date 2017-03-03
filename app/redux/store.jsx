@@ -1,9 +1,15 @@
-import { createStore, applyMiddleware } from 'redux'
-import rootReducer from './reducers'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
 import createLogger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 
 import { whoami } from './reducers/auth'
+
+const rootReducer = combineReducers({
+  auth: require('./reducers/auth').default,
+  issues: require('./reducers/issues').default,
+  volunteers: require('./reducers/volunteers').default,
+  advocates: require('./reducers/advocates').default
+})
 
 // Logger must be last in the chain, otherwise it will log thunks and promises, not
 // actual actions

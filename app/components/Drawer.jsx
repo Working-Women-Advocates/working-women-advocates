@@ -4,7 +4,7 @@ import { browserHistory } from 'react-router'
 
 import LoggedInNav from './LoggedInNav'
 import LoggedOutNav from './LoggedOutNav'
-import { logout } from '../reducers/auth'
+import { logout } from '../redux/reducers/auth'
 
 /* ----------------- COMPONENT ------------------ */
 
