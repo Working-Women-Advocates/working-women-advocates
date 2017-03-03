@@ -21,7 +21,7 @@ const Volunteers = ({ volunteers }) => {
             </tr>
           </thead>
           <tbody>
-            { volunteers ? volunteers.map(volunteer => <VolunteerItem key={ volunteer.id } volunteer={volunteer} />) : ''}
+            { volunteers ? volunteers.map(volunteer => <VolunteerItem key={ volunteer.get('id') } volunteer={volunteer} />) : ''}
           </tbody>
           </table>
       </div>
