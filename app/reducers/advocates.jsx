@@ -37,9 +37,6 @@ export function receiveAdvocates () {
 
 /* --------------- REDUCER --------------- */
 
-// At some point, I think we should combine GET_ALL_ADVOCATES and CLEAR_ADVOCATES
-// and pass in an empty List for GET_ALL
-
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ALL_ADVOCATES:

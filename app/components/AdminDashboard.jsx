@@ -25,7 +25,7 @@ const AdminDashboard = ({ issues }) => {
             </tr>
           </thead>
           <tbody>
-            { issues ? issues.map(issue => <AdminIssueItem key={ issue.id } issue={issue} />) : ''}
+            { issues ? issues.map(issue => <AdminIssueItem key={ issue.get('id') } issue={issue} />) : ''}
           </tbody>
           </table>
       </div>

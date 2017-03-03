@@ -23,7 +23,7 @@ const AvailableDashboard = ({ issues }) => {
             </tr>
           </thead>
           <tbody>
-            { issues ? issues.map(issue => <AvailableIssueItem key={ issue.id } issue={issue} />) : ''}
+            { issues ? issues.map(issue => <AvailableIssueItem key={ issue.get('id') } issue={issue} />) : ''}
           </tbody>
           </table>
       </div>

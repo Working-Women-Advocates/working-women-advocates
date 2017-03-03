@@ -1,31 +1,18 @@
+import Immutable from 'immutable'
 import axios from 'axios'
+
+/* --------------- INITIAL STATE --------------- */
+
+const initialState = Immutable.List([])
+
+/* --------------- ACTIONS --------------- */
 
 const GET_OPEN_ISSUES = 'GET_OPEN_ISSUES'
 const GET_ADVOCATE_ISSUES = 'GET_ADVOCATE_ISSUES'
 const GET_ALL_ISSUES = 'GET_ISSUES'
 const CLEAR_ISSUES = 'CLEAR_ISSUES'
 
-const reducer = (state = [], action) => {
-  let newState = Object.assign({}, state)
-
-  switch (action.type) {
-    case GET_ALL_ISSUES:
-      newState = action.issues
-      break
-    case GET_OPEN_ISSUES:
-      newState = action.issues
-      break
-    case GET_ADVOCATE_ISSUES:
-      newState = action.issues
-      break
-    case CLEAR_ISSUES:
-      newState = []
-      break
-    default:
-      return state
-  }
-  return newState
-}
+/* --------------- ACTION CREATORS --------------- */
 
 export const getIssues = issues => ({
   type: GET_ALL_ISSUES,
@@ -47,35 +34,66 @@ export const dropIssues = issues => ({
   issues
 })
 
+/* --------------- ASYNC ACTION CREATORS --------------- */
+
 export function receiveIssues () {
   return function (dispatch) {
     axios.get('/api/issues')
-      .then((res) => dispatch(getIssues(res.data)))
-      .catch((err) => alert(err))
+      .then(res => {
+        const issues = Immutable.fromJS(res.data)
+        dispatch(getIssues(issues))
+      })
+      .catch(err => alert(err)) // eslint-disable-line no-undef
   }
 }
 
 export function receiveOpenIssues (id) {
   return function (dispatch) {
     axios.get(`/api/issues/available/${id}`)
-      .then((res) => dispatch(getOpenIssues(res.data)))
-      .catch((err) => alert(err))
+      .then(res => {
+        const issues = Immutable.fromJS(res.data)
+        dispatch(getOpenIssues(issues))
+      })
+      .catch(err => alert(err)) // eslint-disable-line no-undef
   }
 }
 
 export function receiveAdvocateIssues () {
   return function (dispatch) {
     axios.get('/api/issues/assignedToMe')
-      .then((res) => dispatch(getAdvocateIssues(res.data)))
-      .catch((err) => alert(err))
+      .then(res => {
+        const issues = Immutable.fromJS(res.data)
+        dispatch(getAdvocateIssues(issues))
+      })
+      .catch(err => alert(err)) // eslint-disable-line no-undef
   }
 }
 
 export function signup (username, contact_method, email, phone, time, timezone, voicemail, text, skype, other) {
   return function (dispatch) {
     axios.post('/api/issues', { username, contact_method, email, phone, time, timezone, voicemail, text, skype, other })
-      .then((res) => dispatch(dropIssues(res.data)))
-      .catch((err) => alert(err))
+      .then(res => {
+        const issues = Immutable.fromJS(res.data)
+        dispatch(dropIssues(issues))
+      })
+      .catch(err => alert(err)) // eslint-disable-line no-undef
+  }
+}
+
+/* --------------- REDUCER --------------- */
+
+const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case GET_ALL_ISSUES:
+      return action.issues
+    case GET_OPEN_ISSUES:
+      return action.issues
+    case GET_ADVOCATE_ISSUES:
+      return action.issues
+    case CLEAR_ISSUES:
+      return Immutable.List([])
+    default:
+      return state
   }
 }
 

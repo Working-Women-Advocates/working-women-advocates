@@ -22,7 +22,7 @@ const AdvocateDashboard = ({ issues }) => {
             </tr>
           </thead>
           <tbody>
-            { issues ? issues.map(issue => <AdvocateIssueItem key={ issue.id } issue={issue} />) : ''}
+            { issues ? issues.map(issue => <AdvocateIssueItem key={ issue.get('id') } issue={issue} />) : ''}
           </tbody>
           </table>
       </div>
