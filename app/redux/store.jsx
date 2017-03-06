@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk'
 import { whoami } from './reducers/auth'
 
 const rootReducer = combineReducers({
-  auth: require('./reducers/auth').default,
+  currentUser: require('./reducers/auth').default,
   issues: require('./reducers/issues').default,
   volunteers: require('./reducers/volunteers').default,
   advocates: require('./reducers/advocates').default

@@ -9,13 +9,13 @@ import { logout } from '../../redux/reducers/auth'
 /* ----------------- COMPONENT ------------------ */
 
 // This is what slides out from the left on the nav
-const Drawer = ({ logout, auth }) => {
-  const loggedin = auth
+const Drawer = ({ logout, currentUser }) => {
+  const loggedin = currentUser
   return (
     <div className="mdl-layout__drawer">
       <span className="mdl-layout-title">WWA</span>
       <nav className="mdl-navigation">
-        {loggedin ? <LoggedInNav logout={logout} auth={loggedin} /> : <LoggedOutNav />}
+        {loggedin ? <LoggedInNav logout={logout} currentUser={loggedin} /> : <LoggedOutNav />}
       </nav>
     </div>
   )
@@ -25,7 +25,7 @@ const Drawer = ({ logout, auth }) => {
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth
+    currentUser: state.currentUser
   }
 }
 
