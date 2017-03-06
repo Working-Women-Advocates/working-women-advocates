@@ -8,7 +8,7 @@ import Footer from './Footer'
 /* ----------------- COMPONENT ------------------ */
 
 const App = props => {
-  const loggedin = props.auth
+  const loggedin = props.currentUser
   return (
     <div className={`${loggedin ? 'logged-out mdl-layout--fixed-header' : 'logged-in restaurant-woman'} mdl-layout mdl-js-layout`}>
       <Nav />
@@ -23,7 +23,7 @@ const App = props => {
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth
+    currentUser: state.currentUser
   }
 }
 

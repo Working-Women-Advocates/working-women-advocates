@@ -1,29 +1,29 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import AvailableIssueItem from './AvailableIssueItem'
+import AdvocateItem from './AdvocateItem'
 
 /* ----------------- COMPONENT ------------------ */
 
-const AvailableDashboard = ({ issues }) => {
+const Advocates = ({ advocates }) => {
   return (
     <main className="mdl-layout__content dashboard">
       <div className="page-content mdl-cell mdl-cell--6-col">
-        <h2>Cases Dashboard</h2>
-        <h4>Open Cases</h4>
+        <h2>Advocate Dashboard</h2>
         <table className="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
           <thead>
             <tr>
-              <th className="mdl-data-table__cell--non-numeric">Username</th>
-              <th>Contact</th>
-              <th>Description</th>
-              <th>Submitted</th>
-              <th> </th>
-              <th> </th>
+              <th className="mdl-data-table__cell--non-numeric">Name</th>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Started</th>
             </tr>
           </thead>
           <tbody>
-            { issues ? issues.map(issue => <AvailableIssueItem key={ issue.id } issue={issue} />) : ''}
+            { advocates ? advocates.map(advocate => (
+              <AdvocateItem key={ advocate.get('id') } advocate={advocate} />
+            ))
+            : ''}
           </tbody>
           </table>
       </div>
@@ -35,8 +35,9 @@ const AvailableDashboard = ({ issues }) => {
 
 const mapStateToProps = state => {
   return {
-    issues: state.issues
+    advocates: state.advocates
   }
 }
 
-export default connect(mapStateToProps)(AvailableDashboard)
+export default connect(mapStateToProps)(Advocates)
+

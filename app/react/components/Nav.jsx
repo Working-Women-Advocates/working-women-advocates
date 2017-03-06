@@ -4,10 +4,10 @@ import { browserHistory } from 'react-router'
 
 import LoggedInNav from './LoggedInNav'
 import LoggedOutNav from './LoggedOutNav'
-import { logout } from '../reducers/auth'
+import { logout } from '../../redux/reducers/auth'
 
-const Nav = ({ logout, auth }) => {
-  const loggedin = auth
+const Nav = ({ logout, currentUser }) => {
+  const loggedin = currentUser
   return (
     <header className={`${loggedin ? '' : 'mdl-layout__header--transparent'} mdl-layout__header`}>
       <div className="mdl-layout__header-row">
@@ -16,7 +16,7 @@ const Nav = ({ logout, auth }) => {
         {/* Add spacer, to align navigation to the right */}
         <div className="mdl-layout-spacer" />
         {/* Navigation. We hide it in small screens. */}
-        {loggedin ? <LoggedInNav logout={logout} auth={loggedin} /> : <LoggedOutNav />}
+        {loggedin ? <LoggedInNav logout={logout} currentUser={loggedin} /> : <LoggedOutNav />}
       </div>
     </header>
   )
@@ -24,7 +24,7 @@ const Nav = ({ logout, auth }) => {
 
 function mapStateToProps (state) {
   return {
-    auth: state.auth
+    currentUser: state.currentUser
   }
 }
 
