@@ -1,4 +1,3 @@
-const app = require('APP'), { env } = app
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
@@ -21,13 +20,16 @@ passport.deserializeUser(
   }
 )
 
-// Local passport configuration
-
-auth.post('/local/login', (req, res, next) =>
-  passport.authenticate('local', {
-    successRedirect: '/'
+auth.post('/local/login', function (req, res, next) {
+  passport.authenticate('local', function (err, user, info) {
+    if (err) return next(err)
+    if (!user) return res.json({})
+    req.logIn(user, function (err) {
+      if (err) { return next(err) }
+      return res.json(user)
+    })
   })(req, res, next)
-)
+})
 
 passport.use(new LocalStrategy(
   (email, password, done) => {
@@ -56,4 +58,3 @@ auth.post('/logout', (req, res, next) => {
 })
 
 module.exports = auth
-

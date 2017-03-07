@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
 
 import { login } from '../../redux/reducers/auth'
 
@@ -28,7 +27,7 @@ class AdvocateLogin extends Component {
               } }>
                 <div className="mdl-textfield mdl-js-textfield">
                   <input className="mdl-textfield__input" type="text" id="name" />
-                  <label className="mdl-textfield__label" htmlFor="name">Name</label>
+                  <label className="mdl-textfield__label" htmlFor="name">E-mail</label>
                 </div>
                 <div className="mdl-textfield mdl-js-textfield">
                   <input className="mdl-textfield__input" type="password" id="password" />
@@ -54,7 +53,6 @@ const mapDispatchToProps = dispatch => {
   return {
     login: (username, password) => {
       dispatch(login(username, password))
-      browserHistory.push('/available-dashboard')
     }
   }
 }
