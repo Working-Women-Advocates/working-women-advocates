@@ -44,10 +44,11 @@ const Issue = db.define('issues', {
   description: Sequelize.STRING,
   status: {
     type: Sequelize.ENUM('open', 'closed'),
-    defaultValue: 'open',
-    validate: {
-      notEmpty: true
-    }
+    defaultValue: 'open'
+  },
+  urgent: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
