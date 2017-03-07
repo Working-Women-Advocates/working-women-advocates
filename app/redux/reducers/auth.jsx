@@ -4,6 +4,7 @@ import { dropIssues } from './issues'
 import { browserHistory } from 'react-router'
 import { dropVolunteers } from './volunteers'
 import { dropAdvocates } from './advocates'
+import { setLoginError } from './loginError'
 
 /* --------------- INITIAL STATE --------------- */
 
@@ -28,7 +29,7 @@ export const login = (username, password) =>
       { username, password })
       .then((res) => {
         if (res.data.id) browserHistory.push('/available-dashboard')
-        // else throw alert
+        else dispatch(setLoginError(true))
       })
       .catch((err) => {
         console.error(err)
