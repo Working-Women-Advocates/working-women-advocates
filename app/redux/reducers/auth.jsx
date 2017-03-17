@@ -1,8 +1,10 @@
 import Immutable from 'immutable'
 import axios from 'axios'
 import { dropIssues } from './issues'
+import { browserHistory } from 'react-router'
 import { dropVolunteers } from './volunteers'
 import { dropAdvocates } from './advocates'
+import { setLoginError } from './loginError'
 
 /* --------------- INITIAL STATE --------------- */
 
@@ -25,8 +27,13 @@ export const login = (username, password) =>
   dispatch =>
     axios.post('/api/auth/local/login',
       { username, password })
-      .then(() => dispatch(whoami()))
-      .catch(() => dispatch(whoami()))
+      .then((res) => {
+        if (res.data.id) browserHistory.push('/available-dashboard')
+        else dispatch(setLoginError(true))
+      })
+      .catch((err) => {
+        console.error(err)
+      })
 
 export const logout = () =>
   dispatch =>

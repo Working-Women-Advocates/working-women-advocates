@@ -8,7 +8,8 @@ const rootReducer = combineReducers({
   currentUser: require('./reducers/auth').default,
   issues: require('./reducers/issues').default,
   volunteers: require('./reducers/volunteers').default,
-  advocates: require('./reducers/advocates').default
+  advocates: require('./reducers/advocates').default,
+  loginError: require('./reducers/loginError').default
 })
 
 // Logger must be last in the chain, otherwise it will log thunks and promises, not

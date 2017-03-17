@@ -30,6 +30,18 @@ a, a:hover {
   margin: 0;
 }
 
+.login-error {
+  margin-top: 1em;
+  background-color: red;
+  border-radius: 5px;
+}
+
+.login-error p {
+  margin-bottom: 0;
+  color: white;
+  padding: 1em;
+}
+
 /*Make container for main content*/
 .page-content {
   margin-left: 25px;

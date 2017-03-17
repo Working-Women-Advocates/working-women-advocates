@@ -2,9 +2,9 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
 
 import { login } from '../../redux/reducers/auth'
+import { setLoginError } from '../../redux/reducers/loginError'
 
 /* ----------------- COMPONENT ------------------ */
 
@@ -13,6 +13,7 @@ class AdvocateLogin extends Component {
   componentDidMount () {
     // To handle material design styling on inputs
     componentHandler.upgradeDom()
+    this.props.setLoginError(false)
   }
 
   render () {
@@ -28,7 +29,7 @@ class AdvocateLogin extends Component {
               } }>
                 <div className="mdl-textfield mdl-js-textfield">
                   <input className="mdl-textfield__input" type="text" id="name" />
-                  <label className="mdl-textfield__label" htmlFor="name">Name</label>
+                  <label className="mdl-textfield__label" htmlFor="name">E-mail</label>
                 </div>
                 <div className="mdl-textfield mdl-js-textfield">
                   <input className="mdl-textfield__input" type="password" id="password" />
@@ -39,6 +40,14 @@ class AdvocateLogin extends Component {
                     Submit
                   </button>
                 </div>
+                {
+                  this.props.loginError &&
+                    (
+                      <div className="login-error">
+                        <p>Login Failed</p>
+                      </div>
+                    )
+                  }
               </form>
             </div>
           </div>
@@ -50,13 +59,21 @@ class AdvocateLogin extends Component {
 
 /* ----------------- CONTAINER ------------------ */
 
+const mapStateToProps = state => {
+  return {
+    loginError: state.loginError
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     login: (username, password) => {
       dispatch(login(username, password))
-      browserHistory.push('/available-dashboard')
+    },
+    setLoginError: (arg) => {
+      dispatch(setLoginError(arg))
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(AdvocateLogin)
+export default connect(mapStateToProps, mapDispatchToProps)(AdvocateLogin)
