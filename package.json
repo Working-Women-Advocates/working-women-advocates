@@ -4,18 +4,19 @@
   "description": "An app for working women to connect with advocates.",
   "main": "index.js",
   "scripts": {
-    "test": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
-    "test-watch": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register --watch app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
     "build": "check-node-version --node '>= 6.7.0' && bin/setup && webpack",
     "build-watch": "check-node-version --node '>= 6.7.0' && bin/setup && webpack -w",
     "build-branch": "bin/build-branch.sh",
     "deploy-heroku": "bin/deploy-heroku.sh",
+    "postinstall": "npm run build",
     "start": "check-node-version --node '>= 6.7.0' && bin/setup && nodemon server/start.js",
-    "seed": "bin/setup && node db/seed.js"
+    "seed": "bin/setup && node db/seed.js",
+    "test": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
+    "test-watch": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register --watch app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rachel-rocks-at-ruby/working-women-advocates.git"
+    "url": "git+https://github.com/Working-Women-Advocates/working-women-advocates.git"
   },
   "keywords": [
     "react",
@@ -25,7 +26,7 @@
   "author": "Rachel Bird",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rachel-rocks-at-ruby/working-women-advocates/issues"
+    "url": "https://github.com/Working-Women-Advocates/working-women-advocates/issues"
   },
   "homepage": "http://working-women-advocates.herokuapp.com/",
   "dependencies": {
