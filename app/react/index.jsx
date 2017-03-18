@@ -10,7 +10,7 @@ import { receiveVolunteers } from '../redux/reducers/volunteers'
 import { receiveAdvocates } from '../redux/reducers/advocates'
 
 import App from './components/App'
-import Landing from './components/Landing'
+import Home from './components/Home'
 import AdvocateLogin from './components/AdvocateLogin'
 import AdminDashboard from './components/AdminDashboard'
 import AdvocateDashboard from './components/AdvocateDashboard'
@@ -42,8 +42,8 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRedirect to="/landing" />
-        <Route path="/landing" component={Landing} />
+        <IndexRedirect to="/home" />
+        <Route path="/home" component={Home} />
         <Route path="/advocate-login" component={AdvocateLogin} />
         <Route path="/admin-dashboard" component={AdminDashboard} onEnter={allCasesForAdmin} />
         <Route path="/advocate-dashboard" component={AdvocateDashboard} onEnter={advocateCases} />
