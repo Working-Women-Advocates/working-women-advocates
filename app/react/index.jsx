@@ -10,13 +10,8 @@ import { receiveVolunteers } from '../redux/reducers/volunteers'
 import { receiveAdvocates } from '../redux/reducers/advocates'
 
 import App from './components/App'
-import Landing from './components/Landing'
-import Hotline from './components/Hotline'
-import About from './components/About'
-import VolunteerSignup from './components/VolunteerSignup'
+import Home from './components/Home'
 import AdvocateLogin from './components/AdvocateLogin'
-import SignupContainer from './components/SignupContainer'
-import SignupSubmitted from './components/SignupSubmitted'
 import AdminDashboard from './components/AdminDashboard'
 import AdvocateDashboard from './components/AdvocateDashboard'
 import AvailableDashboard from './components/AvailableDashboard'
@@ -47,14 +42,9 @@ render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRedirect to="/landing" />
-        <Route path="/landing" component={Landing} />
-        <Route path="/hotline" component={Hotline} />
-        <Route path="/about" component={About} />
-        <Route path="/volunteer-signup" component={VolunteerSignup} />
+        <IndexRedirect to="/home" />
+        <Route path="/home" component={Home} />
         <Route path="/advocate-login" component={AdvocateLogin} />
-        <Route path="/working-women-signup" component={SignupContainer} />
-        <Route path="/signup-submitted" component={SignupSubmitted} />
         <Route path="/admin-dashboard" component={AdminDashboard} onEnter={allCasesForAdmin} />
         <Route path="/advocate-dashboard" component={AdvocateDashboard} onEnter={advocateCases} />
         <Route path="/available-dashboard" component={AvailableDashboard} onEnter={availableCases} />
