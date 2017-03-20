@@ -48,6 +48,11 @@ module.exports = app
   // Serve static files from ../public
   .use(express.static(resolve(__dirname, '..', 'public')))
 
+  // Serve static files for Bootstrap, Font Awesome, and jQuery
+  .use('/bootstrap', express.static(resolve(__dirname, '..', 'node_modules/bootstrap/dist')))
+  .use('/font-awesome', express.static(resolve(__dirname, '..', 'node_modules/font-awesome')))
+  .use('/jquery', express.static(resolve(__dirname, '..', 'node_modules/jquery/dist')))
+
   // Serve our api
   .use('/api', require('./api'))
 
