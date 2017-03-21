@@ -5,33 +5,94 @@ const Sequelize = require('sequelize')
 const db = require('APP/db')
 
 const User = db.define('users', {
-  username: Sequelize.STRING,
-  first_name: Sequelize.STRING,
-  last_name: Sequelize.STRING,
-  phone_number: Sequelize.STRING,
-  email: {
+  id: {
+    primaryKey: true,
+    type: Sequelize.UUID,
+    defaultValue: Sequelize.UUIDV4
+  },
+  name: {
     type: Sequelize.STRING,
-    allowNull: false,
     validate: {
-      isEmail: true
+      notEmpty: true
     }
   },
-  // it may be worthwhile to change 'role' to an 'isAdmin' boolean
-  //    and make advocate a team instead
-  role: {
-    type: Sequelize.ENUM('admin', 'advocate')
+  email: {
+    type: Sequelize.STRING,
+    validate: {
+      isEmail: true,
+      notEmpty: true
+    }
   },
-  advocate_type: {
-    type: Sequelize.ENUM('Therapy', 'Legal', 'Financial', 'Job Coach', 'General')
+  wwaEmail: {
+    type: Sequelize.STRING,
+    validate: {
+      isEmail: true
+      // notEmpty: true <-- ???
+    }
   },
-  team: {
-    type: Sequelize.ENUM('Dev', 'Social Media', 'Fundraising', 'Crowdsurfing'),
-    allowNull: false
-  },
-
-  // We support oauth, so users may or may not have passwords.
+  // Should we support OAuth? If not, we should make password required.
   password_digest: Sequelize.STRING,
-  password: Sequelize.VIRTUAL
+  password: Sequelize.VIRTUAL,
+  phone_number: Sequelize.STRING,
+  team: {
+    type: Sequelize.ARRAY(Sequelize.STRING),
+    // Can be: Admin, Advocates, Allies, Board, Case Managers, Fundraising, Legal, Social Media, Web
+    validate: {
+      notEmpty: true
+    }
+  },
+  position: {
+    type: Sequelize.ARRAY(Sequelize.STRING),
+    validate: {
+      notEmpty: true
+    }
+  },
+  city: {
+    type: Sequelize.STRING,
+    validate: {
+      notEmpty: true
+    }
+  },
+  // What about other countries? E.g. Canada has provinces...
+  state: Sequelize.STRING,
+  country: {
+    type: Sequelize.STRING,
+    validate: {
+      notEmpty: true
+    }
+  },
+  slackHandle: {
+    type: Sequelize.STRING,
+    validate: {
+      notEmpty: true
+    }
+  },
+  image: {
+    // Link to Google Drive URL
+    type: Sequelize.STRING,
+    validate: {
+      notEmpty: true
+    }
+  },
+  resume: {
+    // Link to Google Drive URL
+    type: Sequelize.STRING,
+    validate: {
+      notEmpty: true
+    }
+  },
+  volunteerReason: {
+    // Should this be required?
+    type: Sequelize.TEXT
+  },
+  dateContractSigned: Sequelize.DATE,
+  status: {
+    type: Sequelize.ENUM('Pending', 'Active', 'Retired', 'Under Review'),
+    default: 'Pending',
+    validate: {
+      notEmpty: true
+    }
+  }
 }, {
   indexes: [{ fields: ['email'], unique: true }],
   hooks: {
