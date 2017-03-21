@@ -12,12 +12,14 @@ const User = db.define('users', {
   },
   name: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
       notEmpty: true
     }
   },
   email: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
       isEmail: true,
       notEmpty: true
@@ -25,6 +27,7 @@ const User = db.define('users', {
   },
   wwaEmail: {
     type: Sequelize.STRING,
+    // allowNull: false, <-- ???
     validate: {
       isEmail: true
       // notEmpty: true <-- ???
@@ -37,18 +40,21 @@ const User = db.define('users', {
   team: {
     type: Sequelize.ARRAY(Sequelize.STRING),
     // Can be: Admin, Advocates, Allies, Board, Case Managers, Fundraising, Legal, Social Media, Web
+    allowNull: false,
     validate: {
       notEmpty: true
     }
   },
   position: {
     type: Sequelize.ARRAY(Sequelize.STRING),
+    allowNull: false,
     validate: {
       notEmpty: true
     }
   },
   city: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
       notEmpty: true
     }
@@ -57,12 +63,14 @@ const User = db.define('users', {
   state: Sequelize.STRING,
   country: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
       notEmpty: true
     }
   },
   slackHandle: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
       notEmpty: true
     }
@@ -70,6 +78,7 @@ const User = db.define('users', {
   image: {
     // Link to Google Drive URL
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
       notEmpty: true
     }
@@ -77,6 +86,7 @@ const User = db.define('users', {
   resume: {
     // Link to Google Drive URL
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
       notEmpty: true
     }
