@@ -4,18 +4,19 @@
   "description": "An app for working women to connect with advocates.",
   "main": "index.js",
   "scripts": {
-    "test": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
-    "test-watch": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register --watch app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
     "build": "check-node-version --node '>= 6.7.0' && bin/setup && webpack",
     "build-watch": "check-node-version --node '>= 6.7.0' && bin/setup && webpack -w",
     "build-branch": "bin/build-branch.sh",
     "deploy-heroku": "bin/deploy-heroku.sh",
+    "postinstall": "npm run build",
     "start": "check-node-version --node '>= 6.7.0' && bin/setup && nodemon server/start.js",
-    "seed": "bin/setup && node db/seed.js"
+    "seed": "bin/setup && node db/seed.js",
+    "test": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
+    "test-watch": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register --watch app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rachel-rocks-at-ruby/working-women-advocates.git"
+    "url": "git+https://github.com/Working-Women-Advocates/working-women-advocates.git"
   },
   "keywords": [
     "react",
@@ -25,11 +26,16 @@
   "author": "Rachel Bird",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rachel-rocks-at-ruby/working-women-advocates/issues"
+    "url": "https://github.com/Working-Women-Advocates/working-women-advocates/issues"
   },
   "homepage": "http://working-women-advocates.herokuapp.com/",
   "dependencies": {
     "axios": "^0.15.2",
+    "babel": "^6.5.2",
+    "babel-core": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
     "bcryptjs": "^2.4.0",
     "body-parser": "^1.15.2",
@@ -57,14 +63,10 @@
     "redux-thunk": "^2.1.0",
     "sequelize": "^3.24.6",
     "sinon": "^1.17.6",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "webpack": "^1.13.3"
   },
   "devDependencies": {
-    "babel": "^6.5.2",
-    "babel-core": "^6.18.0",
-    "babel-loader": "^6.2.7",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
     "chai": "^3.5.0",
     "eslint": "^3.16.1",
     "eslint-config-standard": "^6.2.1",
@@ -74,7 +76,6 @@
     "mocha": "^3.1.2",
     "supertest": "^2.0.1",
     "supertest-as-promised": "^4.0.1",
-    "volleyball": "^1.4.1",
-    "webpack": "^1.13.3"
+    "volleyball": "^1.4.1"
   }
 }
