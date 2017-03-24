@@ -250,6 +250,10 @@ export default () => {
                 </li>
                 <li>
                   <span className="fa fa-dot-circle-o"></span>
+                  <span className="involved-title">Writers</span>write for our blog and edit our documents
+                </li>
+                <li>
+                  <span className="fa fa-dot-circle-o"></span>
                   <span className="involved-title">Fundraisers</span>help us get donations
                 </li>
                 <li>
@@ -290,6 +294,7 @@ export default () => {
                   <p className="intro"><em>Please tell us how you'd like to become involved in our organization.</em></p>
                   <p className="intro">Email us at <span style={{ 'fontWeight': '700', 'color': '#FCAC45' }}>info@workingwomenadvocates.org</span></p>
                   <p className="intro">Connect with us on <a href="https://twitter.com/WWAdvocates" target="blank" rel="noopener noreferrer"><i className="fa fa-twitter"></i> Twitter</a> and <a href="https://www.facebook.com/WWAdvocates" target="blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i> Facebook</a>.</p>
+                  <p className="intro">Contact us on <a href="https://rachel606.typeform.com/to/F9Od7T" target="blank" rel="noopener noreferrer"> our form</a>.</p>
                 </div>
               </div>
             </div>
