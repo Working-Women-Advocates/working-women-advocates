@@ -6,13 +6,15 @@
   "scripts": {
     "build": "check-node-version --node '>= 6.7.0' && bin/setup && webpack",
     "build-watch": "check-node-version --node '>= 6.7.0' && bin/setup && webpack -w",
+    "build-sass-watch": "check-node-version --node '>= 6.7.0' && bin/setup && webpack -w & sass --watch app/sass/main.scss:public/css/main.css",
     "build-branch": "bin/build-branch.sh",
     "deploy-heroku": "bin/deploy-heroku.sh",
     "postinstall": "npm run build",
     "start": "check-node-version --node '>= 6.7.0' && bin/setup && nodemon server/start.js",
     "seed": "bin/setup && node db/seed.js",
     "test": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
-    "test-watch": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register --watch app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js"
+    "test-watch": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register --watch app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
+    "sass-watch": "sass --watch app/sass/main.scss:public/css/main.css"
   },
   "repository": {
     "type": "git",
