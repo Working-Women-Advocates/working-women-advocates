@@ -1,11 +1,11 @@
 import React from 'react'
-import Landing from './Landing'
-import AboutUs from './AboutUs'
+import Landing from './LandingPage/Landing'
+import AboutUs from './LandingPage/AboutUs'
 import NavBar from './NavBar'
-import Team from './Team'
-import Services from './Services'
-import GetInvolved from './GetInvolved'
-import Contact from './Contact'
+import Team from './LandingPage/Team'
+import Services from './LandingPage/Services'
+import GetInvolved from './LandingPage/GetInvolved'
+import Contact from './LandingPage/Contact'
 import Footer from './Footer'
 
 
