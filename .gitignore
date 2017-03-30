@@ -14,5 +14,6 @@ npm-debug.log
 # Mac problems
 .DS_Store
 
-# Sassy cache
+# Sass
 .sass-cache/*
+public/css/main.*
