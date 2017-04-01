@@ -11,7 +11,9 @@ const NavBar = () => {
             <span className="icon-bar"></span>
             <span className="icon-bar"></span>
           </button>
-          <a className="navbar-brand" href="index.html"><img style={{ 'marginTop': '-5px' }} src="img/wwalogo.png" /></a>
+          <a className="navbar-brand" href="index.html">
+            <img className="" src="img/TEMP-logo.png" />
+          </a>
         </div>
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav navbar-right">

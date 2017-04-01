@@ -1,0 +1,57 @@
+
+#tf-menu {
+  padding: 20px;
+  transition: all 0.8s;
+}
+
+#tf-menu.navbar-default {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+#tf-menu a.navbar-brand {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 900;
+  padding: 0px;
+}
+
+#tf-menu a.navbar-brand img {
+  height:100%;
+}
+
+#tf-menu.navbar-default .navbar-nav > li > a {
+  text-transform: uppercase;
+  color: #FFF;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.on {
+  background-color: #222222 !important;
+  padding: 0 !important;
+}
+
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #4CAF50 !important;
+  background-color: transparent;
+  font-weight: 700;
+}
+
+.navbar-toggle {
+  border-radius: 0;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #FCAC45;
+  border-color: #FCAC45;
+}
+
+.navbar-default .navbar-toggle:hover>.icon-bar {
+  background-color: #FFF;
+}

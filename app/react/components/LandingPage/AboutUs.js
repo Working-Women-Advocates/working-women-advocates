@@ -1,6 +1,6 @@
 import React from 'react'
 
-const {Grid, Row, Col} = require('react-flexgrid');
+const {Grid, Row, Col} = require('react-flexgrid')
 
 const AboutUs = () => {
   return (
@@ -9,13 +9,8 @@ const AboutUs = () => {
         <Row>
           <div className="about-text">
             <div className="section-title">
-              <h4>About us</h4>
-              <h2>What we can do <strong>for you</strong></h2>
-              <hr />
-              <div className="clearfix"></div>
+              <h2>What we do</h2>
             </div>
-
-            <p className="intro warning">Currently in development and looking for folks to <strong><a href="#tf-testimonials" className="page-scroll">get involved!</a></strong></p>
 
             <p className="intro">Women (which we define as people who identify as women) can experience a variety of difficulties at work including, and not limited to:</p>
 
