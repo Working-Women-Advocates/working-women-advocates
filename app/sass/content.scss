@@ -1,14 +1,12 @@
 
-// Landing section
-//
+/* Landing section */
 .call-to-action-donate {
   font-size: 14px;
   padding: 0 16px;
   margin-right: 20px;
 }
 
-// Ally section
-//
+/* Ally section */
 .alliesSection {
   div {
     margin: 1em 0px;
@@ -32,8 +30,7 @@
   }
 }
 
-// Home Style
-//
+/* Home Style */
 #tf-home {
   background: url(../img/restaurant-woman.jpg);
   background-size: cover;
@@ -80,8 +77,7 @@ a.fa.fa-angle-down:hover {
   border: 2px solid #fcac45;
 }
 
-// Team section
-//
+/* Team section */
 .owl-theme .owl-controls .owl-page span {
   display: block;
   width: 10px;
@@ -212,4 +208,12 @@ img.img-circle.team-img {
 #tf-team .thumbnail .caption {
   padding: 9px;
   color: #F2F2F2;
+}
+
+/* Footer Section */
+#footer .subline {
+  color: #9e9e9e !important;
+  a {
+    color: #9e9e9e !important;
+  }
 }
