@@ -4,7 +4,6 @@ import AboutUs from './LandingPage/AboutUs'
 import NavBar from './NavBar'
 import Team from './LandingPage/Team'
 import Services from './LandingPage/Services'
-import GetInvolved from './LandingPage/GetInvolved'
 import Contact from './LandingPage/Contact'
 import Footer from './Footer'
 
@@ -17,7 +16,6 @@ export default () => {
         <AboutUs />
         <Services />
         <Team />
-        <GetInvolved />
         <Contact />
         <Footer />
       </div>

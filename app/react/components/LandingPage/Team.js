@@ -2,6 +2,8 @@ import React from 'react'
 
 const { Grid, Row, Col } = require('react-flexgrid')
 
+import GetInvolved from './GetInvolved'
+
 const Team = () => {
   return (
     <div id="tf-team" className="text-center">
@@ -86,6 +88,7 @@ const Team = () => {
 
           </Row>
         </Grid>
+        <GetInvolved />
       </div>
     </div>
   )

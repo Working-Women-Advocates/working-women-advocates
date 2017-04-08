@@ -6,7 +6,6 @@ const Contact = () => {
   return (
     <div id="tf-contact" className="text-center">
       <div className="container">
-        <div className="row">
           <div className="col-md-8 col-md-offset-2">
             <div className="section-title center">
               <h2>Looking forward to <br /><strong>hearing from you</strong></h2>
@@ -19,7 +18,6 @@ const Contact = () => {
               <p className="intro">Email us at <span style={{ 'fontWeight': '700', 'color': '#FCAC45' }}>info@workingwomenadvocates.org</span></p>
             </div>
           </div>
-        </div>
       </div>
     </div>
   )
