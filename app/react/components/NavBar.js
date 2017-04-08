@@ -20,11 +20,11 @@ const NavBar = () => {
             <li><a href="#tf-home" className="page-scroll">Home</a></li>
             <li><a href="#tf-about" className="page-scroll">About</a></li>
             <li><a href="#tf-team" className="page-scroll">Team</a></li>
-            <li><a href="#tf-services" className="page-scroll">Advocacy</a></li>
             <li><a href="#tf-testimonials" className="page-scroll">Get Involved</a></li>
+            <li><a href="#tf-services" className="page-scroll">Advocacy</a></li>
             <li><a href="#tf-contact" className="page-scroll">Contact</a></li>
           </ul>
-        </div>
+        </div>``
       </div>
     </nav>
   )
