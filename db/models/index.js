@@ -7,6 +7,7 @@
 const User = require('./user')
 const Issue = require('./issue')
 const Volunteer = require('./volunteer')
+const Feedback = require('./feedback')
 
 Issue.belongsTo(User, { as: 'advocate' })
 
