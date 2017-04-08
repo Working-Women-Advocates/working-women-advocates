@@ -10,6 +10,7 @@ api
   .use('/users', require('./users'))
   .use('/issues', require('./issues'))
   .use('/volunteers', require('./volunteers'))
+  .use('/feedback', require('./feedback'))
 
 // No routes matched? 404.
 api.use((req, res) => res.status(404).end())
