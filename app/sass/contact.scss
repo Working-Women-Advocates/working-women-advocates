@@ -14,10 +14,10 @@ label {
   font-family: 'Open Sans', sans-serif;
 }
 
-#tf-contact .form-control {
+#contact-form {
   display: block;
   width: 100%;
-  padding: 6px 12px;
+  padding: 24px;
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
@@ -30,6 +30,28 @@ label {
   -webkit-transition: none;
   -o-transition: none;
   transition: none;
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    tr {
+      td {
+        padding-bottom: 1em;
+      }
+      .form-label {
+        text-align: left;
+      }
+    }
+    tr:last-child {
+      text-align: right;
+    }
+  }
+  .text-field {
+    width: 100%;
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+  }
 }
 
 #tf-contact .form-control:focus {
