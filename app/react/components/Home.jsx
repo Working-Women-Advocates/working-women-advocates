@@ -8,7 +8,6 @@ import GetInvolved from './LandingPage/GetInvolved'
 import Contact from './LandingPage/Contact'
 import Footer from './Footer'
 
-
 export default () => {
   return (
     <main>
@@ -16,8 +15,8 @@ export default () => {
         <NavBar />
         <Landing />
         <AboutUs />
-        <Team />
         <Services />
+        <Team />
         <GetInvolved />
         <Contact />
         <Footer />
