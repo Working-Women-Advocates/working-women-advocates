@@ -346,42 +346,6 @@ ol.type li a.active {
   color: #d1d1d1;
 }
 
-/* Contact Section */
-#tf-contact{
-  padding: 80px 0;
-}
-
-label {
-  float: left;
-  font-size: 12px;
-  font-weight: 400;
-  font-family: 'Open Sans', sans-serif;
-}
-
-#tf-contact .form-control {
-  display: block;
-  width: 100%;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 2px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: none;
-  -o-transition: none;
-  transition: none;
-}
-
-#tf-contact .form-control:focus {
-  border-color: inherit;
-  outline: 0;
-  -webkit-box-shadow: transparent;
-  box-shadow: transparent;
-}
 
 button.btn.tf-btn.btn-default {
   float: right;

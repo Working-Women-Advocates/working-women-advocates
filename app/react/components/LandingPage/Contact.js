@@ -7,7 +7,7 @@ const Contact = () => {
         <div className="row">
           <div className="col-md-8 col-md-offset-2">
             <div className="section-title center">
-              <h2>Looking forward to <strong>hearing from you</strong></h2>
+              <h2>Looking forward to <br /><strong>hearing from you</strong></h2>
               <div className="line">
                 <hr />
               </div>
