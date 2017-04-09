@@ -1,7 +1,4 @@
 import React from 'react'
-
-const { Grid, Row, Col } = require('react-flexgrid')
-
 import GetInvolved from './GetInvolved'
 
 const Team = () => {
