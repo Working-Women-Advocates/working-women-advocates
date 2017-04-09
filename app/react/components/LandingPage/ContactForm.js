@@ -9,10 +9,12 @@ class ContactForm extends Component {
     this.state = {
       name: '',
       email: '',
-      messageBody: "What's your message?"
+      messageBody: "What's your message?",
+      messageType: 'feedback'
     }
 
     this.handleFormChange = this.handleFormChange.bind(this)
+    this.handleTypeChange = this.handleTypeChange.bind(this)
   }
 
   handleFormChange (evt) {
@@ -25,6 +27,12 @@ class ContactForm extends Component {
     this.setState(newState)
   }
 
+  handleTypeChange (evt) {
+    this.setState(Object.assign({}, this.state, { messageType: evt.target.value,
+      messageBody: evt.target.value === 'get-involved' ? 'Volunteer ...' : "What's your message?"
+    }))
+  }
+
   render () {
     return (
       <div id="contact-form">
@@ -35,10 +43,9 @@ class ContactForm extends Component {
               <tr>
                 <td className="form-label"><h4>What's up?!</h4></td>
                 <td>
-                  <select name="message-type">
-                    <option value="get-involved">I'd like to get involved with WWA!</option>
-                    <option value="sponsor">I'd like to sponsor WWA</option>
+                  <select name="message-type" value={this.state.messageType} onChange={this.handleTypeChange}>
                     <option value="feedback">I'd like to leave feedback</option>
+                    <option value="get-involved">I'd like to get involved with WWA!</option>
                   </select>
                 </td>
               </tr>
@@ -67,20 +74,21 @@ class ContactForm extends Component {
                   />
                 </td>
               </tr>
-
-              <FeedbackForm
-                messageBody={this.state.messageBody}
-                handleFormChange={this.handleFormChange}
+              {
+                this.state.messageType === 'get-involved'
+                ? <VolunteerForm
+                    messageBody={this.state.messageBody}
+                    handleFormChange={this.handleFormChange}
+                  />
+                : <FeedbackForm
+                  messageBody={this.state.messageBody}
+                  handleFormChange={this.handleFormChange}
                 />
-              <VolunteerForm
-                messageBody={this.state.messageBody}
-                handleFormChange={this.handleFormChange}
-                />
-
+              }
               <tr>
                 <td className="form-label">How'd you hear about us?</td>
                 <td>
-                  <select name="referee">
+                  <select name="referrer">
                     <option value="twitter">Twitter</option>
                     <option value="facebook">Facebook</option>
                     <option value="medium">Medium</option>
