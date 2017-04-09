@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 
 import FeedbackForm from './FeedbackForm'
 import VolunteerForm from './VolunteerForm'
@@ -15,11 +16,12 @@ class ContactForm extends Component {
 
     this.handleFormChange = this.handleFormChange.bind(this)
     this.handleTypeChange = this.handleTypeChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleFormChange (evt) {
-    let newState = Object.assign({}, this.state)
-    switch (evt.target.name){
+    const newState = Object.assign({}, this.state)
+    switch (evt.target.name) {
       case 'name': newState.name = evt.target.value; break
       case 'email': newState.email = evt.target.value; break
       case 'message-body': newState.messageBody = evt.target.value; break
@@ -28,15 +30,37 @@ class ContactForm extends Component {
   }
 
   handleTypeChange (evt) {
-    this.setState(Object.assign({}, this.state, { messageType: evt.target.value,
-      messageBody: evt.target.value === 'get-involved' ? 'Volunteer ...' : "What's your message?"
+    this.setState(Object.assign({}, this.state, {
+      messageType: evt.target.value,
+      messageBody: evt.target.value === 'get-involved'
+        ? 'Volunteer Advocate'
+        : "What's your message?"
     }))
+  }
+
+  handleSubmit (evt) {
+    evt.preventDefault()
+    console.log('submitted!', evt.target.name.value)
+    if (this.state.messageType === 'get-involved') {
+      axios.post('/api/volunteers', {
+        username: this.state.name,
+        email: this.state.email,
+        interest: this.state.messageBody
+      })
+    }
+    if (this.state.messageType === 'feedback') {
+      axios.post('/api/feedback', {
+        username: this.state.name,
+        email: this.state.email,
+        message: this.state.messageBody
+      })
+    }
   }
 
   render () {
     return (
       <div id="contact-form">
-        <form action="/api/feedback" method="post">
+        <form onSubmit={this.handleSubmit}>
           <table>
             <tbody>
 

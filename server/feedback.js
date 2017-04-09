@@ -6,7 +6,8 @@ const Feedback = db.model('feedback')
 module.exports = require('express').Router()
 
   // post feedback
-  .post('/', (req, res) => {
-    console.log('feedback form posted: ', req.body)
-    res.sendStatus(200)
+  .post('/', (req, res, next) => {
+    Feedback.create(req.body)
+    .then(res.sendStatus(200))
+    .catch(next)
   })

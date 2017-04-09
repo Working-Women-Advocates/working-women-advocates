@@ -25,17 +25,6 @@ const Feedback = db.define('feedback', {
   },
   referrer: {
     type: Sequelize.ENUM('twitter', 'facebook', 'medium', 'friend', 'engine', 'other')
-  },
-  other_referrer: {
-    type: Sequelize.STRING
-  }
-}, {
-  hooks: {
-    beforeCreate: function (feedback, options) {
-      if (feedback.referrer === 'other' && !feedback.other_referrer) {
-        return Sequelize.Promise.reject('No referrer specified!')
-      }
-    }
   }
 })
 
