@@ -1,9 +1,14 @@
-
 /* Landing section */
 .call-to-action-donate {
   font-size: 14px;
   padding: 0 16px;
   margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+  #tf-home .content {
+    margin-top: 60px;
+  }
 }
 
 /* Ally section */
@@ -36,7 +41,7 @@
 }
 .service-icon {
   padding-top: 5px;
-  width: 12%;
+  width: 18%;
   float: left;
 }
 .service-desc {

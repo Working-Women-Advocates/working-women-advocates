@@ -12,6 +12,9 @@ const Footer = () => {
           <ul className="footer-social">
             <li><a href="https://www.facebook.com/WWAdvocates" target="blank" rel="noopener noreferrer"><i className="fa fa-facebook"></i></a></li>
             <li><a href="https://twitter.com/WWAdvocates" target="blank" rel="noopener noreferrer"><i className="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/working-women-advocates" target="blank" rel="noopener noreferrer"><i className="fa fa-linkedin"></i></a></li>
+            <li><a href="https://angel.co/working-women-advocates" target="blank" rel="noopener noreferrer"><i className="fa fa-angellist"></i></a></li>
+            <li><a href="https://medium.com/working-women-advocates" target="blank" rel="noopener noreferrer"><i className="fa fa-medium"></i></a></li>
           </ul>
         </div>
       </div>
