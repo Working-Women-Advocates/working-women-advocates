@@ -43,31 +43,6 @@ const Services = () => {
               </div>
             </div>
           </div>
-          {/* <div className="service">
-            <i className="fa fa-heart"></i>
-            <h4><strong>Each woman will be connected with an ally.</strong></h4>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-3 col-sm-6 service">
-            <i className="fa fa-user"></i>
-            <h4><strong>Therapy</strong></h4>
-          </div>
-
-          <div className="col-md-3 col-sm-6 service">
-            <i className="fa fa-gavel"></i>
-            <h4><strong>Legal Advice </strong></h4>
-          </div>
-
-          <div className="col-md-3 col-sm-6 service">
-            <i className="fa fa-money"></i>
-            <h4><strong>Financial Advice</strong></h4>
-          </div>
-
-          <div className="col-md-3 col-sm-6 service">
-            <i className="fa fa-desktop"></i>
-            <h4><strong>Job Coaching</strong></h4>
-          </div> */}
         </div>
       </div>
     </div>
