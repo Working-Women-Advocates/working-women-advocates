@@ -3,11 +3,11 @@ import React from 'react'
 const VolunteerForm = (props) => {
   return (
     <tr>
-      <td className="form-label">How would you like to help?</td>
+      <td className="form-label">What's your gig?</td>
       <td>
         <input
           type="text"
-          className="form-label"
+          className="text-field"
           name="message-body"
           value={props.messageBody}
           onChange={props.handleFormChange}
