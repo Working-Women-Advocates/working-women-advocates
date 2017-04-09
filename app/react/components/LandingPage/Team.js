@@ -72,6 +72,7 @@ const Team = () => {
             <div className="item">
               <div className="thumbnail col-md-4">
                 <img src="img/team/mark.png" alt="Mark Hario" className="img-circle team-img" />
+
                 <div className="caption">
                   <h3>Mark Hario</h3>
                   <p>Software Engineer</p>
