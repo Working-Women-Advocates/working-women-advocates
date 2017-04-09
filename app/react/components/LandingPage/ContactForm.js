@@ -10,13 +10,17 @@ class ContactForm extends Component {
     this.state = {
       name: '',
       email: '',
+      volunteerInterest: 'Volunteer Advocate',
       messageBody: "What's your message?",
-      messageType: 'feedback'
+      messageType: 'feedback',
+      referrer: '',
+      dirty: false
     }
 
     this.handleFormChange = this.handleFormChange.bind(this)
     this.handleTypeChange = this.handleTypeChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.clearMessageBody = this.clearMessageBody.bind(this)
   }
 
   handleFormChange (evt) {
@@ -24,6 +28,7 @@ class ContactForm extends Component {
     switch (evt.target.name) {
       case 'name': newState.name = evt.target.value; break
       case 'email': newState.email = evt.target.value; break
+      case 'volunteer-interest': newState.volunteerInterest = evt.target.value; break
       case 'message-body': newState.messageBody = evt.target.value; break
     }
     this.setState(newState)
@@ -32,29 +37,38 @@ class ContactForm extends Component {
   handleTypeChange (evt) {
     this.setState(Object.assign({}, this.state, {
       messageType: evt.target.value,
-      messageBody: evt.target.value === 'get-involved'
-        ? 'Volunteer Advocate'
-        : "What's your message?"
+      volunteerInterest: 'Volunteer Advocate'
     }))
   }
 
+  //  Send feedback to relevent database
   handleSubmit (evt) {
     evt.preventDefault()
-    console.log('submitted!', evt.target.name.value)
     if (this.state.messageType === 'get-involved') {
       axios.post('/api/volunteers', {
         username: this.state.name,
         email: this.state.email,
-        interest: this.state.messageBody
+        interest: this.state.messageBody,
+        referrer: evt.target.referrer.value
       })
+      .catch(err => console.error(err))
     }
     if (this.state.messageType === 'feedback') {
       axios.post('/api/feedback', {
-        username: this.state.name,
+        name: this.state.name,
         email: this.state.email,
-        message: this.state.messageBody
+        message: this.state.messageBody,
+        referrer: evt.target.referrer.value
       })
+      .catch(err => console.error(err))
     }
+  }
+
+  clearMessageBody (evt) {
+    const newState = Object.assign({}, this.state)
+    if (evt.target.name === 'message-body' && !this.state.dirty) newState.messageBody = ''
+    newState.dirty = true
+    this.setState(newState)
   }
 
   render () {
@@ -64,15 +78,6 @@ class ContactForm extends Component {
           <table>
             <tbody>
 
-              <tr>
-                <td className="form-label"><h4>What's up?!</h4></td>
-                <td>
-                  <select name="message-type" value={this.state.messageType} onChange={this.handleTypeChange}>
-                    <option value="feedback">I'd like to leave feedback</option>
-                    <option value="get-involved">I'd like to get involved with WWA!</option>
-                  </select>
-                </td>
-              </tr>
 
               <tr>
                 <td className="form-label">What's your name?</td>
@@ -98,21 +103,36 @@ class ContactForm extends Component {
                   />
                 </td>
               </tr>
+
+              <tr>
+                <td className="form-label"><h4>Subject:</h4></td>
+                  <td>
+                    <select name="message-type" value={this.state.messageType} onChange={this.handleTypeChange}>
+                      <option value="feedback">I'd like to leave feedback</option>
+                      <option value="get-involved">I'd like to get involved with WWA!</option>
+                    </select>
+                  </td>
+              </tr>
+
               {
-                this.state.messageType === 'get-involved'
-                ? <VolunteerForm
-                    messageBody={this.state.messageBody}
+                this.state.messageType === 'get-involved' &&
+                  <VolunteerForm
+                    volunteerInterest={this.state.volunteerInterest}
                     handleFormChange={this.handleFormChange}
                   />
-                : <FeedbackForm
-                  messageBody={this.state.messageBody}
-                  handleFormChange={this.handleFormChange}
-                />
               }
+
+              <FeedbackForm
+                messageBody={this.state.messageBody}
+                handleFormChange={this.handleFormChange}
+                clearMessageBody={this.clearMessageBody}
+              />
+
               <tr>
                 <td className="form-label">How'd you hear about us?</td>
                 <td>
-                  <select name="referrer">
+                  <select
+                    name="referrer">
                     <option value="twitter">Twitter</option>
                     <option value="facebook">Facebook</option>
                     <option value="medium">Medium</option>

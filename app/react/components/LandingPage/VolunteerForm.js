@@ -8,8 +8,8 @@ const VolunteerForm = (props) => {
         <input
           type="text"
           className="text-field"
-          name="message-body"
-          value={props.messageBody}
+          name="volunteer-interest"
+          value={props.volunteerInterest}
           onChange={props.handleFormChange}
         />
       </td>

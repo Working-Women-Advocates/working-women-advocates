@@ -11,10 +11,7 @@ const Volunteer = db.define('volunteers', {
     }
   },
   email: {
-    type: Sequelize.STRING,
-    validate: {
-      isEmail: true
-    }
+    type: Sequelize.STRING
   },
   interest: Sequelize.STRING,
   status: {
