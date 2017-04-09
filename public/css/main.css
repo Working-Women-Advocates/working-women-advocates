@@ -51,7 +51,6 @@ div, p, span {
 @media only screen and (max-width: 1023px) {
   .page-content {
     padding-top: 20px; } }
-
 /*Footer*/
 .mdl-mini-footer {
   padding-top: 15px;
@@ -68,14 +67,13 @@ div, p, span {
 @media only screen and (max-width: 600px) {
   .card-wide.mdl-card {
     width: 350px; } }
-
 /*Make nav work on smaller devices*/
 @media screen and (max-width: 1024px) {
   .mdl-layout__drawer-button {
     color: white; }
+
   .mdl-layout__header-row .mdl-navigation {
     display: none; } }
-
 /*Signup*/
 select.soflow {
   -webkit-appearance: button;
@@ -84,7 +82,7 @@ select.soflow {
   -webkit-padding-end: 20px;
   -webkit-padding-start: 2px;
   -webkit-user-select: none;
-  background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+  background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
   background-position: 97% center;
   background-repeat: no-repeat;
   border: 1px solid #AAA;
@@ -269,7 +267,7 @@ ol.type li a.active {
   /* IE10+ */
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 );
   /* IE6-9 */
   padding: 80px 0;
   background-attachment: fixed; }
@@ -360,7 +358,7 @@ h1, h2, h3, h4, h5, h6 {
 h2 {
   line-height: 20px;
   margin: 0;
-  color: #FCAC45; }
+  color: #fcac45; }
   h2 strong {
     color: #731b1f; }
 
@@ -414,7 +412,7 @@ p {
   color: #5d1525; }
 
 .donate {
-  background-color: #4CAF50; }
+  background-color: #4caf50; }
 
 .btn {
   color: white;
@@ -507,20 +505,16 @@ p {
 @media (max-width: 768px) {
   #tf-home .content {
     margin-top: 60px; } }
-
 /* Ally section */
 .alliesSection div {
   margin: 1em 0px; }
-
 .alliesSection img {
   padding: 2em;
   padding-left: 4em;
   width: 100%;
   height: 100%; }
-
 .alliesSection h3 {
   text-align: left; }
-
 .alliesSection button {
   margin: 1em 0px 0px;
   background-color: #F99237;
@@ -551,7 +545,6 @@ p {
     width: 65px;
     height: 65px;
     padding: 20px 19px; } }
-
 /* Home Style */
 #tf-home {
   background: url(../img/restaurant-woman.jpg);
@@ -574,7 +567,7 @@ p {
   /* IE10+ */
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 );
   /* IE6-9 */
   height: 750px;
   background-attachment: fixed; }
@@ -652,9 +645,9 @@ ul.about-list li span {
   .embed-responsive {
     width: 560px;
     height: 315px; }
+
   .embed-responsive-16by9 {
     padding-bottom: 25% !important; } }
-
 /* Team Section */
 #tf-team {
   background: url(../img/happy-lady.jpg);
@@ -677,7 +670,7 @@ ul.about-list li span {
   /* IE10+ */
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.73) 17%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.55) 62%, rgba(0, 0, 0, 0.4) 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 );
   /* IE6-9 */
   height: auto;
   background-attachment: fixed;
@@ -785,7 +778,7 @@ label {
     width: 100%;
     height: 100px; }
   #contact-form .btn {
-    background-color: #FCAC45; }
+    background-color: #fcac45; }
 
 #tf-contact .form-control:focus {
   border-color: inherit;

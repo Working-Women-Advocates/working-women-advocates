@@ -22,6 +22,15 @@ module.exports = {
         query: {
           presets: ['react', 'es2015', 'stage-2']
         }
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: 'sass-loader',  // compiles Sass to CSS
+          options: {
+            includePaths: ['app/sass/main.scss']
+          }
+        }]
       }
     ]
   }
