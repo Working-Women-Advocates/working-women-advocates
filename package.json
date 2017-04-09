@@ -49,6 +49,7 @@
     "express": "^4.14.0",
     "immutable": "^3.8.1",
     "nodemon": "^1.11.0",
+    "node-sass": "^4.5.2",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-github2": "^0.1.10",
@@ -76,7 +77,6 @@
     "eslint-plugin-react": "^6.10.0",
     "eslint-plugin-standard": "^2.0.1",
     "mocha": "^3.1.2",
-    "node-sass": "^4.5.2",
     "supertest": "^2.0.1",
     "supertest-as-promised": "^4.0.1",
     "volleyball": "^1.4.1"
