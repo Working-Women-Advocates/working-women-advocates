@@ -4,7 +4,7 @@
   "description": "An app for working women to connect with advocates.",
   "main": "index.js",
   "scripts": {
-    "build": "check-node-version --node '>= 6.7.0' && bin/setup && webpack && sass app/sass/main.scss:public/css/main.css",
+    "build": "check-node-version --node '>= 6.7.0' && bin/setup && webpack && node-sass app/sass/main.scss:public/css/main.css",
     "build-watch": "check-node-version --node '>= 6.7.0' && bin/setup && webpack -w",
     "build-sass-watch": "check-node-version --node '>= 6.7.0' && bin/setup && webpack -w & sass --watch app/sass/main.scss:public/css/main.css",
     "build-branch": "bin/build-branch.sh",
@@ -76,6 +76,7 @@
     "eslint-plugin-react": "^6.10.0",
     "eslint-plugin-standard": "^2.0.1",
     "mocha": "^3.1.2",
+    "node-sass": "^4.5.2",
     "supertest": "^2.0.1",
     "supertest-as-promised": "^4.0.1",
     "volleyball": "^1.4.1"
