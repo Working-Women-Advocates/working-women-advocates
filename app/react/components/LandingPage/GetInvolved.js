@@ -5,14 +5,11 @@ const GetInvolved = () => {
     <div id="tf-testimonials" className="text-center">
       <div className="container">
         <div className="section-title center">
+          <h2>Get <strong>Involved</strong></h2>
           <div className="line">
             <hr />
           </div>
-
-          <br />
-          <br />
-          <h2><strong>Get </strong>Involved</h2>
-        </div>
+          <div className="clearfix"></div>
         <p className="intro">What can you do? There's something for everyone!</p>
 
         <ul className="about-list">
@@ -62,6 +59,7 @@ const GetInvolved = () => {
         </p>
       </div>
     </div>
+  </div>
   )
 }
 

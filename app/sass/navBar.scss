@@ -2,11 +2,14 @@
 #tf-menu {
   padding: 20px;
   transition: all 0.8s;
+  .navbar {
+    height: 80%;
+  }
 }
 
 #tf-menu.navbar-default {
-  background-color: $primary-color;
-  border-color: $primary-color;
+  background-color: black;
+  border-color: black;
 }
 
 #tf-menu a.navbar-brand {
@@ -14,11 +17,11 @@
   font-size: 22px;
   color: #fff;
   font-weight: 900;
-  padding: 0px;
+  padding: 5px;
 }
 
 #tf-menu a.navbar-brand img {
-  height:100%;
+  height: 35px;
 }
 
 #tf-menu.navbar-default .navbar-nav > li > a {
@@ -29,8 +32,8 @@
 }
 
 .on {
-  background-color: $primary-color !important;
-  padding: 0 !important;
+  background-color: black !important;
+  padding: 5px !important;
 }
 
 

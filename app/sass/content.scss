@@ -30,6 +30,33 @@
   }
 }
 
+/* Programs */
+.service-row {
+  margin-bottom: 10px
+}
+.service-icon {
+  padding-top: 5px;
+  width: 12%;
+  float: left;
+}
+.service-desc {
+  width: 80%;
+  float: right;
+  text-align: left;
+  h4 {
+    text-align: left;
+  }
+}
+
+@media (max-width: 575px) {
+  #tf-services i.fa {
+    font-size: 20px;
+    width: 65px;
+    height: 65px;
+    padding: 20px 19px;
+  }
+}
+
 /* Home Style */
 #tf-home {
   background: url(../img/restaurant-woman.jpg);
@@ -105,11 +132,14 @@ a.fa.fa-angle-down:hover {
 
 /* About Section */
 #tf-about {
-  padding: 80px 0;
+  padding: 80px 0 0;
+  h2 {
+    margin-bottom: 25px;
+  }
 }
 
 ul.about-list{
-  margin: 10px 0 0;
+  margin: 10px 0;
 }
 
 ul.about-list li {
@@ -126,6 +156,20 @@ ul.about-list li span {
 .involved-title {
   font-weight: 700;
   color: #FCAC45;
+}
+
+.embed-responsive {
+  margin: 25px 0;
+}
+
+@media (min-width: 768px) {
+  .embed-responsive {
+    width: 560px;
+    height: 315px;
+  }
+  .embed-responsive-16by9 {
+      padding-bottom: 25% !important;
+    }
 }
 
 /* Team Section */
@@ -208,6 +252,11 @@ img.img-circle.team-img {
 #tf-team .thumbnail .caption {
   padding: 9px;
   color: #F2F2F2;
+}
+
+/* Get Involved */
+#tf-testimonials {
+  padding: 80px 0;
 }
 
 /* Footer Section */
