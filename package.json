@@ -4,7 +4,7 @@
   "description": "An app for working women to connect with advocates.",
   "main": "index.js",
   "scripts": {
-    "build": "check-node-version --node '>= 6.7.0' && bin/setup && webpack && npm rebuild node-sass && node-sass --output-style compressed app/sass/main.scss > public/css/main.css",
+    "build": "check-node-version --node '>= 6.7.0' && bin/setup && webpack && npm rebuild node-sass && node-sass app/sass/main.scss public/css/main.css",
     "build-watch": "check-node-version --node '>= 6.7.0' && bin/setup && webpack -w",
     "build-sass-watch": "check-node-version --node '>= 6.7.0' && bin/setup && webpack -w & sass --watch app/sass/main.scss:public/css/main.css",
     "build-branch": "bin/build-branch.sh",
