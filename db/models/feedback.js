@@ -11,10 +11,7 @@ const Feedback = db.define('feedback', {
     }
   },
   email: {
-    type: Sequelize.STRING,
-    validate: {
-      isEmail: true
-    }
+    type: Sequelize.STRING
   },
   message: {
     type: Sequelize.TEXT
@@ -24,7 +21,7 @@ const Feedback = db.define('feedback', {
     defaultValue: Sequelize.NOW
   },
   referrer: {
-    type: Sequelize.ENUM('twitter', 'facebook', 'medium', 'friend', 'engine', 'other')
+    type: Sequelize.ENUM('twitter', 'facebook', 'medium', 'friend', 'search-engine', 'other')
   }
 })
 

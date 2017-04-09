@@ -9,6 +9,7 @@ const FeedbackForm = (props) => {
           name="message-body"
           value={props.messageBody}
           onChange={props.handleFormChange}
+          onFocus={props.clearMessageBody}
         />
       </td>
     </tr>
