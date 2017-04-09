@@ -1,25 +1,34 @@
 import React, { Component } from 'react'
 
+import FeedbackForm from './FeedbackForm'
+import VolunteerForm from './VolunteerForm'
+
 class ContactForm extends Component {
   constructor () {
     super()
     this.state = {
       name: '',
       email: '',
-      messageBody: ''
+      messageBody: "What's your message?"
     }
 
     this.handleFormChange = this.handleFormChange.bind(this)
   }
 
   handleFormChange (evt) {
-    console.log(evt.target)
+    let newState = Object.assign({}, this.state)
+    switch (evt.target.name){
+      case 'name': newState.name = evt.target.value; break
+      case 'email': newState.email = evt.target.value; break
+      case 'message-body': newState.messageBody = evt.target.value; break
+    }
+    this.setState(newState)
   }
 
   render () {
     return (
       <div id="contact-form">
-        <form>
+        <form action="/api/feedback" method="post">
           <table>
             <tbody>
 
@@ -30,7 +39,6 @@ class ContactForm extends Component {
                     <option value="get-involved">I'd like to get involved with WWA!</option>
                     <option value="sponsor">I'd like to sponsor WWA</option>
                     <option value="feedback">I'd like to leave feedback</option>
-                    <option value="something-else">I'd like to talk about something else</option>
                   </select>
                 </td>
               </tr>
@@ -55,24 +63,19 @@ class ContactForm extends Component {
                     type="text"
                     name="email"
                     value={this.state.email}
-                  />
-                </td>
-              </tr>
-
-              <tr>
-                <td
-                  >What's your message??</td>
-              </tr>
-              <tr>
-                <td colSpan={2}>
-                  <textarea
-                    className="form-label"
-                    name="message-body"
-                    value={this.state.messageBody}
                     onChange={this.handleFormChange}
                   />
                 </td>
               </tr>
+
+              <FeedbackForm
+                messageBody={this.state.messageBody}
+                handleFormChange={this.handleFormChange}
+                />
+              <VolunteerForm
+                messageBody={this.state.messageBody}
+                handleFormChange={this.handleFormChange}
+                />
 
               <tr>
                 <td className="form-label">How'd you hear about us?</td>
