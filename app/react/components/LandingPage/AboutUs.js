@@ -14,6 +14,7 @@ const AboutUs = () => {
             <div className="clearfix"></div>
 
             <p className="intro warning">Currently in development and looking for folks to <strong><a href="#tf-testimonials" className="page-scroll">get involved!</a></strong></p>
+            <p className="intro warning">Projected Launch Date: October 1, 2017</p>
 
             <p className="intro">Women (which we define as people who identify as women) can experience a variety of difficulties at work including, and not limited to:</p>
 
