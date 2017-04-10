@@ -14,7 +14,8 @@ class ContactForm extends Component {
       messageBody: "What's your message?",
       messageType: 'feedback',
       referrer: '',
-      dirty: false
+      dirty: false,
+      resolved: false
     }
 
     this.handleFormChange = this.handleFormChange.bind(this)
@@ -51,6 +52,7 @@ class ContactForm extends Component {
         interest: this.state.messageBody,
         referrer: evt.target.referrer.value
       })
+      .then(this.setState(Object.assign({}, this.state, { resolved: true })))
       .catch(err => console.error(err))
     }
     if (this.state.messageType === 'feedback') {
@@ -60,6 +62,7 @@ class ContactForm extends Component {
         message: this.state.messageBody,
         referrer: evt.target.referrer.value
       })
+      .then(this.setState(Object.assign({}, this.state, { resolved: true })))
       .catch(err => console.error(err))
     }
   }
@@ -72,83 +75,94 @@ class ContactForm extends Component {
   }
 
   render () {
-    return (
-      <div id="contact-form">
-        <form onSubmit={this.handleSubmit}>
-          <table>
-            <tbody>
+    if (this.state.resolved){
+      return (
+        <div id="contact-form">
+          <h3>Thank you!</h3>
+        </div>
+      )
+    } else {
+      return (
+        <div id="contact-form">
+          <form onSubmit={this.handleSubmit}>
+            <table>
+              <tbody>
 
 
-              <tr>
-                <td className="form-label">What's your name?</td>
-                <td>
-                  <input
-                    className="text-field"
-                    type="text"
-                    name="name"
-                    value={this.state.name}
-                    onChange={this.handleFormChange}/>
-                </td>
-              </tr>
-
-              <tr>
-                <td className="form-label">What's your email?</td>
-                <td>
-                  <input
-                    className="text-field"
-                    type="text"
-                    name="email"
-                    value={this.state.email}
-                    onChange={this.handleFormChange}
-                  />
-                </td>
-              </tr>
-
-              <tr>
-                <td className="form-label"><h4>Subject:</h4></td>
+                <tr>
+                  <td className="form-label">What's your name?</td>
                   <td>
-                    <select name="message-type" value={this.state.messageType} onChange={this.handleTypeChange}>
-                      <option value="feedback">I'd like to leave feedback</option>
-                      <option value="get-involved">I'd like to get involved with WWA!</option>
-                    </select>
+                    <input
+                      className="text-field"
+                      type="text"
+                      name="name"
+                      value={this.state.name}
+                      onChange={this.handleFormChange}/>
                   </td>
-              </tr>
+                </tr>
 
-              {
-                this.state.messageType === 'get-involved' &&
-                  <VolunteerForm
-                    volunteerInterest={this.state.volunteerInterest}
-                    handleFormChange={this.handleFormChange}
-                  />
-              }
+                <tr>
+                  <td className="form-label">What's your email?</td>
+                  <td>
+                    <input
+                      className="text-field"
+                      type="text"
+                      name="email"
+                      value={this.state.email}
+                      onChange={this.handleFormChange}
+                    />
+                  </td>
+                </tr>
 
-              <FeedbackForm
-                messageBody={this.state.messageBody}
-                handleFormChange={this.handleFormChange}
-                clearMessageBody={this.clearMessageBody}
-              />
+                <tr>
+                  <td className="form-label"><h4>Subject:</h4></td>
+                    <td>
+                      <select name="message-type"
+                        value={this.state.messageType}
+                        onChange={this.handleTypeChange}
+                      >
+                        <option value="feedback">I'd like to leave feedback</option>
+                        <option value="get-involved">I'd like to get involved with WWA!</option>
+                      </select>
+                    </td>
+                </tr>
 
-              <tr>
-                <td className="form-label">How'd you hear about us?</td>
-                <td>
-                  <select
-                    name="referrer">
-                    <option value="twitter">Twitter</option>
-                    <option value="facebook">Facebook</option>
-                    <option value="medium">Medium</option>
-                    <option value="friend">Friend</option>
-                    <option value="search-engine">Search engine</option>
-                    <option value="other">Other</option>
-                  </select><br />
-                </td>
-              </tr>
+                {
+                  this.state.messageType === 'get-involved' &&
+                    <VolunteerForm
+                      volunteerInterest={this.state.volunteerInterest}
+                      handleFormChange={this.handleFormChange}
+                    />
+                }
 
-            </tbody>
-          </table>
-          <input type="submit" className="btn btn-primary" />
-        </form>
-      </div>
-    )
+                <FeedbackForm
+                  messageBody={this.state.messageBody}
+                  handleFormChange={this.handleFormChange}
+                  clearMessageBody={this.clearMessageBody}
+                />
+
+                <tr>
+                  <td className="form-label">How'd you hear about us?</td>
+                  <td>
+                    <select
+                      name="referrer">
+                      <option value="twitter">Twitter</option>
+                      <option value="facebook">Facebook</option>
+                      <option value="medium">Medium</option>
+                      <option value="friend">Friend</option>
+                      <option value="search-engine">Search engine</option>
+                      <option value="other">Other</option>
+                    </select><br />
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+            <input type="submit" className="btn btn-primary" />
+          </form>
+        </div>
+      )
+    }
   }
 }
 
