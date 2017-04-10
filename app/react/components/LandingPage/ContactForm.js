@@ -75,7 +75,7 @@ class ContactForm extends Component {
   }
 
   render () {
-    if (this.state.resolved){
+    if (this.state.resolved) {
       return (
         <div id="contact-form">
           <h3>Thank you!</h3>

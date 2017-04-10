@@ -11,4 +11,4 @@ const Feedback = require('./feedback')
 
 Issue.belongsTo(User, { as: 'advocate' })
 
-module.exports = { User, Issue, Volunteer }
+module.exports = { User, Issue, Volunteer, Feedback }
