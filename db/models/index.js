@@ -8,9 +8,10 @@ const User = require('./user')
 const Issue = require('./issue')
 const Volunteer = require('./volunteer')
 const Ally = require('./ally')
+const Resource = require('./resource')
 const Donation = require('./donation')
 const Feedback = require('./feedback')
 
 Issue.belongsTo(User, { as: 'advocate' })
 
-module.exports = { User, Issue, Volunteer, Ally, Donation, Feedback }
+module.exports = { User, Issue, Volunteer, Ally, Resource, Donation, Feedback }
