@@ -1,0 +1,65 @@
+
+/* Contact Section */
+#tf-contact{
+  padding: 80px 0;
+  h2 {
+    line-height: 50px;
+  }
+}
+
+label {
+  float: left;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#contact-form {
+  display: block;
+  width: 100%;
+  padding: 24px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+  table {
+    margin-left: auto;
+    margin-right: auto;
+    tr {
+      td {
+        padding-bottom: 1em;
+      }
+      .form-label {
+        text-align: left;
+      }
+    }
+    tr:last-child {
+      text-align: right;
+    }
+  }
+  .text-field {
+    width: 100%;
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+  }
+  .btn {
+    background-color: $secondary-color;
+  }
+}
+
+#tf-contact .form-control:focus {
+  border-color: inherit;
+  outline: 0;
+  -webkit-box-shadow: transparent;
+  box-shadow: transparent;
+}
