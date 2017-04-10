@@ -9,7 +9,7 @@
     "build-sass-watch": "check-node-version --node '>= 6.7.0' && bin/setup && webpack -w & sass --watch app/sass/main.scss:public/css/main.css",
     "build-branch": "bin/build-branch.sh",
     "deploy-heroku": "bin/deploy-heroku.sh",
-    "postinstall": "npm run build && node-sass app/sass/main.scss > public/css/main.css",
+    "postinstall": "npm run build && node-sass app/sass/main.scss public/css/main.css",
     "start": "check-node-version --node '>= 6.7.0' && bin/setup && nodemon server/start.js",
     "seed": "bin/setup && node db/seed.js",
     "test": "check-node-version --node '>= 6.7.0' && bin/setup && mocha --compilers js:babel-register app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
