@@ -3,35 +3,44 @@
 const Sequelize = require('sequelize')
 const db = require('APP/db')
 
+// Applies to WWA feedback via form on the site - NOT resource feedback
+
 const Feedback = db.define('feedback', {
   date: {
     type: Sequelize.DATE,
+    allowNull: false,
     defaultValue: Sequelize.NOW
   },
   name: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
       notEmpty: true
     }
   },
   email: {
     type: Sequelize.STRING,
+    allowNull: false,
     validate: {
-      isEmail: true
+      isEmail: true,
+      notEmpty: true
     }
   },
   message: {
-    type: Sequelize.TEXT
-  },
-  dateContacted: {
-    type: Sequelize.DATE,
-    defaultValue: Sequelize.NOW
+    type: Sequelize.TEXT,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   referrer: {
     type: Sequelize.ENUM('twitter', 'facebook', 'medium', 'friend', 'engine', 'other')
   },
   other_referrer: {
     type: Sequelize.STRING
+  },
+  date_contacted: {
+    type: Sequelize.DATE
   }
 }, {
   hooks: {
