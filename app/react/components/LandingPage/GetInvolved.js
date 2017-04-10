@@ -52,10 +52,10 @@ const GetInvolved = () => {
         </ul>
         <p className="intro" style={{ 'marginBottom': '45px' }}><a href="#tf-contact" className="page-scroll"><button className="btn orange-button">Contact us</button></a> ASAP so we can get you started on this important work.</p>
         <p className="intro" style={{ 'marginBottom': '45px' }}>
-        <a onClick={() => alert('Working Women Advocates does not have nonprofit status yet, so your support will not be tax deductible.')} href="https://www.paypal.me/WWAdvocates" className="btn donate call-to-action-donate" target="blank" rel="noopener noreferrer">Support us with a contribution</a>
+        <a href="https://www.gofundme.com/working-women-advocates" className="btn donate call-to-action-donate" target="blank" rel="noopener noreferrer">GoFundMe campaign</a>
         </p>
         <p style={{ 'marginTop': '15px' }}>
-            Working Women Advocates does not have nonprofit status yet,<br /> so your support will not be tax deductible.
+            Working Women Advocates does not have tax exempt nonprofit status yet,<br /> so your support will not be tax deductible.
         </p>
       </div>
     </div>
