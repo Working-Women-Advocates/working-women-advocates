@@ -27,16 +27,26 @@ const User = db.define('users', {
   },
   wwaEmail: {
     type: Sequelize.STRING,
-    // allowNull: false, <-- ???
     validate: {
       isEmail: true
-      // notEmpty: true <-- ???
     }
   },
-  // Should we support OAuth? If not, we should make password required.
-  password_digest: Sequelize.STRING,
+  password_digest: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
+  },
   password: Sequelize.VIRTUAL,
   phone_number: Sequelize.STRING,
+  industries: {
+    type: Sequelize.ARRAY(Sequelize.STRING),
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
+  },
   team: {
     type: Sequelize.ARRAY(Sequelize.STRING),
     // Can be: Admin, Advocates, Allies, Board, Case Managers, Fundraising, Legal, Social Media, Web
@@ -59,8 +69,13 @@ const User = db.define('users', {
       notEmpty: true
     }
   },
-  // What about other countries? E.g. Canada has provinces...
-  state: Sequelize.STRING,
+  state: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
+  },
   country: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -92,7 +107,6 @@ const User = db.define('users', {
     }
   },
   volunteerReason: {
-    // Should this be required?
     type: Sequelize.TEXT
   },
   dateContractSigned: Sequelize.DATE,
