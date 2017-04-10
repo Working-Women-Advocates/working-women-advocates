@@ -6,9 +6,10 @@ const db = require('APP/db')
 const Feedback = db.define('feedback', {
   name: {
     type: Sequelize.STRING,
-    // validate: {
-    //   notEmpty: true
-    // }
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   email: {
     type: Sequelize.STRING
