@@ -6,9 +6,9 @@ const db = require('APP/db')
 const Volunteer = db.define('volunteers', {
   username: {
     type: Sequelize.STRING,
-    validate: {
-      notEmpty: true
-    }
+    // validate: {
+    //   notEmpty: true
+    // }
   },
   email: {
     type: Sequelize.STRING
