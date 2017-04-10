@@ -10,7 +10,7 @@ class ContactForm extends Component {
     this.state = {
       name: '',
       email: '',
-      volunteerInterest: 'Volunteer Advocate',
+      volunteerInterest: '',
       messageBody: "What's your message?",
       messageType: 'feedback',
       referrer: '',
