@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import FeedbackForm from './FeedbackForm'
 import VolunteerForm from './VolunteerForm'
+import FormSubmitted from './FormSubmitted'
 
 class ContactForm extends Component {
   constructor () {
@@ -15,7 +16,7 @@ class ContactForm extends Component {
       messageType: 'feedback',
       referrer: '',
       dirty: false,
-      resolved: false
+      resolvedStatus: 0
     }
 
     this.handleFormChange = this.handleFormChange.bind(this)
@@ -45,26 +46,23 @@ class ContactForm extends Component {
   //  Send feedback to relevent database
   handleSubmit (evt) {
     evt.preventDefault()
-    if (this.state.messageType === 'get-involved') {
-      axios.post('/api/volunteers', {
-        username: this.state.name,
-        email: this.state.email,
-        interest: this.state.messageBody,
-        referrer: evt.target.referrer.value
-      })
-      .then(this.setState(Object.assign({}, this.state, { resolved: true })))
-      .catch(err => console.error(err))
-    }
-    if (this.state.messageType === 'feedback') {
-      axios.post('/api/feedback', {
-        name: this.state.name,
-        email: this.state.email,
-        message: this.state.messageBody,
-        referrer: evt.target.referrer.value
-      })
-      .then(this.setState(Object.assign({}, this.state, { resolved: true })))
-      .catch(err => console.error(err))
-    }
+    axios.post('/api/feedback', {
+      name: this.state.name,
+      email: this.state.email,
+      message: this.state.messageBody,
+      referrer: evt.target.referrer.value
+    })
+    .then(res => {
+      if (this.state.messageType === 'get-involved') {
+        axios.post('/api/volunteers', {
+          username: this.state.name,
+          email: this.state.email,
+          interest: this.state.messageBody
+        })
+      }
+    })
+    .then(res => this.setState(Object.assign({}, this.state, { resolvedStatus: res.status })))
+    .catch(err => console.error(err))
   }
 
   clearMessageBody (evt) {
@@ -75,11 +73,9 @@ class ContactForm extends Component {
   }
 
   render () {
-    if (this.state.resolved) {
+    if (this.state.resolvedStatus !== 0) {
       return (
-        <div id="contact-form">
-          <h3>Thank you!</h3>
-        </div>
+        <FormSubmitted status={this.state.resolvedStatus} />
       )
     } else {
       return (

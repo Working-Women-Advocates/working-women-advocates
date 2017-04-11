@@ -17,10 +17,7 @@ const Volunteer = db.define('volunteers', {
   interest: Sequelize.STRING,
   status: {
     type: Sequelize.ENUM('to review', 'available', 'not available'),
-    defaultValue: 'to review',
-    validate: {
-      notEmpty: true
-    }
+    defaultValue: 'to review'
   }
 })
 
