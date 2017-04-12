@@ -43,7 +43,7 @@ class ContactForm extends Component {
     }))
   }
 
-  //  Send feedback to relevent database
+  // send common data to feedback table
   handleSubmit (evt) {
     evt.preventDefault()
     axios.post('/api/feedback', {
@@ -52,17 +52,20 @@ class ContactForm extends Component {
       message: this.state.messageBody,
       referrer: evt.target.referrer.value
     })
-    .then(res => {
+    .then(res => {  // also make a second request to the volunteers table
       if (this.state.messageType === 'get-involved') {
         axios.post('/api/volunteers', {
           username: this.state.name,
           email: this.state.email,
-          interest: this.state.messageBody
+          interest: this.state.volunteerInterest
         })
       }
+      return res
     })
-    .then(res => this.setState(Object.assign({}, this.state, { resolvedStatus: res.status })))
-    .catch(err => console.error(err))
+    .then(res => {
+      this.setState(Object.assign({}, this.state, { resolvedStatus: res.status }))
+    })
+    .catch(err => console.log(err))
   }
 
   clearMessageBody (evt) {
@@ -75,7 +78,9 @@ class ContactForm extends Component {
   render () {
     if (this.state.resolvedStatus !== 0) {
       return (
-        <FormSubmitted status={this.state.resolvedStatus} />
+        <FormSubmitted
+          status={this.state.resolvedStatus}
+        />
       )
     } else {
       return (
