@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FormSubmitted = (props) => {
-  if (props.status === 201){
+  if (props.status === 201) {
     return (
       <div>
         <h3>Thanks!</h3>

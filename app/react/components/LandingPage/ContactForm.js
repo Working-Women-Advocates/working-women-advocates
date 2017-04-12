@@ -5,6 +5,8 @@ import FeedbackForm from './FeedbackForm'
 import VolunteerForm from './VolunteerForm'
 import FormSubmitted from './FormSubmitted'
 
+const re = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+
 class ContactForm extends Component {
   constructor () {
     super()
@@ -33,6 +35,7 @@ class ContactForm extends Component {
       case 'volunteer-interest': newState.volunteerInterest = evt.target.value; break
       case 'message-body': newState.messageBody = evt.target.value; break
     }
+
     this.setState(newState)
   }
 
@@ -73,6 +76,15 @@ class ContactForm extends Component {
     if (evt.target.name === 'message-body' && !this.state.dirty) newState.messageBody = ''
     newState.dirty = true
     this.setState(newState)
+  }
+
+  checkValid () {
+    if (this.state.name !== '' && this.isValidEmail()) return true
+    else return false
+  }
+
+  isValidEmail () {
+    return re.test(this.state.email)
   }
 
   render () {
@@ -159,7 +171,7 @@ class ContactForm extends Component {
 
               </tbody>
             </table>
-            <input type="submit" className="btn btn-primary" />
+            <input type="submit" className="btn btn-primary" disabled={!this.checkValid()} />
           </form>
         </div>
       )
